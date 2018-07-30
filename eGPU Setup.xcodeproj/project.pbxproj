@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8488628210F5B9500EE6F33 /* AppDelegate.swift */; };
+		A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A848862C210F5B9700EE6F33 /* Assets.xcassets */; };
+		A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A848862E210F5B9700EE6F33 /* Main.storyboard */; };
+		A86A312B210FA91B00E4C9BB /* SetupEGPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86A3129210FA91B00E4C9BB /* SetupEGPUViewController.swift */; };
+		A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86A312A210FA91B00E4C9BB /* SetupEGPUViewController.xib */; };
+		A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A884C710210F71F1009ECC25 /* SetupPageController.swift */; };
+		A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A884C712210F7740009ECC25 /* SetupStartViewController.swift */; };
+		A884C715210F7740009ECC25 /* SetupStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A884C713210F7740009ECC25 /* SetupStartViewController.xib */; };
+		A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */; };
+		A8E7A23F210F9F09005C576A /* SetupUninstallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A8488625210F5B9500EE6F33 /* eGPU Setup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eGPU Setup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8488628210F5B9500EE6F33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A848862C210F5B9700EE6F33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A848862F210F5B9700EE6F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A8488631210F5B9700EE6F33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8488632210F5B9700EE6F33 /* eGPU_Setup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eGPU_Setup.entitlements; sourceTree = "<group>"; };
+		A86A3129210FA91B00E4C9BB /* SetupEGPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEGPUViewController.swift; sourceTree = "<group>"; };
+		A86A312A210FA91B00E4C9BB /* SetupEGPUViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupEGPUViewController.xib; sourceTree = "<group>"; };
+		A884C710210F71F1009ECC25 /* SetupPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPageController.swift; sourceTree = "<group>"; };
+		A884C712210F7740009ECC25 /* SetupStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupStartViewController.swift; sourceTree = "<group>"; };
+		A884C713210F7740009ECC25 /* SetupStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupStartViewController.xib; sourceTree = "<group>"; };
+		A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallViewController.swift; sourceTree = "<group>"; };
+		A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupUninstallViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8488622210F5B9500EE6F33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A848861C210F5B9500EE6F33 = {
+			isa = PBXGroup;
+			children = (
+				A8488627210F5B9500EE6F33 /* eGPU Setup */,
+				A8488626210F5B9500EE6F33 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A8488626210F5B9500EE6F33 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8488625210F5B9500EE6F33 /* eGPU Setup.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8488627210F5B9500EE6F33 /* eGPU Setup */ = {
+			isa = PBXGroup;
+			children = (
+				A848863A210F5BFE00EE6F33 /* Storyboard */,
+				A848863C210F5C1E00EE6F33 /* View Controllers */,
+				A8488639210F5BEA00EE6F33 /* Configuration */,
+			);
+			path = "eGPU Setup";
+			sourceTree = "<group>";
+		};
+		A8488639210F5BEA00EE6F33 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				A8488628210F5B9500EE6F33 /* AppDelegate.swift */,
+				A8488631210F5B9700EE6F33 /* Info.plist */,
+				A8488632210F5B9700EE6F33 /* eGPU_Setup.entitlements */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		A848863A210F5BFE00EE6F33 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A848862E210F5B9700EE6F33 /* Main.storyboard */,
+				A848862C210F5B9700EE6F33 /* Assets.xcassets */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		A848863C210F5C1E00EE6F33 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A86DC83B210F9CDD00E280D2 /* Setup Page */,
+				A86DC83A210F9CCC00E280D2 /* Setup Start */,
+				A8E7A23B210F9D43005C576A /* Setup eGPU Specs */,
+				A8E7A240210F9F10005C576A /* Setup Uninstall */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A86DC83A210F9CCC00E280D2 /* Setup Start */ = {
+			isa = PBXGroup;
+			children = (
+				A884C712210F7740009ECC25 /* SetupStartViewController.swift */,
+				A884C713210F7740009ECC25 /* SetupStartViewController.xib */,
+			);
+			name = "Setup Start";
+			sourceTree = "<group>";
+		};
+		A86DC83B210F9CDD00E280D2 /* Setup Page */ = {
+			isa = PBXGroup;
+			children = (
+				A884C710210F71F1009ECC25 /* SetupPageController.swift */,
+			);
+			name = "Setup Page";
+			sourceTree = "<group>";
+		};
+		A8E7A23B210F9D43005C576A /* Setup eGPU Specs */ = {
+			isa = PBXGroup;
+			children = (
+				A86A3129210FA91B00E4C9BB /* SetupEGPUViewController.swift */,
+				A86A312A210FA91B00E4C9BB /* SetupEGPUViewController.xib */,
+			);
+			name = "Setup eGPU Specs";
+			sourceTree = "<group>";
+		};
+		A8E7A240210F9F10005C576A /* Setup Uninstall */ = {
+			isa = PBXGroup;
+			children = (
+				A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */,
+				A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */,
+			);
+			name = "Setup Uninstall";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A8488624210F5B9500EE6F33 /* eGPU Setup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8488635210F5B9700EE6F33 /* Build configuration list for PBXNativeTarget "eGPU Setup" */;
+			buildPhases = (
+				A8488621210F5B9500EE6F33 /* Sources */,
+				A8488622210F5B9500EE6F33 /* Frameworks */,
+				A8488623210F5B9500EE6F33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "eGPU Setup";
+			productName = "eGPU Setup";
+			productReference = A8488625210F5B9500EE6F33 /* eGPU Setup.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A848861D210F5B9500EE6F33 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Mayank Kumar";
+				TargetAttributes = {
+					A8488624210F5B9500EE6F33 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = A8488620210F5B9500EE6F33 /* Build configuration list for PBXProject "eGPU Setup" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A848861C210F5B9500EE6F33;
+			productRefGroup = A8488626210F5B9500EE6F33 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A8488624210F5B9500EE6F33 /* eGPU Setup */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A8488623210F5B9500EE6F33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A884C715210F7740009ECC25 /* SetupStartViewController.xib in Resources */,
+				A8E7A23F210F9F09005C576A /* SetupUninstallViewController.xib in Resources */,
+				A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */,
+				A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */,
+				A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8488621210F5B9500EE6F33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */,
+				A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */,
+				A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */,
+				A86A312B210FA91B00E4C9BB /* SetupEGPUViewController.swift in Sources */,
+				A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A848862E210F5B9700EE6F33 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A848862F210F5B9700EE6F33 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A8488633210F5B9700EE6F33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A8488634210F5B9700EE6F33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A8488636210F5B9700EE6F33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "eGPU Setup/eGPU_Setup.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = YF7XP6ZYSQ;
+				INFOPLIST_FILE = "eGPU Setup/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayank.eGPU-Setup";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		A8488637210F5B9700EE6F33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "eGPU Setup/eGPU_Setup.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = YF7XP6ZYSQ;
+				INFOPLIST_FILE = "eGPU Setup/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayank.eGPU-Setup";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8488620210F5B9500EE6F33 /* Build configuration list for PBXProject "eGPU Setup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8488633210F5B9700EE6F33 /* Debug */,
+				A8488634210F5B9700EE6F33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A8488635210F5B9700EE6F33 /* Build configuration list for PBXNativeTarget "eGPU Setup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8488636210F5B9700EE6F33 /* Debug */,
+				A8488637210F5B9700EE6F33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A848861D210F5B9500EE6F33 /* Project object */;
+}
