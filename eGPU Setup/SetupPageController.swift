@@ -8,18 +8,23 @@
 
 import Cocoa
 
+/// Primary setup management interface.
 class SetupPageController: NSPageController, NSPageControllerDelegate {
     
-    let setupStartViewController = SetupStartViewController()
-    let setupUninstallViewController = SetupUninstallViewController()
-    let setupEGPUViewController = SetupEGPUViewController()
+    /// List of pages.
+    private let pages: [String] = [Page.start, Page.uninstall, Page.uninstallProgress, Page.eGPUConfig]
+    
+    /// Map of available pages.
+    private let availablePages = [
+        Page.start: SetupStartViewController.instance(),
+        Page.uninstall: SetupUninstallViewController.instance(),
+        Page.uninstallProgress: SetupUninstallActivateViewController.instance(),
+        Page.eGPUConfig: SetupEGPUViewController.instance()
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
-        animator().selectedIndex = 0
-        arrangedObjects = ["page1", "uninstall", "page2"]
-        transitionStyle = .horizontalStrip
+        initializeSetupStart()
     }
     
     override func scrollWheel(with event: NSEvent) {
@@ -31,21 +36,40 @@ class SetupPageController: NSPageController, NSPageControllerDelegate {
     }
     
     func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
-        switch identifier.rawValue {
-        case "page1": return setupStartViewController
-        case "uninstall": return setupUninstallViewController
-        case "page2": return setupEGPUViewController
-        default: return NSViewController()
+        guard let page = availablePages[identifier.rawValue] else {
+            return NSViewController()
         }
+        return page
     }
     
     func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
         self.completeTransition()
     }
     
-    func changePage(page: Int) {
-        NSAnimationContext.runAnimationGroup(
-            { _ in self.animator().selectedIndex = page }, completionHandler:  { self.completeTransition() })
+}
+
+
+// MARK: - Define custom convenience functionality
+extension SetupPageController {
+    
+    /// Prepare start & start gathering system configuration.
+    func initializeSetupStart() {
+        delegate = self
+        animator().selectedIndex = 0
+        arrangedObjects = pages
+        transitionStyle = .horizontalStrip
+    }
+    
+    /// Change page dynamically.
+    ///
+    /// - Parameter page: The page identifier to change to.
+    func transition(toPage page: String) {
+        NSAnimationContext.runAnimationGroup({ _ in
+            guard let indexOfViewController = pages.index(of: page) else {
+                return
+            }
+            self.animator().selectedIndex = indexOfViewController
+        }, completionHandler: { self.completeTransition() })
     }
     
 }

@@ -10,16 +10,29 @@ import Cocoa
 
 class SetupUninstallViewController: NSViewController {
 
+    private static var setupUninstallViewController: SetupUninstallViewController! = nil
+    
     let setupPageController = {
         NSApplication.shared.windows[0].contentViewController as! SetupPageController
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+    }
+    
+    static func instance() -> SetupUninstallViewController {
+        guard let viewController = setupUninstallViewController else {
+            setupUninstallViewController = SetupUninstallViewController()
+            return setupUninstallViewController
+        }
+        return viewController
+    }
+    
+    @IBAction func executeUninstall(_ sender: Any) {
+        setupPageController().transition(toPage: Page.uninstallProgress)
     }
     
     @IBAction func returnToMenu(_ sender: Any) {
-        setupPageController().changePage(page: 0)
+        setupPageController().transition(toPage: Page.start)
     }
 }

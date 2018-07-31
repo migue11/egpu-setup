@@ -10,9 +10,18 @@ import Cocoa
 
 class SetupEGPUViewController: NSViewController {
 
+    private static var setupEGPUViewController: SetupEGPUViewController! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+    }
+    
+    static func instance() -> SetupEGPUViewController {
+        guard let viewController = setupEGPUViewController else {
+            setupEGPUViewController = SetupEGPUViewController()
+            return setupEGPUViewController
+        }
+        return viewController
     }
     
 }

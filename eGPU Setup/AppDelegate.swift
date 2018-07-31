@@ -11,7 +11,10 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    @IBOutlet weak var quitApp: NSMenuItem!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        quitApp.action = #selector(AppDelegate.quit)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -19,6 +22,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
+    }
+    
+    @objc func quit() {
+        NSApplication.shared.terminate(nil)
     }
 
 }

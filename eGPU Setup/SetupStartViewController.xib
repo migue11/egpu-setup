@@ -14,7 +14,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView identifier="page1" id="Hz6-mo-xeY">
+        <customView identifier="pageS1" id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -37,7 +37,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="LXh-PK-kdC">
                         <font key="font" metaFont="system"/>
-                        <mutableString key="title">eGPU Setup will access and determine: • Your system configuration • External GPU specifications • Additional software requirements • Necessary system patches  After installation, the application requires restarting the system. Save your work in other applications before proceeding.</mutableString>
+                        <string key="title">eGPU Setup will access and determine: • Your system configuration • External GPU specifications • Additional software requirements • Necessary system patches  After installation, the application requires restarting the system. Save your work in other applications before proceeding.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -64,7 +64,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="proceedToEGPUSpecs:" target="-2" id="BXN-iT-F1V"/>
+                        <action selector="proceedToEGPUConfiguration:" target="-2" id="HcF-Rc-Ry9"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOl-SI-CR2">
@@ -91,6 +91,14 @@
                     <rect key="frame" x="436" y="125" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </progressIndicator>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MJJ-ak-12T">
+                    <rect key="frame" x="118" y="13" width="163" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Check for updates..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Soa-vr-iDX">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </subviews>
         </customView>
     </objects>

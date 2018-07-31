@@ -10,6 +10,8 @@ import Cocoa
 
 class SetupStartViewController: NSViewController {
     
+    private static var setupStartViewController: SetupStartViewController! = nil
+    
     lazy var setupPageController = {
         NSApplication.shared.windows[0].contentViewController as! SetupPageController
     }
@@ -24,11 +26,19 @@ class SetupStartViewController: NSViewController {
     }
     
     @IBAction func uninstallEGPUSupport(_ sender: Any) {
-        setupPageController().changePage(page: 1)
+        setupPageController().transition(toPage: Page.uninstall)
     }
     
-    @IBAction func proceedToEGPUSpecs(_ sender: Any) {
-        setupPageController().changePage(page: 2)
+    @IBAction func proceedToEGPUConfiguration(_ sender: Any) {
+        setupPageController().transition(toPage: Page.eGPUConfig)
+    }
+    
+    static func instance() -> SetupStartViewController {
+        guard let viewController = setupStartViewController else {
+            setupStartViewController = SetupStartViewController()
+            return setupStartViewController
+        }
+        return viewController
     }
     
 }

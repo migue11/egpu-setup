@@ -12,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY">
+        <customView identifier="pageU1" id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -30,7 +30,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="bJp-x6-a4q">
                         <font key="font" metaFont="system"/>
-                        <mutableString key="title">The eGPU Setup uninstallation wizard removes: • Any applied system patches • NVIDIA Web Drivers  By default, the uninstallation procedure does not remove the command-line recovery tool or any system kernel extension backups that were taken for safety reasons.</mutableString>
+                        <string key="title">The eGPU Setup uninstallation wizard removes: • Any applied system patches • NVIDIA Web Drivers  By default, the uninstallation procedure does not remove the command-line recovery tool or any system kernel extension backups that were taken for safety reasons.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -57,6 +57,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="executeUninstall:" target="-2" id="FUi-xs-A4g"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ev-rI-Tit">
                     <rect key="frame" x="501" y="13" width="123" height="32"/>
@@ -85,7 +88,7 @@ Gw
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="cEu-zQ-6oA">
                         <font key="font" metaFont="system"/>
-                        <mutableString key="title">If booting fails after uninstallation: • Boot into Single User Mode (⌘ + S on boot) • Mount your primary disk using the following command: mount -uw / • Run eGPU Setup Recovery Tool with the following command: egpu-setup-recovery • Follow the instructions • Your system will reboot once recovery is complete.  If you uninstall all components, you cannot use the eGPU Setup Recovery Tool.</mutableString>
+                        <string key="title">If booting fails after uninstallation: • Boot into Single User Mode (⌘ + S on boot) • Mount your primary disk using the following command: mount -uw / • Run eGPU Setup Recovery Tool with the following command: egpu-setup-recovery • Follow the instructions • Your system will reboot once recovery is complete.  If you uninstall all components, you cannot use the eGPU Setup Recovery Tool.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
