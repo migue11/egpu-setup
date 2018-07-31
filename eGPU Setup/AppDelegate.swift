@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return NSApplication.shared.windows[0]
     }
     
-    func applicationWillFinishLaunching(_ notification: Notification) {
+    func applicationDidFinishLaunching(_ notification: Notification) {
         requestAgreementToDisclaimer()
         
     }
@@ -40,12 +40,19 @@ extension AppDelegate {
 
     /// Request user agreement to eGPU Setup License and disclaimer.
     func requestAgreementToDisclaimer() {
-        rootWindow().setIsVisible(false)
-        if !AlertManager.showAlert(withMessage: "eGPU Setup Disclaimer & License", withInfo: shortLicense, withFirstButton: "Agree", withSecondButton: "Disagree") {
-            quit()
+        if UserPrefs.agreeLicense {
+            return
         }
-        else {
-            rootWindow().setIsVisible(true)
+        let alert = AlertManager.generateAlert(withMessage: "eGPU Setup Disclaimer & License", withInfo: shortLicense, withStyle: .informational, withFirstButton: "Agree", withSecondButton: "Disagree")
+        alert.beginSheetModal(for: rootWindow()) { response in
+            if response == .alertFirstButtonReturn {
+                UserDefaults.standard.set(true, forKey: Preference.agreeLicenseKey)
+            }
+            else {
+                DispatchQueue.main.async {
+                    self.quit()
+                }
+            }
         }
     }
     

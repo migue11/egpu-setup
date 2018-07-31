@@ -30,6 +30,11 @@ class SetupUninstallActivateViewController: NSViewController {
     
 }
 
+// MARK: - User Interaction
+extension SetupUninstallActivateViewController {
+    
+}
+
 // MARK: - Instance generation
 extension SetupUninstallActivateViewController {
     

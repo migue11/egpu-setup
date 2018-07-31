@@ -11,6 +11,7 @@
 		A8207CF6211066AD0070237E /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF5211066AD0070237E /* WindowManager.swift */; };
 		A8207CF921106BB70070237E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF821106BB70070237E /* AlertManager.swift */; };
 		A8207CFB211073E30070237E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CFA211073E30070237E /* Constants.swift */; };
+		A8207CFD211079A00070237E /* UserPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CFC211079A00070237E /* UserPrefs.swift */; };
 		A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */; };
 		A83F998D21103C0700B12E54 /* SetupUninstallActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */; };
 		A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8488628210F5B9500EE6F33 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 		A8207CF5211066AD0070237E /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		A8207CF821106BB70070237E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		A8207CFA211073E30070237E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A8207CFC211079A00070237E /* UserPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrefs.swift; sourceTree = "<group>"; };
 		A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallActivateViewController.swift; sourceTree = "<group>"; };
 		A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupUninstallActivateViewController.xib; sourceTree = "<group>"; };
 		A8488625210F5B9500EE6F33 /* eGPU Setup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eGPU Setup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 			children = (
 				A8488628210F5B9500EE6F33 /* AppDelegate.swift */,
 				A8207CFA211073E30070237E /* Constants.swift */,
+				A8207CFC211079A00070237E /* UserPrefs.swift */,
 				A8488631210F5B9700EE6F33 /* Info.plist */,
 				A8488632210F5B9700EE6F33 /* eGPU_Setup.entitlements */,
 			);
@@ -245,6 +248,7 @@
 				A8207CFB211073E30070237E /* Constants.swift in Sources */,
 				A8207CF4211056800070237E /* Page.swift in Sources */,
 				A86A312B210FA91B00E4C9BB /* SetupEGPUViewController.swift in Sources */,
+				A8207CFD211079A00070237E /* UserPrefs.swift in Sources */,
 				A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */,
 				A8207CF921106BB70070237E /* AlertManager.swift in Sources */,
 			);

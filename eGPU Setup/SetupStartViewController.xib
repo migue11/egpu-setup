@@ -3,12 +3,14 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SetupStartViewController" customModule="eGPU_Setup" customModuleProvider="target">
             <connections>
                 <outlet property="nextButton" destination="zxi-cx-P5k" id="CSk-eG-cIl"/>
                 <outlet property="progressIndicator" destination="bFn-aO-Qlo" id="nQZ-Yg-kMm"/>
+                <outlet property="versionLabel" destination="Ydp-JF-9TJ" id="1jd-93-L9W"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -78,8 +80,17 @@
                         <action selector="uninstallEGPUSupport:" target="-2" id="oyN-ae-Fcf"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="Ydp-JF-9TJ">
+                    <rect key="frame" x="228" y="20" width="184" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="1.0.0" id="dkY-f2-3LG">
+                        <font key="font" metaFont="systemSemibold" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C39-53-nRY">
-                    <rect key="frame" x="349" y="99" width="206" height="18"/>
+                    <rect key="frame" x="363" y="101" width="206" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Detecting system configuration..." id="7Ie-1J-gJW">
                         <font key="font" metaFont="system"/>
@@ -88,7 +99,7 @@
                     </textFieldCell>
                 </textField>
                 <progressIndicator wantsLayer="YES" focusRingType="none" fixedFrame="YES" maxValue="100" doubleValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="bFn-aO-Qlo">
-                    <rect key="frame" x="436" y="125" width="32" height="32"/>
+                    <rect key="frame" x="450" y="127" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </progressIndicator>
             </subviews>

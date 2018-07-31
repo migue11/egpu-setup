@@ -35,6 +35,20 @@ extension SetupUninstallViewController {
         setupPageController().transition(toPage: Page.uninstallProgress)
     }
     
+    /// Starts the complete uninstallation procedure.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func executeUninstallAll(_ sender: Any) {
+        let alert = AlertManager.generateAlert(withMessage: "Uninstall All Components", withInfo: "Are you sure you want to uninstall all components? This action cannot be undone.", withStyle: .critical, withFirstButton: "Cancel", withSecondButton: "Proceed")
+        alert.beginSheetModal(for: NSApplication.shared.windows[0]) { response in
+            if response != .alertFirstButtonReturn {
+                DispatchQueue.main.async {
+                    self.setupPageController().transition(toPage: Page.uninstallProgress)
+                }
+            }
+        }
+    }
+    
     /// Returns to the previous menu.
     ///
     /// - Parameter sender: The element responsible for the action.

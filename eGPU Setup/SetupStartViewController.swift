@@ -11,6 +11,8 @@ import Cocoa
 /// Defines the initial setup page.
 class SetupStartViewController: NSViewController {
     
+    @IBOutlet weak var versionLabel: NSTextField!
+    
     /// Singleton instance of view controller.
     private static var setupStartViewController: SetupStartViewController! = nil
     
@@ -29,6 +31,9 @@ class SetupStartViewController: NSViewController {
         super.viewDidLoad()
         nextButton.isEnabled = false
         progressIndicator.startAnimation(nil)
+        guard let bundleDictionary = Bundle.main.infoDictionary else { return }
+        guard let version = bundleDictionary["CFBundleShortVersionString"] as? String else { return }
+        versionLabel.stringValue = version
     }
     
 }

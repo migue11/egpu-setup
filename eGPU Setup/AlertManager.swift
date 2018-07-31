@@ -19,14 +19,14 @@ class AlertManager {
     ///   - firstButton: The primary button.
     ///   - secondButton: The alternate button.
     /// - Returns: Result of the alert
-    static func showAlert(withMessage message: String, withInfo info: String? = nil, withFirstButton firstButton: String, withSecondButton secondButton: String) -> Bool {
+    static func generateAlert(withMessage message: String, withInfo info: String? = nil, withStyle style: NSAlert.Style? = nil, withFirstButton firstButton: String, withSecondButton secondButton: String) -> NSAlert {
         let alert = NSAlert()
         alert.messageText = message
         alert.informativeText = info ?? ""
-        alert.alertStyle = .warning
+        alert.alertStyle = style ?? .warning
         alert.addButton(withTitle: firstButton)
         alert.addButton(withTitle: secondButton)
-        return alert.runModal() == .alertFirstButtonReturn
+        return alert
     }
     
 }
