@@ -22,6 +22,8 @@ class SetupPageController: NSPageController, NSPageControllerDelegate {
         Page.eGPUConfig: SetupEGPUViewController.instance()
     ]
     
+    private let appDelegate = NSApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeSetupStart()

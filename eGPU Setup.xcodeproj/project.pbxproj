@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A8207CF4211056800070237E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF3211056800070237E /* Page.swift */; };
+		A8207CF6211066AD0070237E /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF5211066AD0070237E /* WindowManager.swift */; };
+		A8207CF921106BB70070237E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF821106BB70070237E /* AlertManager.swift */; };
+		A8207CFB211073E30070237E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CFA211073E30070237E /* Constants.swift */; };
 		A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */; };
 		A83F998D21103C0700B12E54 /* SetupUninstallActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */; };
 		A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8488628210F5B9500EE6F33 /* AppDelegate.swift */; };
@@ -24,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		A8207CF3211056800070237E /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		A8207CF5211066AD0070237E /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		A8207CF821106BB70070237E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		A8207CFA211073E30070237E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallActivateViewController.swift; sourceTree = "<group>"; };
 		A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupUninstallActivateViewController.xib; sourceTree = "<group>"; };
 		A8488625210F5B9500EE6F33 /* eGPU Setup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eGPU Setup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8207CF7211066B20070237E /* UI Management */ = {
+			isa = PBXGroup;
+			children = (
+				A8207CF5211066AD0070237E /* WindowManager.swift */,
+				A8207CF821106BB70070237E /* AlertManager.swift */,
+			);
+			name = "UI Management";
+			sourceTree = "<group>";
+		};
 		A848861C210F5B9500EE6F33 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				A8488628210F5B9500EE6F33 /* AppDelegate.swift */,
+				A8207CFA211073E30070237E /* Constants.swift */,
 				A8488631210F5B9700EE6F33 /* Info.plist */,
 				A8488632210F5B9700EE6F33 /* eGPU_Setup.entitlements */,
 			);
@@ -100,42 +116,43 @@
 		A848863C210F5C1E00EE6F33 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A86DC83B210F9CDD00E280D2 /* Setup Pages */,
-				A86DC83A210F9CCC00E280D2 /* Setup Start */,
-				A8E7A23B210F9D43005C576A /* Setup eGPU Specs */,
-				A8E7A240210F9F10005C576A /* Setup Uninstall */,
+				A86DC83B210F9CDD00E280D2 /* Pages */,
+				A86DC83A210F9CCC00E280D2 /* Start */,
+				A8E7A23B210F9D43005C576A /* eGPU Configuration */,
+				A8E7A240210F9F10005C576A /* Uninstallation */,
+				A8207CF7211066B20070237E /* UI Management */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		A86DC83A210F9CCC00E280D2 /* Setup Start */ = {
+		A86DC83A210F9CCC00E280D2 /* Start */ = {
 			isa = PBXGroup;
 			children = (
 				A884C712210F7740009ECC25 /* SetupStartViewController.swift */,
 				A884C713210F7740009ECC25 /* SetupStartViewController.xib */,
 			);
-			name = "Setup Start";
+			name = Start;
 			sourceTree = "<group>";
 		};
-		A86DC83B210F9CDD00E280D2 /* Setup Pages */ = {
+		A86DC83B210F9CDD00E280D2 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
 				A884C710210F71F1009ECC25 /* SetupPageController.swift */,
 				A8207CF3211056800070237E /* Page.swift */,
 			);
-			name = "Setup Pages";
+			name = Pages;
 			sourceTree = "<group>";
 		};
-		A8E7A23B210F9D43005C576A /* Setup eGPU Specs */ = {
+		A8E7A23B210F9D43005C576A /* eGPU Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				A86A3129210FA91B00E4C9BB /* SetupEGPUViewController.swift */,
 				A86A312A210FA91B00E4C9BB /* SetupEGPUViewController.xib */,
 			);
-			name = "Setup eGPU Specs";
+			name = "eGPU Configuration";
 			sourceTree = "<group>";
 		};
-		A8E7A240210F9F10005C576A /* Setup Uninstall */ = {
+		A8E7A240210F9F10005C576A /* Uninstallation */ = {
 			isa = PBXGroup;
 			children = (
 				A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */,
@@ -143,7 +160,7 @@
 				A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */,
 				A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */,
 			);
-			name = "Setup Uninstall";
+			name = Uninstallation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,12 +238,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */,
+				A8207CF6211066AD0070237E /* WindowManager.swift in Sources */,
 				A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */,
 				A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */,
 				A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */,
+				A8207CFB211073E30070237E /* Constants.swift in Sources */,
 				A8207CF4211056800070237E /* Page.swift in Sources */,
 				A86A312B210FA91B00E4C9BB /* SetupEGPUViewController.swift in Sources */,
 				A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */,
+				A8207CF921106BB70070237E /* AlertManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

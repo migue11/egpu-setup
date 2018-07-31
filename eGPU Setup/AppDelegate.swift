@@ -13,8 +13,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var quitApp: NSMenuItem!
     
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        quitApp.action = #selector(AppDelegate.quit)
+    private let rootWindow = {
+        return NSApplication.shared.windows[0]
+    }
+    
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        requestAgreementToDisclaimer()
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -30,3 +35,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
+// MARK: - Alerts and early preparation
+extension AppDelegate {
+
+    /// Request user agreement to eGPU Setup License and disclaimer.
+    func requestAgreementToDisclaimer() {
+        rootWindow().setIsVisible(false)
+        if !AlertManager.showAlert(withMessage: "eGPU Setup Disclaimer & License", withInfo: shortLicense, withFirstButton: "Agree", withSecondButton: "Disagree") {
+            quit()
+        }
+        else {
+            rootWindow().setIsVisible(true)
+        }
+    }
+    
+}

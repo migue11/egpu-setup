@@ -8,21 +8,34 @@
 
 import Cocoa
 
+/// Defines the uninstallation progress page.
 class SetupUninstallActivateViewController: NSViewController {
 
+    /// Singleton instance of view controller.
     private static var setupUninstallActivateViewController: SetupUninstallActivateViewController! = nil
     
+    /// Indeterminate progress indicator for the uninstallation process.
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        NSApplication.shared.windows[0].standardWindowButton(.closeButton)?.isEnabled = false
-        let delegate = NSApplication.shared.delegate as! AppDelegate
-        delegate.quitApp.action = nil
-        print("loaded uninstallActivate")
-        progressIndicator.startAnimation(nil)
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        prepareUninstall()
     }
     
+    /// Prepares the view for the uninstallation process.
+    func prepareUninstall() {
+        progressIndicator.startAnimation(nil)
+        WindowManager.disableTermination()
+    }
+    
+}
+
+// MARK: - Instance generation
+extension SetupUninstallActivateViewController {
+    
+    /// Defines an instance of the view controller, iff it has not be created already.
+    ///
+    /// - Returns: Shared instance of the view controller.
     static func instance() -> SetupUninstallActivateViewController {
         guard let viewController = setupUninstallActivateViewController else {
             setupUninstallActivateViewController = SetupUninstallActivateViewController()
