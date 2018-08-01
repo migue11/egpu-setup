@@ -16,10 +16,10 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="eGPU Setup" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About eGPU Setup" id="5kV-Vb-QxS">
+                                        <menuItem title="About..." id="tWS-Lw-dQd">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                                <segue destination="CUA-Zi-n4p" kind="show" id="77h-hl-8C1"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hq8-5L-Ked"/>
@@ -96,10 +96,44 @@
             <point key="canvasLocation" x="76" y="-324"/>
         </scene>
         <!--Window Controller-->
+        <scene sceneID="vPn-a6-rdk">
+            <objects>
+                <windowController id="CUA-Zi-n4p" customClass="AboutWindowController" customModule="eGPU_Setup" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="iUE-ez-7hl">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="500" height="400"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="CUA-Zi-n4p" id="aIu-HR-Py0"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="h4U-5L-3qi" kind="relationship" relationship="window.shadowedContentViewController" id="td0-Lq-IcT"/>
+                    </connections>
+                </windowController>
+                <customObject id="0Mg-9X-55a" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="-247"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cIR-AQ-rRP">
+            <objects>
+                <viewController id="h4U-5L-3qi" sceneMemberID="viewController">
+                    <view key="view" id="tBe-rU-EVw">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="ADW-V9-Kve" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="-287"/>
+        </scene>
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="eGPU Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
+                    <window key="window" title="eGPU Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA" customClass="PrimaryWindow" customModule="eGPU_Setup" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <rect key="contentRect" x="526" y="299" width="640" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>

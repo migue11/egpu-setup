@@ -23,16 +23,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return NSApplication.shared.windows[0]
     }
     
+    /// Reference to the about view.
+    private let aboutView = AboutViewController()
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         requestAgreementToDisclaimer()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         Authorization.dropSuperUser()
-    }
-
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
     }
     
     /// Proceeds to paypal donation.

@@ -25,6 +25,10 @@
 		A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A884C712210F7740009ECC25 /* SetupStartViewController.swift */; };
 		A884C715210F7740009ECC25 /* SetupStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A884C713210F7740009ECC25 /* SetupStartViewController.xib */; };
 		A8A4D4DB21108C140066E380 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A4D4DA21108C140066E380 /* Authorization.swift */; };
+		A8A6CA8221126FC70092A129 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A6CA8021126FC70092A129 /* AboutViewController.swift */; };
+		A8A6CA8321126FC70092A129 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A6CA8121126FC70092A129 /* AboutViewController.xib */; };
+		A8A6CA8521127BE10092A129 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A6CA8421127BE10092A129 /* AboutWindowController.swift */; };
+		A8A6CA8821127D1F0092A129 /* PrimaryWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A6CA8621127D1F0092A129 /* PrimaryWindow.swift */; };
 		A8AF9F7F2111A36E00CA3EB4 /* Swipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF9F7E2111A36E00CA3EB4 /* Swipt.swift */; };
 		A8AF9F832111C7CC00CA3EB4 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF9F812111C7CC00CA3EB4 /* HelpViewController.swift */; };
 		A8AF9F842111C7CC00CA3EB4 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AF9F822111C7CC00CA3EB4 /* HelpViewController.xib */; };
@@ -60,6 +64,10 @@
 		A884C712210F7740009ECC25 /* SetupStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupStartViewController.swift; sourceTree = "<group>"; };
 		A884C713210F7740009ECC25 /* SetupStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupStartViewController.xib; sourceTree = "<group>"; };
 		A8A4D4DA21108C140066E380 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		A8A6CA8021126FC70092A129 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		A8A6CA8121126FC70092A129 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		A8A6CA8421127BE10092A129 /* AboutWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		A8A6CA8621127D1F0092A129 /* PrimaryWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryWindow.swift; sourceTree = "<group>"; };
 		A8AF9F7E2111A36E00CA3EB4 /* Swipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipt.swift; sourceTree = "<group>"; };
 		A8AF9F812111C7CC00CA3EB4 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		A8AF9F822111C7CC00CA3EB4 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
@@ -170,8 +178,8 @@
 		A848863A210F5BFE00EE6F33 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				A848862E210F5B9700EE6F33 /* Main.storyboard */,
-				A848862C210F5B9700EE6F33 /* Assets.xcassets */,
+				A8A6CA8C21127E4E0092A129 /* Interface & Assets */,
+				A8A6CA8B21127E440092A129 /* Window Controllers */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 		A848863C210F5C1E00EE6F33 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8A6CA7F21126FB30092A129 /* About */,
 				A8AF9F802111C7B500CA3EB4 /* Help */,
 				A86DC83B210F9CDD00E280D2 /* Pages */,
 				A86DC83A210F9CCC00E280D2 /* Start */,
@@ -205,6 +214,33 @@
 				A8207CF3211056800070237E /* Page.swift */,
 			);
 			name = Pages;
+			sourceTree = "<group>";
+		};
+		A8A6CA7F21126FB30092A129 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				A8A6CA8021126FC70092A129 /* AboutViewController.swift */,
+				A8A6CA8121126FC70092A129 /* AboutViewController.xib */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		A8A6CA8B21127E440092A129 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8A6CA8421127BE10092A129 /* AboutWindowController.swift */,
+				A8A6CA8621127D1F0092A129 /* PrimaryWindow.swift */,
+			);
+			name = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		A8A6CA8C21127E4E0092A129 /* Interface & Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A848862E210F5B9700EE6F33 /* Main.storyboard */,
+				A848862C210F5B9700EE6F33 /* Assets.xcassets */,
+			);
+			name = "Interface & Assets";
 			sourceTree = "<group>";
 		};
 		A8AF9F802111C7B500CA3EB4 /* Help */ = {
@@ -338,6 +374,7 @@
 				A8377D752112079800B2BD78 /* constants.sh in Resources */,
 				A8E7A23F210F9F09005C576A /* SetupUninstallViewController.xib in Resources */,
 				A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */,
+				A8A6CA8321126FC70092A129 /* AboutViewController.xib in Resources */,
 				A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */,
 				A83F998D21103C0700B12E54 /* SetupUninstallActivateViewController.xib in Resources */,
 				A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */,
@@ -392,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A6CA8821127D1F0092A129 /* PrimaryWindow.swift in Sources */,
 				A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */,
 				A8207CF6211066AD0070237E /* WindowManager.swift in Sources */,
 				A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */,
@@ -403,7 +441,9 @@
 				A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */,
 				A8377D7721120B3B00B2BD78 /* ShellScripts.swift in Sources */,
 				A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */,
+				A8A6CA8521127BE10092A129 /* AboutWindowController.swift in Sources */,
 				A8207CFB211073E30070237E /* Constants.swift in Sources */,
+				A8A6CA8221126FC70092A129 /* AboutViewController.swift in Sources */,
 				A8207CF4211056800070237E /* Page.swift in Sources */,
 				A86A312B210FA91B00E4C9BB /* SetupEGPUViewController.swift in Sources */,
 				A8207CFD211079A00070237E /* UserPrefs.swift in Sources */,
