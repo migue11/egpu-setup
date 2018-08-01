@@ -20,6 +20,8 @@ class Preference {
 class UserPrefs {
     
     /// User license agreement status.
-    static var agreeLicense = UserDefaults.standard.bool(forKey: Preference.agreeLicenseKey)
+    static var agreeLicense: Bool {
+        return UserDefaults.standard.bool(forKey: Preference.agreeLicenseKey)
+    }
     
 }

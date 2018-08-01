@@ -12,6 +12,8 @@
 		A8207CF921106BB70070237E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF821106BB70070237E /* AlertManager.swift */; };
 		A8207CFB211073E30070237E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CFA211073E30070237E /* Constants.swift */; };
 		A8207CFD211079A00070237E /* UserPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CFC211079A00070237E /* UserPrefs.swift */; };
+		A8377D752112079800B2BD78 /* constants.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8377D74211206F500B2BD78 /* constants.sh */; };
+		A8377D7721120B3B00B2BD78 /* ShellScripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8377D7621120B3B00B2BD78 /* ShellScripts.swift */; };
 		A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */; };
 		A83F998D21103C0700B12E54 /* SetupUninstallActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */; };
 		A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8488628210F5B9500EE6F33 /* AppDelegate.swift */; };
@@ -42,6 +44,8 @@
 		A8207CF821106BB70070237E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		A8207CFA211073E30070237E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A8207CFC211079A00070237E /* UserPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrefs.swift; sourceTree = "<group>"; };
+		A8377D74211206F500B2BD78 /* constants.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = constants.sh; sourceTree = "<group>"; };
+		A8377D7621120B3B00B2BD78 /* ShellScripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellScripts.swift; sourceTree = "<group>"; };
 		A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallActivateViewController.swift; sourceTree = "<group>"; };
 		A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupUninstallActivateViewController.xib; sourceTree = "<group>"; };
 		A8488625210F5B9500EE6F33 /* eGPU Setup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eGPU Setup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +228,9 @@
 		A8CBE0442110BD3B00F69D54 /* Shell */ = {
 			isa = PBXGroup;
 			children = (
+				A8377D74211206F500B2BD78 /* constants.sh */,
 				A8CBE0482110C85300F69D54 /* system_config.sh */,
+				A8377D7621120B3B00B2BD78 /* ShellScripts.swift */,
 			);
 			name = Shell;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A884C715210F7740009ECC25 /* SetupStartViewController.xib in Resources */,
+				A8377D752112079800B2BD78 /* constants.sh in Resources */,
 				A8E7A23F210F9F09005C576A /* SetupUninstallViewController.xib in Resources */,
 				A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */,
 				A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */,
@@ -394,6 +401,7 @@
 				A8A4D4DB21108C140066E380 /* Authorization.swift in Sources */,
 				A8AF9F7F2111A36E00CA3EB4 /* Swipt.swift in Sources */,
 				A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */,
+				A8377D7721120B3B00B2BD78 /* ShellScripts.swift in Sources */,
 				A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */,
 				A8207CFB211073E30070237E /* Constants.swift in Sources */,
 				A8207CF4211056800070237E /* Page.swift in Sources */,

@@ -50,7 +50,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="LXh-PK-kdC">
                         <font key="font" metaFont="system"/>
-                        <string key="title">eGPU Setup will access and determine: • Your system configuration • External GPU specifications • Additional software requirements • Necessary system patches  After installation, the application requires restarting the system. Save your work in other applications before proceeding.</string>
+                        <mutableString key="title">eGPU Setup will access and determine:      • Your system configuration      • External GPU specifications      • Additional software requirements      • Necessary system patches  After installation, the application requires restarting the system. Save your work in other applications before proceeding.</mutableString>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

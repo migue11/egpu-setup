@@ -71,6 +71,9 @@ class SetupStartViewController: NSViewController {
     
     /// Prepare start view.
     func prepareView() {
+        guard let bundleDictionary = Bundle.main.infoDictionary else { return }
+        guard let version = bundleDictionary["CFBundleShortVersionString"] as? String else { return }
+        versionLabel.stringValue = version
         prepareConfigurationLoad()
     }
     
@@ -86,10 +89,8 @@ class SetupStartViewController: NSViewController {
         systemDataView.isHidden = true
         errorImage.isHidden = true
         progressIndicator.startAnimation(nil)
-        guard let bundleDictionary = Bundle.main.infoDictionary else { return }
-        guard let version = bundleDictionary["CFBundleShortVersionString"] as? String else { return }
-        versionLabel.stringValue = version
         DispatchQueue.global(qos: .background).async {
+            while !UserPrefs.agreeLicense {}
             SystemConfig.retrieve()
             DispatchQueue.main.async {
                 self.progressIndicator.stopAnimation(nil)

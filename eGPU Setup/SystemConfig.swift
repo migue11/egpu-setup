@@ -58,8 +58,10 @@ struct SystemConfig {
                 hasNVIDIADiscreteChip = true
             }
         }
-        guard let systemConfigScript = Bundle.main.path(forResource: "system_config", ofType: "sh") else { return }
-        swiptManager.execute(unixScriptFile: systemConfigScript) { error, output in
+        guard var constantsScript = ShellScripts.constants else { return }
+        constantsScript = constantsScript.replacingOccurrences(of: " ", with: "\\\\ ")
+        guard let systemConfigScript = ShellScripts.systemConfig else { return }
+        swiptManager.execute(unixScriptFile: systemConfigScript, withArgs: [constantsScript], withShellType: .bash) { error, output in
             if let error = error {
                 print(error)
                 return
