@@ -7,12 +7,18 @@
 //
 
 import Cocoa
+import Swipt
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    /// Instance of SwiptManager.
+    let swiptManager = SwiptManager()
+    
+    /// Application quit menu item reference.
     @IBOutlet weak var quitApp: NSMenuItem!
     
+    /// Computed root application window.
     private let rootWindow = {
         return NSApplication.shared.windows[0]
     }
@@ -29,6 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    /// Action to quit application.
     @objc func quit() {
         NSApplication.shared.terminate(nil)
     }

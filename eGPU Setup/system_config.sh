@@ -6,5 +6,5 @@ then
 else
   echo "Disabled"
 fi
-sys_model="$(system_profiler SPHardwareDataType | grep -i 'Model Name' | cut -d ':' -f2 | awk '{$1=$1};1')"
+sys_model="$(system_profiler SPHardwareDataType | grep -i 'Model Identifier' | cut -d ':' -f2 | awk '{$1=$1};1')"
 echo "${sys_model}"

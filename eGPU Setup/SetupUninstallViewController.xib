@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.3.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -56,6 +57,9 @@
                     <buttonCell key="cell" type="push" title="Uninstall" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qQf-D4-7MF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                     </buttonCell>
                     <connections>
                         <action selector="executeUninstall:" target="-2" id="FUi-xs-A4g"/>
@@ -91,7 +95,7 @@ Gw
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="cEu-zQ-6oA">
                         <font key="font" metaFont="system"/>
-                        <mutableString key="title">If booting fails after uninstallation: • Boot into Single User Mode (⌘ + S on boot). • Mount your primary disk using the following command: mount -uw / • Run eGPU Setup Recovery Tool with the following command: egpu-setup-recovery • Follow the instructions as in the tool. • Your system will reboot once recovery is complete.  If you uninstall all components, you cannot use the eGPU Setup Recovery Tool.</mutableString>
+                        <string key="title">If booting fails after uninstallation: • Boot into Single User Mode (⌘ + S on boot). • Mount your primary disk using the following command: mount -uw / • Run eGPU Setup Recovery Tool with the following command: egpu-setup-recovery • Follow the instructions as in the tool. • Your system will reboot once recovery is complete.  If you uninstall all components, you cannot use the eGPU Setup Recovery Tool.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

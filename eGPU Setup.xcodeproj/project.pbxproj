@@ -23,6 +23,10 @@
 		A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A884C712210F7740009ECC25 /* SetupStartViewController.swift */; };
 		A884C715210F7740009ECC25 /* SetupStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A884C713210F7740009ECC25 /* SetupStartViewController.xib */; };
 		A8A4D4DB21108C140066E380 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A4D4DA21108C140066E380 /* Authorization.swift */; };
+		A8AF9F7F2111A36E00CA3EB4 /* Swipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF9F7E2111A36E00CA3EB4 /* Swipt.swift */; };
+		A8AF9F832111C7CC00CA3EB4 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF9F812111C7CC00CA3EB4 /* HelpViewController.swift */; };
+		A8AF9F842111C7CC00CA3EB4 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AF9F822111C7CC00CA3EB4 /* HelpViewController.xib */; };
+		A8AF9F862111CE8400CA3EB4 /* PopoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF9F852111CE8400CA3EB4 /* PopoverManager.swift */; };
 		A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8CBE0482110C85300F69D54 /* system_config.sh */; };
 		A8CBE04C2110C87500F69D54 /* SystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CBE04B2110C87500F69D54 /* SystemConfig.swift */; };
 		A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */; };
@@ -52,6 +56,10 @@
 		A884C712210F7740009ECC25 /* SetupStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupStartViewController.swift; sourceTree = "<group>"; };
 		A884C713210F7740009ECC25 /* SetupStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupStartViewController.xib; sourceTree = "<group>"; };
 		A8A4D4DA21108C140066E380 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		A8AF9F7E2111A36E00CA3EB4 /* Swipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipt.swift; sourceTree = "<group>"; };
+		A8AF9F812111C7CC00CA3EB4 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		A8AF9F822111C7CC00CA3EB4 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
+		A8AF9F852111CE8400CA3EB4 /* PopoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverManager.swift; sourceTree = "<group>"; };
 		A8CBE0482110C85300F69D54 /* system_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = system_config.sh; sourceTree = "<group>"; };
 		A8CBE04B2110C87500F69D54 /* SystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConfig.swift; sourceTree = "<group>"; };
 		A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A8207CF5211066AD0070237E /* WindowManager.swift */,
+				A8AF9F852111CE8400CA3EB4 /* PopoverManager.swift */,
 				A8207CF821106BB70070237E /* AlertManager.swift */,
 			);
 			name = "UI Management";
@@ -166,6 +175,7 @@
 		A848863C210F5C1E00EE6F33 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A8AF9F802111C7B500CA3EB4 /* Help */,
 				A86DC83B210F9CDD00E280D2 /* Pages */,
 				A86DC83A210F9CCC00E280D2 /* Start */,
 				A8E7A23B210F9D43005C576A /* eGPU Configuration */,
@@ -193,6 +203,15 @@
 			name = Pages;
 			sourceTree = "<group>";
 		};
+		A8AF9F802111C7B500CA3EB4 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				A8AF9F812111C7CC00CA3EB4 /* HelpViewController.swift */,
+				A8AF9F822111C7CC00CA3EB4 /* HelpViewController.xib */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
 		A8CBE0432110BD2700F69D54 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				A8CBE04B2110C87500F69D54 /* SystemConfig.swift */,
+				A8AF9F7E2111A36E00CA3EB4 /* Swipt.swift */,
 			);
 			name = "System Configuration";
 			sourceTree = "<group>";
@@ -315,6 +335,7 @@
 				A83F998D21103C0700B12E54 /* SetupUninstallActivateViewController.xib in Resources */,
 				A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */,
 				A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */,
+				A8AF9F842111C7CC00CA3EB4 /* HelpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +389,10 @@
 				A8207CF6211066AD0070237E /* WindowManager.swift in Sources */,
 				A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */,
 				A8CBE04C2110C87500F69D54 /* SystemConfig.swift in Sources */,
+				A8AF9F832111C7CC00CA3EB4 /* HelpViewController.swift in Sources */,
+				A8AF9F862111CE8400CA3EB4 /* PopoverManager.swift in Sources */,
 				A8A4D4DB21108C140066E380 /* Authorization.swift in Sources */,
+				A8AF9F7F2111A36E00CA3EB4 /* Swipt.swift in Sources */,
 				A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */,
 				A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */,
 				A8207CFB211073E30070237E /* Constants.swift in Sources */,

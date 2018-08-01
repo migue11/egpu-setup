@@ -11,6 +11,9 @@ import Cocoa
 /// Defines the initial setup page.
 class SetupStartViewController: NSViewController {
     
+    private let helpViewController = HelpViewController()
+    
+    /// Shows application version.
     @IBOutlet weak var versionLabel: NSTextField!
     
     /// Singleton instance of view controller.
@@ -36,11 +39,17 @@ class SetupStartViewController: NSViewController {
     /// Mac model label.
     @IBOutlet weak var macModelLabel: NSTextField!
     
+    /// Provides additional information about system status.
+    @IBOutlet weak var systemStatusInfoLabel: NSTextField!
+    
     /// Detection status text label.
     @IBOutlet weak var detectInfoLabel: NSTextField!
     
     /// Error image view.
     @IBOutlet weak var errorImage: NSImageView!
+    
+    /// Image which indicates system compatibility.
+    @IBOutlet weak var systemStatusIndicator: NSImageView!
     
     /// Proceed to the next step of the installation process.
     @IBOutlet weak var nextButton: NSButton!
@@ -55,6 +64,15 @@ class SetupStartViewController: NSViewController {
     
     /// Prepare start view.
     func prepareView() {
+        prepareConfigurationLoad()
+    }
+    
+    /// Prepares the view for loading system configuration.
+    func prepareConfigurationLoad() {
+        systemStatusIndicator.image = NSImage(named: NSImage.Name("Tick"))
+        currentSIPLabel.textColor = NSColor.labelColor
+        systemStatusInfoLabel.stringValue = "System meets basic requirements."
+        nextButton.title = "Next"
         nextButton.isEnabled = false
         detectInfoLabel.isHidden = false
         detectInfoLabel.stringValue = "Detecting current configuration..."
@@ -64,22 +82,30 @@ class SetupStartViewController: NSViewController {
         guard let bundleDictionary = Bundle.main.infoDictionary else { return }
         guard let version = bundleDictionary["CFBundleShortVersionString"] as? String else { return }
         versionLabel.stringValue = version
-        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.global(qos: .background).async {
             SystemConfig.retrieve()
             DispatchQueue.main.async {
                 self.progressIndicator.stopAnimation(nil)
                 if SystemConfig.isIncomplete() {
                     self.errorImage.isHidden = false
-                    self.detectInfoLabel.stringValue = "Could not retrieve configuration.\nFor safety purposes, eGPU Setup will not proceed."
+                    self.nextButton.title = "Retry"
+                    self.nextButton.isEnabled = true
+                    self.detectInfoLabel.stringValue = "Could not retrieve configuration. Disconnect any eGPUs. For safety reasons, eGPU Setup will not proceed."
                     return
                 }
-                self.nextButton.isEnabled = true
                 self.detectInfoLabel.isHidden = true
                 self.macModelLabel.stringValue = SystemConfig.model
                 self.macOSLabel.stringValue = "\(SystemConfig.osVersion) (\(SystemConfig.osBuild))"
                 self.currentSIPLabel.stringValue = SystemConfig.currentSIP
-                self.gpusLabel.stringValue = SystemConfig.gpus
+                self.gpusLabel.stringValue = String(SystemConfig.gpus)
                 self.systemDataView.isHidden = false
+                if SystemConfig.currentSIP == "Enabled" {
+                    self.systemStatusIndicator.image = NSImage(named: NSImage.Name("Error"))
+                    self.nextButton.title = "Retry"
+                    self.currentSIPLabel.textColor = NSColor.systemOrange
+                    self.systemStatusInfoLabel.stringValue = "SIP must be disabled."
+                }
+                self.nextButton.isEnabled = true
             }
         }
     }
@@ -89,6 +115,36 @@ class SetupStartViewController: NSViewController {
 
 // MARK: - User actions
 extension SetupStartViewController {
+    
+    /// Configures the Help View.
+    func configureHelpViewController() {
+        if helpViewController.didConfigure { return }
+        helpViewController.helpTitleLabel.stringValue = "System Configuration"
+        helpViewController.helpSubtitleLabel.stringValue = "Potential Issues & Complications"
+        helpViewController.helpImageView.image = NSImage(named: "Macs")
+        helpViewController.helpDescriptionLabel.stringValue = """
+        For optimal experience:
+        
+        • Disable System Integrity Protection:
+            - Boot into recovery (⌘ + R).
+            - Launch Utilities > Terminal.
+            - Type "csrutil disable", then reboot.
+        
+        • Disconnect any eGPUs that you may have plugged in.
+        
+        Retry once you have ensured the above.
+        """
+        helpViewController.didConfigure = true
+    }
+    
+    /// Shows context-aware help.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func showHelp(_ sender: Any) {
+        guard let button = sender as? NSButton else { return }
+        PopoverManager.showPopover(withWidth: 300, withHeight: 260, withViewController: helpViewController, withTarget: button)
+        configureHelpViewController()
+    }
     
     /// Switches to the uninstallation page.
     ///
@@ -101,7 +157,13 @@ extension SetupStartViewController {
     ///
     /// - Parameter sender: The element responsilbe for the action.
     @IBAction func proceedToEGPUConfiguration(_ sender: Any) {
-        setupPageController().transition(toPage: Page.eGPUConfig)
+        guard let button = sender as? NSButton else { return }
+        if button.title == "Next" {
+            setupPageController().transition(toPage: Page.eGPUConfig)
+        }
+        else {
+            prepareConfigurationLoad()
+        }
     }
     
 }
