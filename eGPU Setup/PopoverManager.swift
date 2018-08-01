@@ -14,7 +14,7 @@ class PopoverManager {
     /// Instance of `NSPopover` view.
     private static let popover = NSPopover()
     
-    /// Shows a popover view.
+    /// Presents a popover view.
     ///
     /// - Parameters:
     ///   - width: Width of the view.

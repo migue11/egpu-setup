@@ -11,6 +11,7 @@ import Cocoa
 /// Defines the initial setup page.
 class SetupStartViewController: NSViewController {
     
+    /// Creates a reference to the generic help view.
     private let helpViewController = HelpViewController()
     
     /// Shows application version.
@@ -116,7 +117,7 @@ class SetupStartViewController: NSViewController {
 // MARK: - User actions
 extension SetupStartViewController {
     
-    /// Configures the Help View.
+    /// Configures the help view.
     func configureHelpViewController() {
         if helpViewController.didConfigure { return }
         helpViewController.helpTitleLabel.stringValue = "System Configuration"
