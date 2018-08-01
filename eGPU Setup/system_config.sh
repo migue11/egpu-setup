@@ -23,15 +23,15 @@ echo "${sys_model}"
 # System Thunderbolt Version
 if [[ "${thunderbolt_version}[@]" =~ "NHIType3" ]]
 then
-    echo "3 (40 Gb/s)"
+    echo "TB3 (40 Gb/s)"
     tb_val=3
 elif [[ "${thunderbolt_version}[@]" =~ "NHIType2" ]]
 then
-    echo "2 (20 Gb/s)"
+    echo "TB2 (20 Gb/s)"
     tb_val=2
 elif [[ "${thunderbolt_version}[@]" =~ "NHIType1" ]]
 then
-    echo "1 (10 Gb/s)"
+    echo "TB1 (10 Gb/s)"
     tb_val=1
 else
     echo "-"

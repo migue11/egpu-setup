@@ -28,6 +28,9 @@ struct SystemConfig {
     /// Flag for discrete NVIDIA GPU.
     static var hasNVIDIADiscreteChip = false
     
+    /// Flag for integrated Intel GPU.
+    static var hasIntelIntegratedChip = false
+    
     /// Flag for system already patched with NVIDIA eGPU support.
     static var eGPUPatched = "None"
     
@@ -56,6 +59,9 @@ struct SystemConfig {
             }
             if device.name.lowercased().contains("nvidia") {
                 hasNVIDIADiscreteChip = true
+            }
+            if device.name.lowercased().contains("intel") {
+                hasIntelIntegratedChip = true
             }
         }
         guard var constantsScript = ShellScripts.constants else { return }

@@ -31,7 +31,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="bJp-x6-a4q">
                         <font key="font" metaFont="system"/>
-                        <mutableString key="title">The eGPU Setup Uninstallation Wizard removes:      • Any applied system patches      • NVIDIA Web Drivers  By default, the uninstallation procedure does not remove the command-line recovery tool or any system kernel extension backups that were taken for safety reasons.</mutableString>
+                        <string key="title">The eGPU Setup Uninstallation Wizard removes:      • Any applied system patches      • NVIDIA Web Drivers  By default, the uninstallation procedure does not remove the command-line recovery tool or any system kernel extension backups that were taken for safety reasons.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -39,7 +39,7 @@
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rtx-hq-JZF">
                     <rect key="frame" x="422" y="239" width="198" height="187"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Danger" id="6jV-QE-G8u"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Uninstall" id="6jV-QE-G8u"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OUu-vz-Uj2">
                     <rect key="frame" x="18" y="239" width="388" height="36"/>
@@ -96,13 +96,16 @@ Gw
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="showHelp:" target="-2" id="ZVJ-kc-DVt"/>
+                    </connections>
                 </button>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QP3-e9-uCB">
                     <rect key="frame" x="18" y="62" width="602" height="162"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="cEu-zQ-6oA">
                         <font key="font" metaFont="system"/>
-                        <mutableString key="title">If booting fails after uninstallation:      • Boot into Single User Mode (⌘ + S on boot).      • Mount your primary disk using the following command: mount -uw /      • Run eGPU Setup Recovery Tool with the following command: egpu-setup-recovery      • Follow the instructions as in the tool.      • Your system will reboot once recovery is complete.  If you uninstall all components, you cannot use the eGPU Setup Recovery Tool.</mutableString>
+                        <string key="title">If booting fails after uninstallation:      • Boot into Single User Mode (⌘ + S on boot).      • Mount your primary disk using the following command: mount -uw /      • Run eGPU Setup Recovery Tool with the following command: egpu-setup-recovery      • Follow the instructions as in the tool.      • Your system will reboot once recovery is complete.  If you uninstall all components, you cannot use the eGPU Setup Recovery Tool.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -111,6 +114,6 @@ Gw
         </customView>
     </objects>
     <resources>
-        <image name="Danger" width="1024" height="1024"/>
+        <image name="Uninstall" width="1024" height="1024"/>
     </resources>
 </document>

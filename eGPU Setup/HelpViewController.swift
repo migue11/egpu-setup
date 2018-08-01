@@ -23,9 +23,6 @@ class HelpViewController: NSViewController {
     /// Help topic label.
     @IBOutlet weak var helpTitleLabel: NSTextField!
     
-    /// Help accessory image view for context.
-    @IBOutlet weak var helpImageView: NSImageView!
-    
     /// Shows macOS troublehsooting guide in Safari.
     ///
     /// - Parameter sender: The element responsible for the action.

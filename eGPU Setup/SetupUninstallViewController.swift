@@ -14,14 +14,18 @@ class SetupUninstallViewController: NSViewController {
     /// Singleton instance of view controller.
     private static var setupUninstallViewController: SetupUninstallViewController! = nil
     
-    lazy var rootWindow = {
+    /// Reference to the main application window.
+    private lazy var rootWindow = {
         return NSApplication.shared.windows[0]
     }
     
     /// Root page view controller.
-    lazy var setupPageController = {
+    private lazy var setupPageController = {
         self.rootWindow().contentViewController as! SetupPageController
     }
+    
+    /// Reference to the generic help view.
+    private let helpViewController = HelpViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +72,26 @@ extension SetupUninstallViewController {
                 }
             }
         }
+    }
+    
+    /// Configures the help view.
+    func configureHelpViewController() {
+        helpViewController.helpTitleLabel.stringValue = "Uninstallation Tips"
+        helpViewController.helpSubtitleLabel.stringValue = "Making The Right Choice"
+        helpViewController.helpDescriptionLabel.stringValue = """
+        It is recommended that you use the default "Uninstall" option, and not "Uninstall All...". The former option allows system recovery in case it was unable to reboot after installation.
+
+        Use "Uninstall All..." at your own risk. It will remove every safeguard mechanism that was previously installed on the system. As such, having a time machine backup is essential.
+        """
+    }
+    
+    /// Shows help regarding uninstallation.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func showHelp(_ sender: Any) {
+        guard let button = sender as? NSButton else { return }
+        PopoverManager.showPopover(withWidth: 300, withHeight: 320, withViewController: helpViewController, withTarget: button)
+        configureHelpViewController()
     }
     
     /// Returns to the previous menu.

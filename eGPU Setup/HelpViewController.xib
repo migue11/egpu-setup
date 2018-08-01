@@ -9,7 +9,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="HelpViewController" customModule="eGPU_Setup" customModuleProvider="target">
             <connections>
                 <outlet property="helpDescriptionLabel" destination="22Q-uP-dyH" id="EqT-eA-KGk"/>
-                <outlet property="helpImageView" destination="ePl-kT-6aJ" id="rmk-gI-pxz"/>
                 <outlet property="helpSubtitleLabel" destination="Uqk-Ew-l2Z" id="xyX-Qz-Khi"/>
                 <outlet property="helpTitleLabel" destination="taS-rg-K0g" id="VrQ-3k-FZ4"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -30,11 +29,6 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-kT-6aJ">
-                    <rect key="frame" x="237" y="446" width="43" height="43"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Welcome" id="aLz-uu-oGg"/>
-                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uqk-Ew-l2Z">
                     <rect key="frame" x="18" y="439" width="206" height="18"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -75,10 +69,15 @@
                         <action selector="showForum:" target="-2" id="S6I-aW-cOl"/>
                     </connections>
                 </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-kT-6aJ">
+                    <rect key="frame" x="237" y="439" width="43" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Help" id="aLz-uu-oGg"/>
+                </imageView>
             </subviews>
         </customView>
     </objects>
     <resources>
-        <image name="Welcome" width="1024" height="1024"/>
+        <image name="Help" width="1024" height="1024"/>
     </resources>
 </document>

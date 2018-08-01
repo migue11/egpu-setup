@@ -11,7 +11,7 @@ import Cocoa
 /// Defines the initial setup page.
 class SetupStartViewController: NSViewController {
     
-    /// Creates a reference to the generic help view.
+    /// Reference to the generic help view.
     private let helpViewController = HelpViewController()
     
     /// Singleton instance of view controller.
@@ -106,7 +106,11 @@ class SetupStartViewController: NSViewController {
                 self.thunderboltVersionLabel.stringValue = SystemConfig.thunderboltType
                 self.macOSLabel.stringValue = "\(SystemConfig.osVersion) (\(SystemConfig.osBuild))"
                 self.currentSIPLabel.stringValue = SystemConfig.currentSIP
-                self.gpusLabel.stringValue = SystemConfig.gpus == 2 ? "Dual" : "Single"
+                var gpuLabelValue = SystemConfig.hasIntelIntegratedChip ? "Integrated Only" : "Single Discrete"
+                if SystemConfig.gpus > 1 {
+                    gpuLabelValue = SystemConfig.hasIntelIntegratedChip ? "Intel + Discrete" : "Dual"
+                }
+                self.gpusLabel.stringValue = gpuLabelValue
                 self.eGPUPatchesLabel.stringValue = SystemConfig.eGPUPatched
                 self.systemDataView.isHidden = false
                 let sipState = SystemConfig.currentSIP == "Enabled"
@@ -133,7 +137,6 @@ extension SetupStartViewController {
         if helpViewController.didConfigure { return }
         helpViewController.helpTitleLabel.stringValue = "System Configuration"
         helpViewController.helpSubtitleLabel.stringValue = "Potential Issues & Complications"
-        helpViewController.helpImageView.image = NSImage(named: "Macs")
         helpViewController.helpDescriptionLabel.stringValue = """
         For an optimal experience:
         
@@ -154,7 +157,7 @@ extension SetupStartViewController {
     /// - Parameter sender: The element responsible for the action.
     @IBAction func showHelp(_ sender: Any) {
         guard let button = sender as? NSButton else { return }
-        PopoverManager.showPopover(withWidth: 300, withHeight: 310, withViewController: helpViewController, withTarget: button)
+        PopoverManager.showPopover(withWidth: 300, withHeight: 300, withViewController: helpViewController, withTarget: button)
         configureHelpViewController()
     }
     
