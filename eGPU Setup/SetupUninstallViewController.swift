@@ -11,6 +11,9 @@ import Cocoa
 /// Defines the uninstallation page.
 class SetupUninstallViewController: NSViewController {
 
+    /// Reference to the help button.
+    @IBOutlet weak var helpButton: NSButton!
+    
     /// Singleton instance of view controller.
     private static var setupUninstallViewController: SetupUninstallViewController! = nil
     
@@ -29,6 +32,9 @@ class SetupUninstallViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 {
+            helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
+        }
     }
     
 }

@@ -43,6 +43,9 @@ class SetupStartViewController: NSViewController {
     /// eGPU patches label.
     @IBOutlet weak var eGPUPatchesLabel: NSTextField!
     
+    /// Reference to the help button.
+    @IBOutlet weak var helpButton: NSButton!
+    
     /// Mac thunderbolt version label.
     @IBOutlet weak var thunderboltVersionLabel: NSTextField!
     
@@ -74,6 +77,9 @@ class SetupStartViewController: NSViewController {
         guard let bundleDictionary = Bundle.main.infoDictionary else { return }
         guard let version = bundleDictionary["CFBundleShortVersionString"] as? String else { return }
         versionLabel.stringValue = version
+        if ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 {
+            helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
+        }
         prepareConfigurationLoad()
     }
     
@@ -113,13 +119,17 @@ class SetupStartViewController: NSViewController {
                 self.gpusLabel.stringValue = gpuLabelValue
                 self.eGPUPatchesLabel.stringValue = SystemConfig.eGPUPatched
                 self.systemDataView.isHidden = false
-                let sipState = SystemConfig.currentSIP == "Enabled"
-                let eGPUPatchedState = SystemConfig.eGPUPatched != "None"
-                if sipState || eGPUPatchedState {
+                if SystemConfig.currentSIP == "Enabled" {
+                    self.systemStatusIndicator.image = NSImage(named: NSImage.Name("Error"))
+                    self.nextButton.title = "Quit"
+                    self.currentSIPLabel.textColor = NSColor.systemOrange
+                    self.systemStatusInfoLabel.stringValue = "SIP must be disabled."
+                }
+                else if SystemConfig.eGPUPatched != "None" {
                     self.systemStatusIndicator.image = NSImage(named: NSImage.Name("Error"))
                     self.nextButton.title = "Retry"
                     self.currentSIPLabel.textColor = NSColor.systemOrange
-                    self.systemStatusInfoLabel.stringValue = eGPUPatchedState ? "eGPU patches already present." : "SIP must be disabled."
+                    self.systemStatusInfoLabel.stringValue = "SIP must be disabled."
                 }
                 self.nextButton.isEnabled = true
             }
@@ -173,11 +183,12 @@ extension SetupStartViewController {
     /// - Parameter sender: The element responsible for the action.
     @IBAction func proceedToEGPUConfiguration(_ sender: Any) {
         guard let button = sender as? NSButton else { return }
-        if button.title == "Next" {
-            setupPageController().transition(toPage: Page.eGPUConfig)
-        }
-        else {
-            prepareConfigurationLoad()
+        switch button.title {
+        case "Next": setupPageController().transition(toPage: Page.eGPUConfig)
+            break
+        case "Retry": prepareConfigurationLoad()
+            break
+        default: NSApplication.shared.terminate(nil)
         }
     }
     
