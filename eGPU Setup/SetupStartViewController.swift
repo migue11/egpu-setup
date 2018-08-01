@@ -21,6 +21,27 @@ class SetupStartViewController: NSViewController {
         NSApplication.shared.windows[0].contentViewController as! SetupPageController
     }
     
+    /// Shows current system configuration.
+    @IBOutlet weak var systemDataView: NSView!
+    
+    /// GPU label.
+    @IBOutlet weak var gpusLabel: NSTextField!
+    
+    /// Current SIP status label.
+    @IBOutlet weak var currentSIPLabel: NSTextField!
+    
+    /// macOS version label.
+    @IBOutlet weak var macOSLabel: NSTextField!
+    
+    /// Mac model label.
+    @IBOutlet weak var macModelLabel: NSTextField!
+    
+    /// Detection status text label.
+    @IBOutlet weak var detectInfoLabel: NSTextField!
+    
+    /// Error image view.
+    @IBOutlet weak var errorImage: NSImageView!
+    
     /// Proceed to the next step of the installation process.
     @IBOutlet weak var nextButton: NSButton!
     
@@ -29,11 +50,38 @@ class SetupStartViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareView()
+    }
+    
+    /// Prepare start view.
+    func prepareView() {
         nextButton.isEnabled = false
+        detectInfoLabel.isHidden = false
+        detectInfoLabel.stringValue = "Detecting current configuration..."
+        systemDataView.isHidden = true
+        errorImage.isHidden = true
         progressIndicator.startAnimation(nil)
         guard let bundleDictionary = Bundle.main.infoDictionary else { return }
         guard let version = bundleDictionary["CFBundleShortVersionString"] as? String else { return }
         versionLabel.stringValue = version
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+            SystemConfig.retrieve()
+            DispatchQueue.main.async {
+                self.progressIndicator.stopAnimation(nil)
+                if SystemConfig.isIncomplete() {
+                    self.errorImage.isHidden = false
+                    self.detectInfoLabel.stringValue = "Could not retrieve configuration.\nFor safety purposes, eGPU Setup will not proceed."
+                    return
+                }
+                self.nextButton.isEnabled = true
+                self.detectInfoLabel.isHidden = true
+                self.macModelLabel.stringValue = SystemConfig.model
+                self.macOSLabel.stringValue = "\(SystemConfig.osVersion) (\(SystemConfig.osBuild))"
+                self.currentSIPLabel.stringValue = SystemConfig.currentSIP
+                self.gpusLabel.stringValue = SystemConfig.gpus
+                self.systemDataView.isHidden = false
+            }
+        }
     }
     
 }

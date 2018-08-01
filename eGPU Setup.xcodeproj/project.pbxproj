@@ -22,6 +22,9 @@
 		A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A884C710210F71F1009ECC25 /* SetupPageController.swift */; };
 		A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A884C712210F7740009ECC25 /* SetupStartViewController.swift */; };
 		A884C715210F7740009ECC25 /* SetupStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A884C713210F7740009ECC25 /* SetupStartViewController.xib */; };
+		A8A4D4DB21108C140066E380 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A4D4DA21108C140066E380 /* Authorization.swift */; };
+		A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8CBE0482110C85300F69D54 /* system_config.sh */; };
+		A8CBE04C2110C87500F69D54 /* SystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CBE04B2110C87500F69D54 /* SystemConfig.swift */; };
 		A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */; };
 		A8E7A23F210F9F09005C576A /* SetupUninstallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */; };
 /* End PBXBuildFile section */
@@ -45,6 +48,9 @@
 		A884C710210F71F1009ECC25 /* SetupPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPageController.swift; sourceTree = "<group>"; };
 		A884C712210F7740009ECC25 /* SetupStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupStartViewController.swift; sourceTree = "<group>"; };
 		A884C713210F7740009ECC25 /* SetupStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupStartViewController.xib; sourceTree = "<group>"; };
+		A8A4D4DA21108C140066E380 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		A8CBE0482110C85300F69D54 /* system_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = system_config.sh; sourceTree = "<group>"; };
+		A8CBE04B2110C87500F69D54 /* SystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConfig.swift; sourceTree = "<group>"; };
 		A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallViewController.swift; sourceTree = "<group>"; };
 		A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupUninstallViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +75,33 @@
 			name = "UI Management";
 			sourceTree = "<group>";
 		};
+		A8207CFE21108B9D0070237E /* Application Environment */ = {
+			isa = PBXGroup;
+			children = (
+				A8488631210F5B9700EE6F33 /* Info.plist */,
+				A8488632210F5B9700EE6F33 /* eGPU_Setup.entitlements */,
+			);
+			name = "Application Environment";
+			sourceTree = "<group>";
+		};
+		A8207CFF21108BAF0070237E /* Delegate & Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				A8488628210F5B9500EE6F33 /* AppDelegate.swift */,
+				A8207CFA211073E30070237E /* Constants.swift */,
+				A8207CFC211079A00070237E /* UserPrefs.swift */,
+			);
+			name = "Delegate & Preferences";
+			sourceTree = "<group>";
+		};
+		A8207D0021108BCD0070237E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				A8A4D4DA21108C140066E380 /* Authorization.swift */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
 		A848861C210F5B9500EE6F33 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +121,8 @@
 		A8488627210F5B9500EE6F33 /* eGPU Setup */ = {
 			isa = PBXGroup;
 			children = (
+				A8CBE0432110BD2700F69D54 /* Core */,
+				A8207D0021108BCD0070237E /* Authorization */,
 				A848863A210F5BFE00EE6F33 /* Storyboard */,
 				A848863C210F5C1E00EE6F33 /* View Controllers */,
 				A8488639210F5BEA00EE6F33 /* Configuration */,
@@ -98,11 +133,8 @@
 		A8488639210F5BEA00EE6F33 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				A8488628210F5B9500EE6F33 /* AppDelegate.swift */,
-				A8207CFA211073E30070237E /* Constants.swift */,
-				A8207CFC211079A00070237E /* UserPrefs.swift */,
-				A8488631210F5B9700EE6F33 /* Info.plist */,
-				A8488632210F5B9700EE6F33 /* eGPU_Setup.entitlements */,
+				A8207CFF21108BAF0070237E /* Delegate & Preferences */,
+				A8207CFE21108B9D0070237E /* Application Environment */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -144,6 +176,31 @@
 				A8207CF3211056800070237E /* Page.swift */,
 			);
 			name = Pages;
+			sourceTree = "<group>";
+		};
+		A8CBE0432110BD2700F69D54 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A8CBE0442110BD3B00F69D54 /* Shell */,
+				A8CBE04D2110C87900F69D54 /* System Configuration */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		A8CBE0442110BD3B00F69D54 /* Shell */ = {
+			isa = PBXGroup;
+			children = (
+				A8CBE0482110C85300F69D54 /* system_config.sh */,
+			);
+			name = Shell;
+			sourceTree = "<group>";
+		};
+		A8CBE04D2110C87900F69D54 /* System Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				A8CBE04B2110C87500F69D54 /* SystemConfig.swift */,
+			);
+			name = "System Configuration";
 			sourceTree = "<group>";
 		};
 		A8E7A23B210F9D43005C576A /* eGPU Configuration */ = {
@@ -229,6 +286,7 @@
 				A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */,
 				A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */,
 				A83F998D21103C0700B12E54 /* SetupUninstallActivateViewController.xib in Resources */,
+				A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */,
 				A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +301,8 @@
 				A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */,
 				A8207CF6211066AD0070237E /* WindowManager.swift in Sources */,
 				A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */,
+				A8CBE04C2110C87500F69D54 /* SystemConfig.swift in Sources */,
+				A8A4D4DB21108C140066E380 /* Authorization.swift in Sources */,
 				A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */,
 				A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */,
 				A8207CFB211073E30070237E /* Constants.swift in Sources */,

@@ -18,12 +18,12 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gd-pD-T9d">
-                    <rect key="frame" x="176" y="162" width="288" height="292"/>
+                    <rect key="frame" x="176" y="168" width="288" height="292"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Welcome" id="Nsy-qo-oxU"/>
                 </imageView>
                 <textField identifier="uninstall" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Qd-A1-Ogl">
-                    <rect key="frame" x="235" y="101" width="171" height="36"/>
+                    <rect key="frame" x="235" y="113" width="171" height="36"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Uninstalling" id="z9s-Ve-wqk">
                         <font key="font" metaFont="systemBold" size="30"/>
@@ -32,11 +32,11 @@
                     </textFieldCell>
                 </textField>
                 <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="2to-6k-2mR">
-                    <rect key="frame" x="157" y="74" width="326" height="20"/>
+                    <rect key="frame" x="157" y="86" width="326" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </progressIndicator>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZpU-eL-iuG">
-                    <rect key="frame" x="261" y="49" width="119" height="18"/>
+                    <rect key="frame" x="261" y="61" width="119" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Undoing patches..." id="4I0-Ul-f0R">
                         <font key="font" metaFont="system"/>
@@ -44,6 +44,20 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tyn-kx-2eW">
+                    <rect key="frame" x="284" y="13" width="72" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="5Zv-k2-3bi">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                    </buttonCell>
+                    <connections>
+                        <action selector="uninstallDone:" target="-2" id="fwY-QJ-kLy"/>
+                    </connections>
+                </button>
             </subviews>
         </customView>
     </objects>

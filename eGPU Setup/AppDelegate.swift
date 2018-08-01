@@ -19,10 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         requestAgreementToDisclaimer()
-        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
+        Authorization.dropSuperUser()
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

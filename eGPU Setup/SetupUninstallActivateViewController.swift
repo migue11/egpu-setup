@@ -17,21 +17,45 @@ class SetupUninstallActivateViewController: NSViewController {
     /// Indeterminate progress indicator for the uninstallation process.
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        prepareUninstall()
+    /// Root application window.
+    lazy var rootWindow = {
+        return NSApplication.shared.windows[0]
     }
     
-    /// Prepares the view for the uninstallation process.
-    func prepareUninstall() {
+    /// Root page view controller.
+    lazy var setupPageController = {
+        self.rootWindow().contentViewController as! SetupPageController
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        prepareWindowForUninstall()
+    }
+    
+    /// Prepares the window for the uninstallation process.
+    func prepareWindowForUninstall() {
         progressIndicator.startAnimation(nil)
         WindowManager.disableTermination()
     }
     
+    /// Restores default window configuration.
+    func restoreWindowConfiguration() {
+        progressIndicator.stopAnimation(nil)
+        WindowManager.enableTermination()
+    }
+
 }
 
 // MARK: - User Interaction
 extension SetupUninstallActivateViewController {
+    
+    /// Action to take once uninstallation is complete.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func uninstallDone(_ sender: Any) {
+        setupPageController().transition(toPage: Page.uninstall)
+        restoreWindowConfiguration()
+    }
     
 }
 

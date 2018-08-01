@@ -14,9 +14,13 @@ class SetupUninstallViewController: NSViewController {
     /// Singleton instance of view controller.
     private static var setupUninstallViewController: SetupUninstallViewController! = nil
     
+    lazy var rootWindow = {
+        return NSApplication.shared.windows[0]
+    }
+    
     /// Root page view controller.
     lazy var setupPageController = {
-        NSApplication.shared.windows[0].contentViewController as! SetupPageController
+        self.rootWindow().contentViewController as! SetupPageController
     }
     
     override func viewDidLoad() {
@@ -28,11 +32,22 @@ class SetupUninstallViewController: NSViewController {
 // MARK: - User actions.
 extension SetupUninstallViewController {
     
+    func showAuthProblemAlert() {
+        let alert = AlertManager.generateAlert(withMessage: "Authorization Required", withInfo: "Please enter your password when prompted. Superuser privileges are necessary for the application to perform its tasks.", withStyle: .critical, withFirstButton: "OK")
+        alert.beginSheetModal(for: rootWindow(), completionHandler: nil)
+    }
+    
     /// Starts the uninstallation procedure.
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func executeUninstall(_ sender: Any) {
-        setupPageController().transition(toPage: Page.uninstallProgress)
+        let status = Authorization.requestSuperUser()
+        if status == 0 {
+            setupPageController().transition(toPage: Page.uninstallProgress)
+        }
+        else {
+            showAuthProblemAlert()
+        }
     }
     
     /// Starts the complete uninstallation procedure.
@@ -40,10 +55,16 @@ extension SetupUninstallViewController {
     /// - Parameter sender: The element responsible for the action.
     @IBAction func executeUninstallAll(_ sender: Any) {
         let alert = AlertManager.generateAlert(withMessage: "Uninstall All Components", withInfo: "Are you sure you want to uninstall all components? This action cannot be undone.", withStyle: .critical, withFirstButton: "Cancel", withSecondButton: "Proceed")
-        alert.beginSheetModal(for: NSApplication.shared.windows[0]) { response in
+        alert.beginSheetModal(for: rootWindow()) { response in
             if response != .alertFirstButtonReturn {
                 DispatchQueue.main.async {
-                    self.setupPageController().transition(toPage: Page.uninstallProgress)
+                    let status = Authorization.requestSuperUser()
+                    if status == 0 {
+                        self.setupPageController().transition(toPage: Page.uninstallProgress)
+                    }
+                    else {
+                        self.showAuthProblemAlert()
+                    }
                 }
             }
         }
