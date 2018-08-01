@@ -34,11 +34,11 @@ class SetupPageController: NSPageController, NSPageControllerDelegate {
     }
     
     func pageController(_ pageController: NSPageController, identifierFor object: Any) -> NSPageController.ObjectIdentifier {
-        return NSPageController.ObjectIdentifier(rawValue: object as! String)
+        return object as! String
     }
     
     func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
-        guard let page = availablePages[identifier.rawValue] else {
+        guard let page = availablePages[identifier] else {
             return NSViewController()
         }
         return page

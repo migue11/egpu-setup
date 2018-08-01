@@ -1,0 +1,6 @@
+framework module Pods_eGPU_Setup {
+  umbrella header "Pods-eGPU Setup-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -27,9 +27,12 @@
 		A8CBE04C2110C87500F69D54 /* SystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CBE04B2110C87500F69D54 /* SystemConfig.swift */; };
 		A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */; };
 		A8E7A23F210F9F09005C576A /* SetupUninstallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */; };
+		B63FB6B459CEC662AD012BED /* Pods_eGPU_Setup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F2F69B79780FC0CDCFB621A /* Pods_eGPU_Setup.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F2F69B79780FC0CDCFB621A /* Pods_eGPU_Setup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eGPU_Setup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8633129EA64576489D12C661 /* Pods-eGPU Setup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eGPU Setup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eGPU Setup/Pods-eGPU Setup.debug.xcconfig"; sourceTree = "<group>"; };
 		A8207CF3211056800070237E /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		A8207CF5211066AD0070237E /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		A8207CF821106BB70070237E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		A8CBE04B2110C87500F69D54 /* SystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConfig.swift; sourceTree = "<group>"; };
 		A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallViewController.swift; sourceTree = "<group>"; };
 		A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupUninstallViewController.xib; sourceTree = "<group>"; };
+		EA40848615D7B1190E4B9475 /* Pods-eGPU Setup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eGPU Setup.release.xcconfig"; path = "Pods/Target Support Files/Pods-eGPU Setup/Pods-eGPU Setup.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B63FB6B459CEC662AD012BED /* Pods_eGPU_Setup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522BC0E5A7258BC4528F03C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F2F69B79780FC0CDCFB621A /* Pods_eGPU_Setup.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A8207CF7211066B20070237E /* UI Management */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +120,8 @@
 			children = (
 				A8488627210F5B9500EE6F33 /* eGPU Setup */,
 				A8488626210F5B9500EE6F33 /* Products */,
+				AB6B0B7A4A58E9AF6ACA0D83 /* Pods */,
+				522BC0E5A7258BC4528F03C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +238,15 @@
 			name = Uninstallation;
 			sourceTree = "<group>";
 		};
+		AB6B0B7A4A58E9AF6ACA0D83 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8633129EA64576489D12C661 /* Pods-eGPU Setup.debug.xcconfig */,
+				EA40848615D7B1190E4B9475 /* Pods-eGPU Setup.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8488635210F5B9700EE6F33 /* Build configuration list for PBXNativeTarget "eGPU Setup" */;
 			buildPhases = (
+				01053203CFA33153C6A306B0 /* [CP] Check Pods Manifest.lock */,
 				A8488621210F5B9500EE6F33 /* Sources */,
 				A8488622210F5B9500EE6F33 /* Frameworks */,
 				A8488623210F5B9500EE6F33 /* Resources */,
+				CBCDCD6A855D1835990F882B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +281,7 @@
 				TargetAttributes = {
 					A8488624210F5B9500EE6F33 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -292,6 +319,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01053203CFA33153C6A306B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eGPU Setup-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBCDCD6A855D1835990F882B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eGPU Setup/Pods-eGPU Setup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swipt/Swipt.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swipt.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eGPU Setup/Pods-eGPU Setup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A8488621210F5B9500EE6F33 /* Sources */ = {
@@ -443,9 +509,11 @@
 		};
 		A8488636210F5B9700EE6F33 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8633129EA64576489D12C661 /* Pods-eGPU Setup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "eGPU Setup/eGPU_Setup.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = YF7XP6ZYSQ;
@@ -457,15 +525,18 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mayank.eGPU-Setup";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		A8488637210F5B9700EE6F33 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA40848615D7B1190E4B9475 /* Pods-eGPU Setup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "eGPU Setup/eGPU_Setup.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = YF7XP6ZYSQ;
@@ -477,7 +548,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mayank.eGPU-Setup";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
