@@ -50,7 +50,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="LXh-PK-kdC">
                         <font key="font" metaFont="system"/>
-                        <mutableString key="title">eGPU Setup will access and determine:      • Your system configuration      • External GPU specifications      • Additional software requirements      • Necessary system patches  After installation, the application requires restarting the system. Save your work in other applications before proceeding.</mutableString>
+                        <string key="title">eGPU Setup will access and determine:      • Your system configuration      • External GPU specifications      • Additional software requirements      • Necessary system patches  After installation, the application requires restarting the system. Save your work in other applications before proceeding.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -246,17 +246,6 @@
                         </textField>
                     </subviews>
                 </customView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ssC-CS-ydp">
-                    <rect key="frame" x="597" y="16" width="25" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r8h-j6-BDU">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="showHelp:" target="-2" id="MC2-kH-nI7"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxi-cx-P5k">
                     <rect key="frame" x="524" y="13" width="69" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -269,6 +258,17 @@ DQ
                     </buttonCell>
                     <connections>
                         <action selector="proceedToEGPUConfiguration:" target="-2" id="HcF-Rc-Ry9"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ssC-CS-ydp">
+                    <rect key="frame" x="596" y="16" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r8h-j6-BDU">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showHelp:" target="-2" id="MC2-kH-nI7"/>
                     </connections>
                 </button>
             </subviews>
