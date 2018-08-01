@@ -35,6 +35,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    /// Proceeds to paypal donation.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func donate(_ sender: Any) {
+        NSWorkspace.shared.open(donationURL)
+    }
+    
     /// Action to quit application.
     @objc func quit() {
         NSApplication.shared.terminate(nil)

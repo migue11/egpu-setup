@@ -170,7 +170,7 @@ extension SetupStartViewController {
     
     /// Proceeds to the eGPU Configuration process page.
     ///
-    /// - Parameter sender: The element responsilbe for the action.
+    /// - Parameter sender: The element responsible for the action.
     @IBAction func proceedToEGPUConfiguration(_ sender: Any) {
         guard let button = sender as? NSButton else { return }
         if button.title == "Next" {
@@ -179,6 +179,13 @@ extension SetupStartViewController {
         else {
             prepareConfigurationLoad()
         }
+    }
+    
+    /// Proceeds to Paypal donation page.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func donateToDeveloper(_ sender: Any) {
+        NSWorkspace.shared.open(donationURL)
     }
     
 }

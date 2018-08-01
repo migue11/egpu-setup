@@ -27,15 +27,14 @@ class HelpViewController: NSViewController {
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func showTroubleShootingGuide(_ sender: Any) {
-        let url = URL(string: "https://egpu.io/forums/mac-setup/guide-troubleshooting-egpus-on-macos/")!
-        NSWorkspace.shared.open(url)
+        
+        NSWorkspace.shared.open(troubleshootingURL)
     }
     
     /// Shows eGPU.io forum thread for reports.
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func showForum(_ sender: Any) {
-        let url = URL(string: "https://egpu.io/forums/")!
-        NSWorkspace.shared.open(url)
+        NSWorkspace.shared.open(moreHelpURL)
     }
 }

@@ -23,8 +23,12 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hq8-5L-Ked"/>
-                                        <menuItem title="Check for updates..." id="DLG-pA-66G">
+                                        <menuItem title="Check for updates..." keyEquivalent="c" id="DLG-pA-66G"/>
+                                        <menuItem title="Donate..." id="NSI-AH-Ws3">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="donate:" target="Voe-Tx-rLC" id="2nC-J3-mdO"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Hide eGPU Setup" keyEquivalent="h" id="Olw-nP-bQN">
