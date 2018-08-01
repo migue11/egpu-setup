@@ -25,7 +25,14 @@ struct SystemConfig {
     /// Mac GPU configuration.
     static var gpus = 0
     
+    /// Flag for discrete NVIDIA GPU.
     static var hasNVIDIADiscreteChip = false
+    
+    /// Flag for system already patched with NVIDIA eGPU support.
+    static var eGPUPatched = "None"
+    
+    /// Mac thunderbolt type.
+    static var thunderboltType = "-"
     
     /// Mac system integrity protection status.
     static var currentSIP = "-"
@@ -53,9 +60,15 @@ struct SystemConfig {
         }
         guard let systemConfigScript = Bundle.main.path(forResource: "system_config", ofType: "sh") else { return }
         swiptManager.execute(unixScriptFile: systemConfigScript) { error, output in
+            if let error = error {
+                print(error)
+                return
+            }
             guard let data = output?.split(separator: "\r") else { return }
             currentSIP = String(data[0])
             model = String(data[1])
+            thunderboltType = String(data[2])
+            eGPUPatched = String(data.count > 3 ? data[3] : "None")
         }
     }
     
@@ -63,7 +76,7 @@ struct SystemConfig {
     ///
     /// - Returns: True if retrieval was incomplete.
     static func isIncomplete() -> Bool {
-        return model == "-" || osVersion == "-" || osBuild == "-" || gpus == 0 || currentSIP == "-"
+        return model == "-" || osVersion == "-" || osBuild == "-" || gpus == 0 || currentSIP == "-" || thunderboltType == "-"
     }
     
 }

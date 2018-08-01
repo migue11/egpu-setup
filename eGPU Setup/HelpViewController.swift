@@ -26,4 +26,19 @@ class HelpViewController: NSViewController {
     /// Help accessory image view for context.
     @IBOutlet weak var helpImageView: NSImageView!
     
+    /// Shows macOS troublehsooting guide in Safari.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func showTroubleShootingGuide(_ sender: Any) {
+        let url = URL(string: "https://egpu.io/forums/mac-setup/guide-troubleshooting-egpus-on-macos/")!
+        NSWorkspace.shared.open(url)
+    }
+    
+    /// Shows eGPU.io forum thread for reports.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func showForum(_ sender: Any) {
+        let url = URL(string: "https://egpu.io/forums/")!
+        NSWorkspace.shared.open(url)
+    }
 }

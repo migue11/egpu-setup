@@ -28,31 +28,30 @@
                 </textField>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sr-p6-pHa">
                     <rect key="frame" x="18" y="290" width="398" height="126"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="bJp-x6-a4q">
                         <font key="font" metaFont="system"/>
-                        <string key="title">The eGPU Setup uninstallation wizard removes: • Any applied system patches • NVIDIA Web Drivers  By default, the uninstallation procedure does not remove the command-line recovery tool or any system kernel extension backups that were taken for safety reasons.</string>
+                        <mutableString key="title">The eGPU Setup Uninstallation Wizard removes:      • Any applied system patches      • NVIDIA Web Drivers  By default, the uninstallation procedure does not remove the command-line recovery tool or any system kernel extension backups that were taken for safety reasons.</mutableString>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rtx-hq-JZF">
-                    <rect key="frame" x="422" y="228" width="198" height="198"/>
+                    <rect key="frame" x="422" y="239" width="198" height="187"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Danger" id="6jV-QE-G8u"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OUu-vz-Uj2">
-                    <rect key="frame" x="18" y="221" width="398" height="54"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="x9n-cZ-F2a">
+                    <rect key="frame" x="18" y="239" width="388" height="36"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="It is possible to remove all components previously installed using eGPU Setup, but please proceed with caution." id="x9n-cZ-F2a">
                         <font key="font" metaFont="systemBold"/>
-                        <string key="title">There is an option to completely uninstall all components excluding this application itself. Proceed with caution with this option.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qvF-Ml-bRW">
-                    <rect key="frame" x="266" y="13" width="93" height="32"/>
+                    <rect key="frame" x="498" y="13" width="93" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="push" title="Uninstall" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qQf-D4-7MF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -63,17 +62,6 @@ DQ
                     </buttonCell>
                     <connections>
                         <action selector="executeUninstall:" target="-2" id="FUi-xs-A4g"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ev-rI-Tit">
-                    <rect key="frame" x="501" y="13" width="123" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="Uninstall All..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dhr-aR-lXm">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="executeUninstallAll:" target="-2" id="LkR-GH-beH"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8h-2F-zvy">
@@ -90,12 +78,31 @@ Gw
                         <action selector="returnToMenu:" target="-2" id="fkA-zy-cD3"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ev-rI-Tit">
+                    <rect key="frame" x="375" y="13" width="123" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="Uninstall All..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dhr-aR-lXm">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="executeUninstallAll:" target="-2" id="LkR-GH-beH"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NIW-lw-hbd">
+                    <rect key="frame" x="595" y="16" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pvn-QG-G1y">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QP3-e9-uCB">
-                    <rect key="frame" x="18" y="63" width="602" height="144"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="18" y="62" width="602" height="162"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="cEu-zQ-6oA">
                         <font key="font" metaFont="system"/>
-                        <string key="title">If booting fails after uninstallation: • Boot into Single User Mode (⌘ + S on boot). • Mount your primary disk using the following command: mount -uw / • Run eGPU Setup Recovery Tool with the following command: egpu-setup-recovery • Follow the instructions as in the tool. • Your system will reboot once recovery is complete.  If you uninstall all components, you cannot use the eGPU Setup Recovery Tool.</string>
+                        <mutableString key="title">If booting fails after uninstallation:      • Boot into Single User Mode (⌘ + S on boot).      • Mount your primary disk using the following command: mount -uw /      • Run eGPU Setup Recovery Tool with the following command: egpu-setup-recovery      • Follow the instructions as in the tool.      • Your system will reboot once recovery is complete.  If you uninstall all components, you cannot use the eGPU Setup Recovery Tool.</mutableString>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

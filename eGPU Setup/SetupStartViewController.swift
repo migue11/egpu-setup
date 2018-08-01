@@ -14,9 +14,6 @@ class SetupStartViewController: NSViewController {
     /// Creates a reference to the generic help view.
     private let helpViewController = HelpViewController()
     
-    /// Shows application version.
-    @IBOutlet weak var versionLabel: NSTextField!
-    
     /// Singleton instance of view controller.
     private static var setupStartViewController: SetupStartViewController! = nil
     
@@ -24,6 +21,9 @@ class SetupStartViewController: NSViewController {
     lazy var setupPageController = {
         NSApplication.shared.windows[0].contentViewController as! SetupPageController
     }
+    
+    /// Shows application version.
+    @IBOutlet weak var versionLabel: NSTextField!
     
     /// Shows current system configuration.
     @IBOutlet weak var systemDataView: NSView!
@@ -39,6 +39,12 @@ class SetupStartViewController: NSViewController {
     
     /// Mac model label.
     @IBOutlet weak var macModelLabel: NSTextField!
+    
+    /// eGPU patches label.
+    @IBOutlet weak var eGPUPatchesLabel: NSTextField!
+    
+    /// Mac thunderbolt version label.
+    @IBOutlet weak var thunderboltVersionLabel: NSTextField!
     
     /// Provides additional information about system status.
     @IBOutlet weak var systemStatusInfoLabel: NSTextField!
@@ -96,15 +102,19 @@ class SetupStartViewController: NSViewController {
                 }
                 self.detectInfoLabel.isHidden = true
                 self.macModelLabel.stringValue = SystemConfig.model
+                self.thunderboltVersionLabel.stringValue = SystemConfig.thunderboltType
                 self.macOSLabel.stringValue = "\(SystemConfig.osVersion) (\(SystemConfig.osBuild))"
                 self.currentSIPLabel.stringValue = SystemConfig.currentSIP
-                self.gpusLabel.stringValue = String(SystemConfig.gpus)
+                self.gpusLabel.stringValue = SystemConfig.gpus == 2 ? "Dual" : "Single"
+                self.eGPUPatchesLabel.stringValue = SystemConfig.eGPUPatched
                 self.systemDataView.isHidden = false
-                if SystemConfig.currentSIP == "Enabled" {
+                let sipState = SystemConfig.currentSIP == "Enabled"
+                let eGPUPatchedState = SystemConfig.eGPUPatched != "None"
+                if sipState || eGPUPatchedState {
                     self.systemStatusIndicator.image = NSImage(named: NSImage.Name("Error"))
                     self.nextButton.title = "Retry"
                     self.currentSIPLabel.textColor = NSColor.systemOrange
-                    self.systemStatusInfoLabel.stringValue = "SIP must be disabled."
+                    self.systemStatusInfoLabel.stringValue = eGPUPatchedState ? "eGPU patches already present." : "SIP must be disabled."
                 }
                 self.nextButton.isEnabled = true
             }
@@ -124,16 +134,16 @@ extension SetupStartViewController {
         helpViewController.helpSubtitleLabel.stringValue = "Potential Issues & Complications"
         helpViewController.helpImageView.image = NSImage(named: "Macs")
         helpViewController.helpDescriptionLabel.stringValue = """
-        For optimal experience:
+        For an optimal experience:
         
-        • Disable System Integrity Protection:
-            - Boot into recovery (⌘ + R).
-            - Launch Utilities > Terminal.
-            - Type "csrutil disable", then reboot.
+            • Disable System Integrity Protection:
+               - Boot into recovery (⌘ + R).
+               - Launch Utilities > Terminal.
+               - Type "csrutil disable", then reboot.
         
-        • Disconnect any eGPUs that you may have plugged in.
+            • Disconnect any eGPUs.
         
-        Retry once you have ensured the above.
+        Retry after making the above changes.
         """
         helpViewController.didConfigure = true
     }
@@ -143,7 +153,7 @@ extension SetupStartViewController {
     /// - Parameter sender: The element responsible for the action.
     @IBAction func showHelp(_ sender: Any) {
         guard let button = sender as? NSButton else { return }
-        PopoverManager.showPopover(withWidth: 300, withHeight: 260, withViewController: helpViewController, withTarget: button)
+        PopoverManager.showPopover(withWidth: 300, withHeight: 310, withViewController: helpViewController, withTarget: button)
         configureHelpViewController()
     }
     
