@@ -136,6 +136,13 @@
 			name = Authorization;
 			sourceTree = "<group>";
 		};
+		A82C1F812113545F004163FE /* eGPU Preferences */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "eGPU Preferences";
+			sourceTree = "<group>";
+		};
 		A848861C210F5B9500EE6F33 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +199,7 @@
 				A8AF9F802111C7B500CA3EB4 /* Help */,
 				A86DC83B210F9CDD00E280D2 /* Pages */,
 				A86DC83A210F9CCC00E280D2 /* Start */,
+				A82C1F812113545F004163FE /* eGPU Preferences */,
 				A8E7A23B210F9D43005C576A /* eGPU Configuration */,
 				A8E7A240210F9F10005C576A /* Uninstallation */,
 				A8A6CA8D21130BDA0092A129 /* Progress */,

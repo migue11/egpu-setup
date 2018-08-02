@@ -155,9 +155,9 @@ extension SetupStartViewController {
     /// Configures the help view.
     func configureHelpViewController() {
         if helpViewController.didConfigure { return }
-        helpViewController.helpTitleLabel.stringValue = "System Configuration"
-        helpViewController.helpSubtitleLabel.stringValue = "Potential Issues & Complications"
-        helpViewController.helpDescriptionLabel.stringValue = """
+        helpViewController.helpTitle = "System Configuration"
+        helpViewController.helpSubtitle = "Potential Issues & Complications"
+        helpViewController.helpDescription = """
         For an optimal experience:
         
             • Disable System Integrity Protection:
@@ -176,9 +176,9 @@ extension SetupStartViewController {
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func showHelp(_ sender: Any) {
+        configureHelpViewController()
         guard let button = sender as? NSButton else { return }
         PopoverManager.showPopover(withWidth: 300, withHeight: 300, withViewController: helpViewController, withTarget: button)
-        configureHelpViewController()
     }
     
     /// Switches to the uninstallation page.

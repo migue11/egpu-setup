@@ -16,18 +16,26 @@ class HelpViewController: NSViewController {
     
     /// Describes the potential problems/solutions contextually.
     @IBOutlet weak var helpDescriptionLabel: NSTextField!
+    var helpDescription: String!
     
     /// Short summary of help provided.
     @IBOutlet weak var helpSubtitleLabel: NSTextField!
+    var helpSubtitle: String!
     
     /// Help topic label.
     @IBOutlet weak var helpTitleLabel: NSTextField!
+    var helpTitle: String!
+    
+    override func viewDidLoad() {
+        helpDescriptionLabel.stringValue = helpDescription
+        helpSubtitleLabel.stringValue = helpSubtitle
+        helpTitleLabel.stringValue = helpTitle
+    }
     
     /// Shows macOS troublehsooting guide in Safari.
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func showTroubleShootingGuide(_ sender: Any) {
-        
         NSWorkspace.shared.open(troubleshootingURL)
     }
     

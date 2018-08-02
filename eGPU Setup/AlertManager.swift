@@ -11,6 +11,11 @@ import Cocoa
 /// Defines convenience functions for alert management.
 class AlertManager {
     
+    /// Root application window.
+    static var rootWindow = {
+        return NSApplication.shared.windows[0]
+    }
+    
     /// Shows an alert on the currently displayed window.
     ///
     /// - Parameters:
@@ -29,6 +34,12 @@ class AlertManager {
             alert.addButton(withTitle: secondButton!)
         }
         return alert
+    }
+    
+    /// Shows authentication issue alert.
+    static func showAuthProblemAlert() {
+        let alert = generateAlert(withMessage: "Authorization Required", withInfo: "Please enter your password when prompted. Superuser privileges are necessary for the application to perform its tasks.", withStyle: .critical, withFirstButton: "OK")
+        alert.beginSheetModal(for: rootWindow(), completionHandler: nil)
     }
     
 }

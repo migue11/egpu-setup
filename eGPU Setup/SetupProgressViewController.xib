@@ -8,11 +8,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SetupProgressViewController" customModule="eGPU_Setup" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="ywc-8s-ndu" id="ZeO-hP-Rc3"/>
                 <outlet property="helpButton" destination="Adn-eY-TnI" id="ZXV-2K-vZS"/>
                 <outlet property="progressIndicator" destination="2to-6k-2mR" id="y2n-qh-ba2"/>
                 <outlet property="progressTaskImageView" destination="8gd-pD-T9d" id="lpX-bg-xQL"/>
                 <outlet property="progressTaskLabel" destination="7Qd-A1-Ogl" id="No0-qC-nYs"/>
+                <outlet property="restartLaterButton" destination="ywc-8s-ndu" id="rFy-ir-5sM"/>
                 <outlet property="taskCompleteActionButton" destination="Tyn-kx-2eW" id="K7I-oL-Tru"/>
                 <outlet property="taskCompleteStatusImageView" destination="Kcd-uM-ihK" id="oxX-bv-xRP"/>
                 <outlet property="taskInformationLabel" destination="ZpU-eL-iuG" id="5V0-zK-JMl"/>
@@ -52,25 +52,6 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kcd-uM-ihK">
-                    <rect key="frame" x="305" y="87" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Tick" id="2Lh-Zm-Sw6"/>
-                </imageView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ywc-8s-ndu">
-                    <rect key="frame" x="20" y="13" width="70" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xaW-cp-Scq">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                        <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                    </buttonCell>
-                    <connections>
-                        <action selector="backToUninstall:" target="-2" id="APv-ef-rKI"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adn-eY-TnI">
                     <rect key="frame" x="597" y="16" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -78,11 +59,19 @@ Gw
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="showHelp:" target="-2" id="Tul-Xt-A1T"/>
+                    </connections>
                 </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kcd-uM-ihK">
+                    <rect key="frame" x="310" y="93" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Tick" id="2Lh-Zm-Sw6"/>
+                </imageView>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tyn-kx-2eW">
-                    <rect key="frame" x="509" y="13" width="84" height="32"/>
+                    <rect key="frame" x="322" y="13" width="115" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Restart" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="5Zv-k2-3bi">
+                    <buttonCell key="cell" type="push" title="Restart Now" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="5Zv-k2-3bi">
                         <behavior key="behavior" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                         <string key="keyEquivalent" base64-UTF8="YES">
@@ -91,6 +80,20 @@ DQ
                     </buttonCell>
                     <connections>
                         <action selector="completeProgress:" target="-2" id="0Zy-Ka-iKS"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ywc-8s-ndu">
+                    <rect key="frame" x="203" y="13" width="119" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="push" title="Restart Later" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xaW-cp-Scq">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                    </buttonCell>
+                    <connections>
+                        <action selector="backToMenu:" target="-2" id="vk4-ud-g3a"/>
                     </connections>
                 </button>
             </subviews>

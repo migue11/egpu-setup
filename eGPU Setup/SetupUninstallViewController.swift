@@ -27,8 +27,14 @@ class SetupUninstallViewController: NSViewController {
         self.rootWindow().contentViewController as! SetupPageController
     }
     
+    /// Reference to progress view controller.
+    private let progressViewController = SetupProgressViewController.instance()
+    
     /// Reference to the generic help view.
     private let helpViewController = HelpViewController()
+    
+    /// Reference to the generic help view for progress view.
+    let progressHelpViewController = HelpViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,22 +48,52 @@ class SetupUninstallViewController: NSViewController {
 // MARK: - User actions.
 extension SetupUninstallViewController {
     
-    func showAuthProblemAlert() {
-        let alert = AlertManager.generateAlert(withMessage: "Authorization Required", withInfo: "Please enter your password when prompted. Superuser privileges are necessary for the application to perform its tasks.", withStyle: .critical, withFirstButton: "OK")
-        alert.beginSheetModal(for: rootWindow(), completionHandler: nil)
+    /// Prepare uninstallation procedure.
+    func prepareUninstall(allComponents doAll: Bool = false) {
+        configureProgressHelpViewController()
+        progressViewController.progressTaskInformationLabelValue = "Validating system..."
+        progressViewController.progressTaskLabelValue = !doAll ? "Uninstalling" : "Uninstalling All Components"
+        progressViewController.progressTaskImage = NSImage(named: "Uninstall")
+    }
+    
+    /// Perform uninstall procedure.
+    func performUninstall(allComponents doAll: Bool = false) {
+        // Perform uninstallation
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.progressViewController.progressTaskInformationLabelValue = "System clean. Restart now to apply changes."
+            self.progressViewController.progressTaskLabelValue = "Uninstallation Complete"
+            self.progressViewController.taskCompleteStatusImageView.image = NSImage(named: "Tick")
+            self.progressViewController.endProgress()
+        }
+    }
+    
+    /// Configures the progress help view.
+    func configureProgressHelpViewController() {
+        if progressHelpViewController.didConfigure { return }
+        progressHelpViewController.helpTitle = "Uninstallation"
+        progressHelpViewController.helpSubtitle = "Under The Hood"
+        progressHelpViewController.helpDescription = """
+        With "Uninstall", eGPU Setup performs the following tasks:
+        - Undo any system patches.
+        - Removes NVIDIA Web Drivers if present.
+        - Repairs kernel extension permissions.
+        - Rebuilds kernel cache.
+        
+        "Uninstall All..." also performs the above duties, plus:
+        - Removes eGPU Setup Recovery Tool.
+        - Removes any littered system file backups.
+        """
+        progressHelpViewController.didConfigure = true
+        progressViewController.helpViewController = progressHelpViewController
     }
     
     /// Starts the uninstallation procedure.
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func executeUninstall(_ sender: Any) {
-        let status = Authorization.requestSuperUser()
-        if status == 0 {
-            prepareUninstall()
-            setupPageController().transition(toPage: Page.progress, withCompletionTask: performUninstall)
-        }
-        else {
-            showAuthProblemAlert()
+        prepareUninstall()
+        setupPageController().transition(toPage: Page.progress) {
+            self.performUninstall()
         }
     }
     
@@ -69,43 +105,20 @@ extension SetupUninstallViewController {
         alert.beginSheetModal(for: rootWindow()) { response in
             if response != .alertFirstButtonReturn {
                 DispatchQueue.main.async {
-                    let status = Authorization.requestSuperUser()
-                    if status == 0 {
-                        self.setupPageController().transition(toPage: Page.progress)
-                    }
-                    else {
-                        self.showAuthProblemAlert()
+                    self.prepareUninstall(allComponents: true)
+                    self.setupPageController().transition(toPage: Page.progress) {
+                        self.performUninstall(allComponents: true)
                     }
                 }
             }
         }
     }
     
-    /// Prepare uninstallation procedure.
-    func prepareUninstall() {
-        let progressViewController = SetupProgressViewController.instance()
-        progressViewController.progressTaskInformationLabelValue = "Validating system..."
-        progressViewController.progressTaskLabelValue = "Uninstalling"
-        progressViewController.progressTaskImage = NSImage(named: "Uninstall")
-    }
-    
-    /// Perform uninstall procedure.
-    func performUninstall() {
-        let progressViewController = SetupProgressViewController.instance()
-        // Perform uninstallation
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            progressViewController.progressTaskInformationLabelValue = "System clean. Restart now to apply changes."
-            progressViewController.progressTaskLabelValue = "Uninstallation Complete"
-            progressViewController.taskCompleteStatusImageView.image = NSImage(named: "Tick")
-            progressViewController.endProgress()
-        }
-    }
-    
     /// Configures the help view.
     func configureHelpViewController() {
-        helpViewController.helpTitleLabel.stringValue = "Uninstallation Tips"
-        helpViewController.helpSubtitleLabel.stringValue = "Making The Right Choice"
-        helpViewController.helpDescriptionLabel.stringValue = """
+        helpViewController.helpTitle = "Uninstallation Tips"
+        helpViewController.helpSubtitle = "Making The Right Choice"
+        helpViewController.helpDescription = """
         It is recommended that you use the default "Uninstall" option, and not "Uninstall All...". The former option allows system recovery in case it was unable to reboot after installation.
 
         Use "Uninstall All..." at your own risk. It will remove every safeguard mechanism that was previously installed on the system. As such, having a time machine backup is essential.
@@ -116,17 +129,15 @@ extension SetupUninstallViewController {
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func showHelp(_ sender: Any) {
+        configureHelpViewController()
         guard let button = sender as? NSButton else { return }
         PopoverManager.showPopover(withWidth: 300, withHeight: 320, withViewController: helpViewController, withTarget: button)
-        configureHelpViewController()
     }
     
     /// Returns to the previous menu.
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func returnToMenu(_ sender: Any) {
-        let startPage = SetupStartViewController.instance()
-        startPage.configUpdated = false
         setupPageController().transition(toPage: Page.start)
     }
     

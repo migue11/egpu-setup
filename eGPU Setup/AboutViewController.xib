@@ -20,21 +20,21 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cow-B0-JYc">
-                    <rect key="frame" x="350" y="255" width="130" height="130"/>
+                    <rect key="frame" x="312" y="225" width="168" height="168"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Welcome" id="9b3-0m-Xmd"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6R2-Fv-f7w">
-                    <rect key="frame" x="187" y="234" width="76" height="17"/>
+                    <rect key="frame" x="186" y="234" width="77" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="AMD eGPUs" id="cBh-h2-ObB">
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Thunderbolt" id="cBh-h2-ObB">
                         <font key="font" metaFont="systemSemibold" size="12"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="106" translatesAutoresizingMaskIntoConstraints="NO" id="kiU-r5-nC1">
-                    <rect key="frame" x="187" y="211" width="104" height="20"/>
+                    <rect key="frame" x="186" y="211" width="104" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Mayank Kumar" id="6oZ-F1-qyo">
                         <font key="font" metaFont="systemLight" size="15"/>
@@ -43,7 +43,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-fk-vuq">
-                    <rect key="frame" x="189" y="198" width="74" height="13"/>
+                    <rect key="frame" x="188" y="198" width="74" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="inline" title="@mac_editor" bezelStyle="inline" alignment="left" controlSize="mini" state="on" inset="2" id="Ipl-Kc-HIP">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -54,7 +54,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="106" translatesAutoresizingMaskIntoConstraints="NO" id="a6u-Vu-fGn">
-                    <rect key="frame" x="187" y="146" width="61" height="20"/>
+                    <rect key="frame" x="186" y="146" width="61" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Goalque" id="rQZ-Hd-KAa">
                         <font key="font" metaFont="systemLight" size="15"/>
@@ -63,7 +63,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9V-ZQ-Igg">
-                    <rect key="frame" x="189" y="133" width="60" height="13"/>
+                    <rect key="frame" x="188" y="133" width="60" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="inline" title="@goalque" bezelStyle="inline" alignment="left" controlSize="mini" inset="2" id="GkP-Dn-5q2">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -74,7 +74,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l6r-tl-vhd">
-                    <rect key="frame" x="187" y="105" width="129" height="17"/>
+                    <rect key="frame" x="186" y="105" width="129" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="NVIDIA dGPU Bypass" id="JCg-97-wSz">
                         <font key="font" metaFont="systemSemibold" size="12"/>
@@ -83,7 +83,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="106" translatesAutoresizingMaskIntoConstraints="NO" id="SKJ-bH-wTi">
-                    <rect key="frame" x="187" y="83" width="104" height="20"/>
+                    <rect key="frame" x="186" y="83" width="104" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Mayank Kumar" id="sg7-q4-Pw0">
                         <font key="font" metaFont="systemLight" size="15"/>
@@ -92,7 +92,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06B-Fb-ojY">
-                    <rect key="frame" x="189" y="71" width="74" height="13"/>
+                    <rect key="frame" x="188" y="71" width="74" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="inline" title="@mac_editor" bezelStyle="inline" alignment="left" controlSize="mini" state="on" inset="2" id="uHT-MV-iy3">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -103,9 +103,38 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CXX-wd-u0f">
-                    <rect key="frame" x="187" y="166" width="90" height="17"/>
+                    <rect key="frame" x="186" y="166" width="90" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="NVIDIA eGPUs" id="gIh-Yz-DC6">
+                        <font key="font" metaFont="systemSemibold" size="12"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="106" translatesAutoresizingMaskIntoConstraints="NO" id="5mG-bi-azC">
+                    <rect key="frame" x="347" y="188" width="61" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Goalque" id="ZbY-mE-57Y">
+                        <font key="font" metaFont="systemLight" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gk-B7-pwu">
+                    <rect key="frame" x="349" y="175" width="60" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="inline" title="@goalque" bezelStyle="inline" alignment="left" controlSize="mini" inset="2" id="o08-pr-EV9">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemSemibold" size="9"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="openLinkTo:" target="-2" id="24h-NE-Fzw"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g8j-ZT-bOt">
+                    <rect key="frame" x="347" y="208" width="121" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Legacy AMD eGPUs" id="nhb-mC-nO7">
                         <font key="font" metaFont="systemSemibold" size="12"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -157,7 +186,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySl-py-RXZ">
-                    <rect key="frame" x="187" y="259" width="73" height="22"/>
+                    <rect key="frame" x="186" y="259" width="73" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Patches" id="DRo-MB-9wf">
                         <font key="font" metaFont="systemSemibold" size="18"/>
@@ -187,8 +216,17 @@
                         <action selector="openLinkTo:" target="-2" id="ftx-zC-edW"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rot-US-Cy3">
+                    <rect key="frame" x="19" y="109" width="94" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Chris Gordon" id="TeB-77-LbZ">
+                        <font key="font" metaFont="systemLight" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-ma-a19">
-                    <rect key="frame" x="18" y="174" width="118" height="22"/>
+                    <rect key="frame" x="18" y="181" width="118" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Image Assets" id="4fV-Yt-ma6">
                         <font key="font" metaFont="systemSemibold" size="18"/>
@@ -197,48 +235,10 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="106" translatesAutoresizingMaskIntoConstraints="NO" id="Xu1-fN-GhH">
-                    <rect key="frame" x="19" y="146" width="104" height="20"/>
+                    <rect key="frame" x="19" y="153" width="104" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Mayank Kumar" id="omu-qG-wcF">
                         <font key="font" metaFont="systemLight" size="15"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VY2-PH-1GP">
-                    <rect key="frame" x="350" y="181" width="127" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Swipt - Shell in Swift" id="5Qm-Ut-4Zm">
-                        <font key="font" metaFont="systemSemibold" size="12"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="106" translatesAutoresizingMaskIntoConstraints="NO" id="TjN-wf-NJa">
-                    <rect key="frame" x="350" y="159" width="104" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Mayank Kumar" id="G1G-Sh-Kwl">
-                        <font key="font" metaFont="systemLight" size="15"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUI-iy-9N2">
-                    <rect key="frame" x="352" y="147" width="74" height="13"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="inline" title="@mac_editor" bezelStyle="inline" alignment="left" controlSize="mini" state="on" imageScaling="proportionallyDown" inset="2" id="GP7-qs-Pcj">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="systemSemibold" size="9"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="openLinkTo:" target="-2" id="NQd-5W-Yqj"/>
-                    </connections>
-                </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8nh-Al-vxm">
-                    <rect key="frame" x="350" y="206" width="108" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Frameworks" id="Iq6-le-Loz">
-                        <font key="font" metaFont="systemSemibold" size="18"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -255,7 +255,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cHJ-Sn-AHu">
-                    <rect key="frame" x="20" y="134" width="74" height="13"/>
+                    <rect key="frame" x="20" y="141" width="74" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="inline" title="@mac_editor" bezelStyle="inline" alignment="left" controlSize="mini" state="on" inset="2" id="cic-na-zjB">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -265,17 +265,8 @@
                         <action selector="openLinkTo:" target="-2" id="GvL-UT-yeF"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rot-US-Cy3">
-                    <rect key="frame" x="19" y="102" width="94" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Chris Gordon" id="TeB-77-LbZ">
-                        <font key="font" metaFont="systemLight" size="15"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ka-j5-acY">
-                    <rect key="frame" x="20" y="90" width="92" height="13"/>
+                    <rect key="frame" x="20" y="97" width="92" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="inline" title="@eightarmedpet" bezelStyle="inline" alignment="left" controlSize="mini" state="on" inset="2" id="Zy5-kQ-I70">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -285,6 +276,44 @@
                         <action selector="openLinkTo:" target="-2" id="3Wd-uX-rfZ"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VY2-PH-1GP">
+                    <rect key="frame" x="347" y="114" width="127" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Swipt - Shell in Swift" id="5Qm-Ut-4Zm">
+                        <font key="font" metaFont="systemSemibold" size="12"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="106" translatesAutoresizingMaskIntoConstraints="NO" id="TjN-wf-NJa">
+                    <rect key="frame" x="347" y="92" width="104" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Mayank Kumar" id="G1G-Sh-Kwl">
+                        <font key="font" metaFont="systemLight" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUI-iy-9N2">
+                    <rect key="frame" x="349" y="80" width="74" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="inline" title="@mac_editor" bezelStyle="inline" alignment="left" controlSize="mini" state="on" imageScaling="proportionallyDown" inset="2" id="GP7-qs-Pcj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemSemibold" size="9"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="openLinkTo:" target="-2" id="NQd-5W-Yqj"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8nh-Al-vxm">
+                    <rect key="frame" x="347" y="139" width="108" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Frameworks" id="Iq6-le-Loz">
+                        <font key="font" metaFont="systemSemibold" size="18"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
         </customView>
     </objects>

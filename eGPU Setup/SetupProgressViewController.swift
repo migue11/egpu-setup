@@ -17,8 +17,11 @@ class SetupProgressViewController: NSViewController {
     /// Help button.
     @IBOutlet weak var helpButton: NSButton!
     
+    /// Help view controller.
+    weak var helpViewController: HelpViewController!
+    
     /// Back button.
-    @IBOutlet weak var backButton: NSButton!
+    @IBOutlet weak var restartLaterButton: NSButton!
     
     /// Image view for task completion status.
     @IBOutlet weak var taskCompleteStatusImageView: NSImageView!
@@ -45,7 +48,7 @@ class SetupProgressViewController: NSViewController {
     lazy var rootWindow = {
         return NSApplication.shared.windows[0]
     }
-    
+
     /// Root page view controller.
     lazy var setupPageController = {
         self.rootWindow().contentViewController as! SetupPageController
@@ -78,8 +81,8 @@ class SetupProgressViewController: NSViewController {
     
     /// Begins progress as indeterminate by default.
     func beginProgress() {
-        backButton.isEnabled = false
-        taskCompleteActionButton.isEnabled = false
+        restartLaterButton.isHidden = true
+        taskCompleteActionButton.isHidden = true
         progressIndicator.isIndeterminate = true
         progressIndicator.startAnimation(nil)
     }
@@ -108,7 +111,7 @@ class SetupProgressViewController: NSViewController {
     /// End progress.
     func endProgress() {
         updateViews()
-        backButton.isEnabled = true
+        restartLaterButton.isHidden = false
         taskCompleteStatusImageView.isHidden = false
         progressIndicator.stopAnimation(nil)
         taskCompleteActionButton.isEnabled = true
@@ -133,19 +136,28 @@ class SetupProgressViewController: NSViewController {
 // MARK: - User Interaction
 extension SetupProgressViewController {
     
+    /// Shows help regarding uninstallation.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func showHelp(_ sender: Any) {
+        guard let button = sender as? NSButton else { return }
+        PopoverManager.showPopover(withWidth: 300, withHeight: 320, withViewController: helpViewController, withTarget: button)
+    }
+    
     /// Action to take once progress is complete.
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func completeProgress(_ sender: Any) {
-        setupPageController().transition(toPage: Page.start)
-        restoreWindowConfiguration()
+        Swipt.instance().execute(appleScriptText: "tell application \"Finder\" to restart")
     }
     
-    /// Return to uninstall menu.
+    /// Return to menu.
     ///
     /// - Parameter sender: The element responsible for the action.
-    @IBAction func backToUninstall(_ sender: Any) {
-        setupPageController().transition(toPage: Page.uninstall)
+    @IBAction func backToMenu(_ sender: Any) {
+        let startPage = SetupStartViewController.instance()
+        startPage.configUpdated = false
+        setupPageController().transition(toPage: Page.start)
         restoreWindowConfiguration()
     }
     
