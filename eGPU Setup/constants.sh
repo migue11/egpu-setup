@@ -19,7 +19,6 @@ tp_ext_path="/Library/Extensions/"
 tb_switch_hex="494F5468756E646572626F6C74537769746368547970653"
 patched_iog_hex="494F50434954756E6E656C6C6571"
 automate_egpu_kext="${tp_ext_path}automate-eGPU.kext"
-sys_tb_ver="${tb_switch_hex}${tb_val}"
 
 ## AppleGPUWrangler
 agc_path="${ext_path}AppleGraphicsControl.kext"

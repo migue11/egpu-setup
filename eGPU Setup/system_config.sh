@@ -46,6 +46,7 @@ check_patch() {
     fi
     agw_hex="$(hexdump -ve '1/1 "%.2X"' "${agw_bin}")"
     iog_hex="$(hexdump -ve '1/1 "%.2X"' "${iog_bin}")"
+    sys_tb_ver="${tb_switch_hex}${tb_val}"
     if [[ "${agw_hex}" =~ "${sys_tb_ver}" && "${sys_tb_ver}" != "${tb_switch_hex}"3 || -d "${automate_egpu_kext}" ]]
     then
         echo "AMD"

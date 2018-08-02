@@ -19,6 +19,7 @@ class SetupProgressViewController: NSViewController {
     
     /// Help view controller.
     weak var helpViewController: HelpViewController!
+    var helpViewHeight: Double!
     
     /// Back button.
     @IBOutlet weak var restartLaterButton: NSButton!
@@ -141,7 +142,7 @@ extension SetupProgressViewController {
     /// - Parameter sender: The element responsible for the action.
     @IBAction func showHelp(_ sender: Any) {
         guard let button = sender as? NSButton else { return }
-        PopoverManager.showPopover(withWidth: 300, withHeight: 320, withViewController: helpViewController, withTarget: button)
+        PopoverManager.showPopover(withWidth: 300, withHeight: helpViewHeight, withViewController: helpViewController, withTarget: button)
     }
     
     /// Action to take once progress is complete.

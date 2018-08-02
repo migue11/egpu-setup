@@ -97,6 +97,7 @@ class SetupStartViewController: NSViewController {
     func prepareConfigurationLoad() {
         systemStatusIndicator.image = NSImage(named: NSImage.Name("Tick"))
         currentSIPLabel.textColor = NSColor.labelColor
+        eGPUPatchesLabel.textColor = NSColor.labelColor
         systemStatusInfoLabel.stringValue = "System meets basic requirements."
         nextButton.title = "Next"
         nextButton.isEnabled = false
@@ -138,8 +139,8 @@ class SetupStartViewController: NSViewController {
                 else if SystemConfig.eGPUPatched != "None" {
                     self.systemStatusIndicator.image = NSImage(named: NSImage.Name("Error"))
                     self.nextButton.title = "Retry"
-                    self.currentSIPLabel.textColor = NSColor.systemOrange
-                    self.systemStatusInfoLabel.stringValue = "SIP must be disabled."
+                    self.eGPUPatchesLabel.textColor = NSColor.systemOrange
+                    self.systemStatusInfoLabel.stringValue = "System already patched for eGPUs."
                 }
                 self.nextButton.isEnabled = true
             }

@@ -74,7 +74,7 @@ extension SetupUninstallViewController {
         progressHelpViewController.helpSubtitle = "Under The Hood"
         progressHelpViewController.helpDescription = """
         With "Uninstall", eGPU Setup performs the following tasks:
-        - Undo any system patches.
+        - Undo's any system patches.
         - Removes NVIDIA Web Drivers if present.
         - Repairs kernel extension permissions.
         - Rebuilds kernel cache.
@@ -85,6 +85,7 @@ extension SetupUninstallViewController {
         """
         progressHelpViewController.didConfigure = true
         progressViewController.helpViewController = progressHelpViewController
+        progressViewController.helpViewHeight = 340
     }
     
     /// Starts the uninstallation procedure.
