@@ -12,13 +12,13 @@ import Cocoa
 class SetupPageController: NSPageController, NSPageControllerDelegate {
     
     /// List of pages.
-    private let pages: [String] = [Page.start, Page.uninstall, Page.uninstallProgress, Page.eGPUConfig]
+    private let pages: [String] = [Page.start, Page.uninstall, Page.progress, Page.eGPUConfig]
     
     /// Map of available pages.
     private let availablePages = [
         Page.start: SetupStartViewController.instance(),
         Page.uninstall: SetupUninstallViewController.instance(),
-        Page.uninstallProgress: SetupUninstallActivateViewController.instance(),
+        Page.progress: SetupProgressViewController.instance(),
         Page.eGPUConfig: SetupEGPUViewController.instance()
     ]
     

@@ -53,7 +53,7 @@ extension SetupUninstallViewController {
     @IBAction func executeUninstall(_ sender: Any) {
         let status = Authorization.requestSuperUser()
         if status == 0 {
-            setupPageController().transition(toPage: Page.uninstallProgress)
+            setupPageController().transition(toPage: Page.progress)
         }
         else {
             showAuthProblemAlert()
@@ -70,7 +70,7 @@ extension SetupUninstallViewController {
                 DispatchQueue.main.async {
                     let status = Authorization.requestSuperUser()
                     if status == 0 {
-                        self.setupPageController().transition(toPage: Page.uninstallProgress)
+                        self.setupPageController().transition(toPage: Page.progress)
                     }
                     else {
                         self.showAuthProblemAlert()

@@ -196,7 +196,14 @@ extension SetupStartViewController {
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func donateToDeveloper(_ sender: Any) {
-        NSWorkspace.shared.open(donationURL)
+        let alert = AlertManager.generateAlert(withMessage: "Donations", withInfo: "If you liked eGPU Setup, found it useful, and would love to contribute, please consider donating.", withStyle: .informational, withFirstButton: "Donate", withSecondButton: "Cancel")
+        alert.beginSheetModal(for: NSApplication.shared.keyWindow!) { response in
+            if response == .alertFirstButtonReturn {
+                DispatchQueue.main.async {
+                    NSWorkspace.shared.open(donationURL)
+                }
+            }
+        }
     }
     
 }

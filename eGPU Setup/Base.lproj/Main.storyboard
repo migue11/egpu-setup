@@ -104,8 +104,8 @@
         <scene sceneID="vPn-a6-rdk">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="CUA-Zi-n4p" customClass="AboutWindowController" customModule="eGPU_Setup" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="About eGPU Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="iUE-ez-7hl">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
+                    <window key="window" title="About eGPU Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titleVisibility="hidden" id="iUE-ez-7hl">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="500" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>

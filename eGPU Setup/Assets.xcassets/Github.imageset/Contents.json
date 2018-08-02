@@ -2,7 +2,27 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Gihub.pdf"
+      "filename" : "Gihub-2.pdf"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "Gihub-1.pdf",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ]
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "GihubW.pdf",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ]
     }
   ],
   "info" : {

@@ -16,8 +16,11 @@ struct Page {
     static let start = "pageS1"
     static let eGPUConfig = "pageS2"
     
-    // MARK: - Uninstallation Pages
+    // MARK: - Uninstallation Page
     
     static let uninstall = "pageU1"
-    static let uninstallProgress = "pageU2"
+    
+    // MARK: - Progress Page
+    
+    static let progress = "pageP"
 }

@@ -1,5 +1,5 @@
 //
-//  SetupUninstallActivateViewController.swift
+//  SetupProgressViewController.swift
 //  eGPU Setup
 //
 //  Created by Mayank Kumar on 7/31/18.
@@ -9,10 +9,10 @@
 import Cocoa
 
 /// Defines the uninstallation progress page.
-class SetupUninstallActivateViewController: NSViewController {
+class SetupProgressViewController: NSViewController {
 
     /// Singleton instance of view controller.
-    private static var setupUninstallActivateViewController: SetupUninstallActivateViewController! = nil
+    private static var setupProgressViewController: SetupProgressViewController! = nil
     
     /// Indeterminate progress indicator for the uninstallation process.
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
@@ -29,11 +29,11 @@ class SetupUninstallActivateViewController: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        prepareWindowForUninstall()
+        prepareWindow()
     }
     
-    /// Prepares the window for the uninstallation process.
-    func prepareWindowForUninstall() {
+    /// Prepares the window for process.
+    func prepareWindow() {
         progressIndicator.startAnimation(nil)
         WindowManager.disableTermination()
     }
@@ -47,7 +47,7 @@ class SetupUninstallActivateViewController: NSViewController {
 }
 
 // MARK: - User Interaction
-extension SetupUninstallActivateViewController {
+extension SetupProgressViewController {
     
     /// Action to take once uninstallation is complete.
     ///
@@ -60,15 +60,15 @@ extension SetupUninstallActivateViewController {
 }
 
 // MARK: - Instance generation
-extension SetupUninstallActivateViewController {
+extension SetupProgressViewController {
     
     /// Defines an instance of the view controller, iff it has not be created already.
     ///
     /// - Returns: Shared instance of the view controller.
-    static func instance() -> SetupUninstallActivateViewController {
-        guard let viewController = setupUninstallActivateViewController else {
-            setupUninstallActivateViewController = SetupUninstallActivateViewController()
-            return setupUninstallActivateViewController
+    static func instance() -> SetupProgressViewController {
+        guard let viewController = setupProgressViewController else {
+            setupProgressViewController = SetupProgressViewController()
+            return setupProgressViewController
         }
         return viewController
     }

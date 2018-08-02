@@ -14,8 +14,8 @@
 		A8207CFD211079A00070237E /* UserPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CFC211079A00070237E /* UserPrefs.swift */; };
 		A8377D752112079800B2BD78 /* constants.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8377D74211206F500B2BD78 /* constants.sh */; };
 		A8377D7721120B3B00B2BD78 /* ShellScripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8377D7621120B3B00B2BD78 /* ShellScripts.swift */; };
-		A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */; };
-		A83F998D21103C0700B12E54 /* SetupUninstallActivateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */; };
+		A83F998C21103C0700B12E54 /* SetupProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83F998A21103C0700B12E54 /* SetupProgressViewController.swift */; };
+		A83F998D21103C0700B12E54 /* SetupProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F998B21103C0700B12E54 /* SetupProgressViewController.xib */; };
 		A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8488628210F5B9500EE6F33 /* AppDelegate.swift */; };
 		A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A848862C210F5B9700EE6F33 /* Assets.xcassets */; };
 		A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A848862E210F5B9700EE6F33 /* Main.storyboard */; };
@@ -50,8 +50,8 @@
 		A8207CFC211079A00070237E /* UserPrefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrefs.swift; sourceTree = "<group>"; };
 		A8377D74211206F500B2BD78 /* constants.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = constants.sh; sourceTree = "<group>"; };
 		A8377D7621120B3B00B2BD78 /* ShellScripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellScripts.swift; sourceTree = "<group>"; };
-		A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallActivateViewController.swift; sourceTree = "<group>"; };
-		A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupUninstallActivateViewController.xib; sourceTree = "<group>"; };
+		A83F998A21103C0700B12E54 /* SetupProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProgressViewController.swift; sourceTree = "<group>"; };
+		A83F998B21103C0700B12E54 /* SetupProgressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupProgressViewController.xib; sourceTree = "<group>"; };
 		A8488625210F5B9500EE6F33 /* eGPU Setup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eGPU Setup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8488628210F5B9500EE6F33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A848862C210F5B9700EE6F33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +193,7 @@
 				A86DC83A210F9CCC00E280D2 /* Start */,
 				A8E7A23B210F9D43005C576A /* eGPU Configuration */,
 				A8E7A240210F9F10005C576A /* Uninstallation */,
+				A8A6CA8D21130BDA0092A129 /* Progress */,
 				A8207CF7211066B20070237E /* UI Management */,
 			);
 			name = "View Controllers";
@@ -241,6 +242,15 @@
 				A848862C210F5B9700EE6F33 /* Assets.xcassets */,
 			);
 			name = "Interface & Assets";
+			sourceTree = "<group>";
+		};
+		A8A6CA8D21130BDA0092A129 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				A83F998A21103C0700B12E54 /* SetupProgressViewController.swift */,
+				A83F998B21103C0700B12E54 /* SetupProgressViewController.xib */,
+			);
+			name = Progress;
 			sourceTree = "<group>";
 		};
 		A8AF9F802111C7B500CA3EB4 /* Help */ = {
@@ -294,8 +304,6 @@
 			children = (
 				A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */,
 				A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */,
-				A83F998A21103C0700B12E54 /* SetupUninstallActivateViewController.swift */,
-				A83F998B21103C0700B12E54 /* SetupUninstallActivateViewController.xib */,
 			);
 			name = Uninstallation;
 			sourceTree = "<group>";
@@ -376,7 +384,7 @@
 				A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */,
 				A8A6CA8321126FC70092A129 /* AboutViewController.xib in Resources */,
 				A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */,
-				A83F998D21103C0700B12E54 /* SetupUninstallActivateViewController.xib in Resources */,
+				A83F998D21103C0700B12E54 /* SetupProgressViewController.xib in Resources */,
 				A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */,
 				A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */,
 				A8AF9F842111C7CC00CA3EB4 /* HelpViewController.xib in Resources */,
@@ -438,7 +446,7 @@
 				A8AF9F862111CE8400CA3EB4 /* PopoverManager.swift in Sources */,
 				A8A4D4DB21108C140066E380 /* Authorization.swift in Sources */,
 				A8AF9F7F2111A36E00CA3EB4 /* Swipt.swift in Sources */,
-				A83F998C21103C0700B12E54 /* SetupUninstallActivateViewController.swift in Sources */,
+				A83F998C21103C0700B12E54 /* SetupProgressViewController.swift in Sources */,
 				A8377D7721120B3B00B2BD78 /* ShellScripts.swift in Sources */,
 				A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */,
 				A8A6CA8521127BE10092A129 /* AboutWindowController.swift in Sources */,
