@@ -216,6 +216,13 @@ extension SetupStartViewController {
         }
     }
     
+    /// Shows eGPU preference page.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func showeGPUPreferences(_ sender: Any) {
+        setupPageController().transition(toPage: Page.eGPUPrefs)
+    }
+    
 }
 
 // MARK: - Instance generation

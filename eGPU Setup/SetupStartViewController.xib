@@ -281,6 +281,9 @@ DQ
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="showeGPUPreferences:" target="-2" id="Snx-da-0tR"/>
+                    </connections>
                 </button>
             </subviews>
         </customView>

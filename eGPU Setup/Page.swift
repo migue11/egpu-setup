@@ -23,4 +23,8 @@ struct Page {
     // MARK: - Progress Page
     
     static let progress = "pageP"
+    
+    // MARK: - eGPU Preferences Page
+    
+    static let eGPUPrefs = "pageG"
 }

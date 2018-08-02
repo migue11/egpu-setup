@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A802564821139F2C006DE782 /* SetupEGPUPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A802564621139F2C006DE782 /* SetupEGPUPreferencesViewController.swift */; };
+		A802564921139F2C006DE782 /* SetupEGPUPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A802564721139F2C006DE782 /* SetupEGPUPreferencesViewController.xib */; };
 		A8207CF4211056800070237E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF3211056800070237E /* Page.swift */; };
 		A8207CF6211066AD0070237E /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF5211066AD0070237E /* WindowManager.swift */; };
 		A8207CF921106BB70070237E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8207CF821106BB70070237E /* AlertManager.swift */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		2F2F69B79780FC0CDCFB621A /* Pods_eGPU_Setup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eGPU_Setup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8633129EA64576489D12C661 /* Pods-eGPU Setup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eGPU Setup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eGPU Setup/Pods-eGPU Setup.debug.xcconfig"; sourceTree = "<group>"; };
+		A802564621139F2C006DE782 /* SetupEGPUPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEGPUPreferencesViewController.swift; sourceTree = "<group>"; };
+		A802564721139F2C006DE782 /* SetupEGPUPreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupEGPUPreferencesViewController.xib; sourceTree = "<group>"; };
 		A8207CF3211056800070237E /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		A8207CF5211066AD0070237E /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		A8207CF821106BB70070237E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 		A82C1F812113545F004163FE /* eGPU Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				A802564621139F2C006DE782 /* SetupEGPUPreferencesViewController.swift */,
+				A802564721139F2C006DE782 /* SetupEGPUPreferencesViewController.xib */,
 			);
 			name = "eGPU Preferences";
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				A83F998D21103C0700B12E54 /* SetupProgressViewController.xib in Resources */,
 				A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */,
 				A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */,
+				A802564921139F2C006DE782 /* SetupEGPUPreferencesViewController.xib in Resources */,
 				A8AF9F842111C7CC00CA3EB4 /* HelpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +453,7 @@
 				A8AF9F862111CE8400CA3EB4 /* PopoverManager.swift in Sources */,
 				A8A4D4DB21108C140066E380 /* Authorization.swift in Sources */,
 				A8AF9F7F2111A36E00CA3EB4 /* Swipt.swift in Sources */,
+				A802564821139F2C006DE782 /* SetupEGPUPreferencesViewController.swift in Sources */,
 				A83F998C21103C0700B12E54 /* SetupProgressViewController.swift in Sources */,
 				A8377D7721120B3B00B2BD78 /* ShellScripts.swift in Sources */,
 				A884C714210F7740009ECC25 /* SetupStartViewController.swift in Sources */,
