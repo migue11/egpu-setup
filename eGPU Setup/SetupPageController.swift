@@ -65,13 +65,18 @@ extension SetupPageController {
     /// Change page dynamically.
     ///
     /// - Parameter page: The page identifier to change to.
-    func transition(toPage page: String) {
+    func transition(toPage page: String, withCompletionTask runTask: (() -> Void)? = nil) {
         NSAnimationContext.runAnimationGroup({ _ in
             guard let indexOfViewController = pages.index(of: page) else {
                 return
             }
             self.animator().selectedIndex = indexOfViewController
-        }, completionHandler: { self.completeTransition() })
+        }, completionHandler: {
+            self.completeTransition()
+            if let task = runTask {
+                task()
+            }
+        })
     }
     
 }

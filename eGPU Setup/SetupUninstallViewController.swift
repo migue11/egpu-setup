@@ -53,7 +53,8 @@ extension SetupUninstallViewController {
     @IBAction func executeUninstall(_ sender: Any) {
         let status = Authorization.requestSuperUser()
         if status == 0 {
-            setupPageController().transition(toPage: Page.progress)
+            prepareUninstall()
+            setupPageController().transition(toPage: Page.progress, withCompletionTask: performUninstall)
         }
         else {
             showAuthProblemAlert()
@@ -78,6 +79,20 @@ extension SetupUninstallViewController {
                 }
             }
         }
+    }
+    
+    /// Prepare uninstallation procedure.
+    func prepareUninstall() {
+        let progressViewController = SetupProgressViewController.instance()
+        progressViewController.progressTaskInformationLabelValue = "Validating system..."
+        progressViewController.progressTaskLabelValue = "Uninstalling"
+        progressViewController.progressTaskImage = NSImage(named: "Uninstall")
+    }
+    
+    /// Perform uninstall procedure.
+    func performUninstall() {
+        let progressViewController = SetupProgressViewController.instance()
+        // Perform uninstallation
     }
     
     /// Configures the help view.

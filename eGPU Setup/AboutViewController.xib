@@ -187,15 +187,6 @@
                         <action selector="openLinkTo:" target="-2" id="ftx-zC-edW"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rot-US-Cy3">
-                    <rect key="frame" x="19" y="83" width="94" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Chris Gordon" id="TeB-77-LbZ">
-                        <font key="font" metaFont="systemLight" size="15"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kxg-ma-a19">
                     <rect key="frame" x="18" y="174" width="118" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -274,8 +265,17 @@
                         <action selector="openLinkTo:" target="-2" id="GvL-UT-yeF"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rot-US-Cy3">
+                    <rect key="frame" x="19" y="102" width="94" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Chris Gordon" id="TeB-77-LbZ">
+                        <font key="font" metaFont="systemLight" size="15"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ka-j5-acY">
-                    <rect key="frame" x="20" y="71" width="92" height="13"/>
+                    <rect key="frame" x="20" y="90" width="92" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="inline" title="@eightarmedpet" bezelStyle="inline" alignment="left" controlSize="mini" state="on" inset="2" id="Zy5-kQ-I70">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
