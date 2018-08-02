@@ -92,6 +92,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="eGPU_Setup" customModuleProvider="target">
                     <connections>
+                        <outlet property="closeWindowItem" destination="GiM-KB-hgW" id="ZTa-tt-J3l"/>
                         <outlet property="quitApp" destination="4sb-4s-VLi" id="bkI-VQ-tFA"/>
                     </connections>
                 </customObject>
@@ -106,8 +107,8 @@
                 <windowController showSeguePresentationStyle="single" id="CUA-Zi-n4p" customClass="AboutWindowController" customModule="eGPU_Setup" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="About eGPU Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titleVisibility="hidden" id="iUE-ez-7hl">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="500" height="400"/>
+                        <windowPositionMask key="initialPositionMask" topStrut="YES"/>
+                        <rect key="contentRect" x="196" y="360" width="500" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <connections>
                             <outlet property="delegate" destination="CUA-Zi-n4p" id="aIu-HR-Py0"/>

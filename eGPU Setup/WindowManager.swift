@@ -23,12 +23,14 @@ class WindowManager {
     static func disableTermination() {
         rootWindow().standardWindowButton(.closeButton)?.isEnabled = false
         appDelegate.quitApp.action = nil
+        appDelegate.closeWindowItem.action = nil
     }
     
     /// Reinstate ability to quit or terminate the application.
     static func enableTermination() {
         rootWindow().standardWindowButton(.closeButton)?.isEnabled = true
         appDelegate.quitApp.action = #selector(appDelegate.quit)
+        appDelegate.closeWindowItem.action = #selector(appDelegate.closeWindow(_:))
     }
     
 }

@@ -93,6 +93,12 @@ extension SetupUninstallViewController {
     func performUninstall() {
         let progressViewController = SetupProgressViewController.instance()
         // Perform uninstallation
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            progressViewController.progressTaskInformationLabelValue = "System clean. Restart now to apply changes."
+            progressViewController.progressTaskLabelValue = "Uninstallation Complete"
+            progressViewController.taskCompleteStatusImageView.image = NSImage(named: "Tick")
+            progressViewController.endProgress()
+        }
     }
     
     /// Configures the help view.
@@ -119,6 +125,8 @@ extension SetupUninstallViewController {
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func returnToMenu(_ sender: Any) {
+        let startPage = SetupStartViewController.instance()
+        startPage.configUpdated = false
         setupPageController().transition(toPage: Page.start)
     }
     

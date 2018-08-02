@@ -22,6 +22,9 @@ class SetupStartViewController: NSViewController {
         NSApplication.shared.windows[0].contentViewController as! SetupPageController
     }
     
+    /// Stores whether configuration was updated or not.
+    var configUpdated = false
+    
     /// Shows application version.
     @IBOutlet weak var versionLabel: NSTextField!
     
@@ -69,7 +72,14 @@ class SetupStartViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareView()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        if !configUpdated {
+            prepareView()
+            configUpdated = true
+        }
     }
     
     /// Prepare start view.

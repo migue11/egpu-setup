@@ -18,6 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// Application quit menu item reference.
     @IBOutlet weak var quitApp: NSMenuItem!
     
+    /// Application window close item reference.
+    @IBOutlet weak var closeWindowItem: NSMenuItem!
+    
     /// Computed root application window.
     private let rootWindow = {
         return NSApplication.shared.windows[0]
