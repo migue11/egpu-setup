@@ -41,6 +41,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSWorkspace.shared.open(donationURL)
     }
     
+    /// Closes the current window.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func closeWindow(_ sender: Any) {
+        NSApplication.shared.keyWindow?.close()
+    }
+    
     /// Action to quit application.
     @objc func quit() {
         NSApplication.shared.terminate(nil)

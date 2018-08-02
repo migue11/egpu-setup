@@ -19,3 +19,18 @@ let troubleshootingURL = URL(string: "https://egpu.io/forums/mac-setup/guide-tro
 
 /// More help URL.
 let moreHelpURL = URL(string: "https://egpu.io/forums/")!
+
+/// mac_editor's profile URL.
+let macEditorProfileURL = URL(string: "https://egpu.io/forums/profile/mac_editor/")!
+
+/// Eightarmedpet's profile URL.
+let eightArmedPetProfileURL = URL(string: "https://egpu.io/forums/profile/eightarmedpet/")!
+
+/// Goalque's profile URL.
+let goalqueProfileURL = URL(string: "https://egpu.io/forums/profile/goalque/")!
+
+/// mayankk2308/mac_editor's profile URL.
+let mayankk2308GithubURL = URL(string: "https://github.com/mayankk2308")!
+
+/// Project Github URL.
+let projectGithubURL = URL(string: "https://github.com/mayankk2308")!
