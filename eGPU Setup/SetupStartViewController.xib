@@ -280,6 +280,8 @@ DQ
                     <buttonCell key="cell" type="push" title="eGPU Preferences..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LQP-Eg-efV">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent">p</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
                     <connections>
                         <action selector="showeGPUPreferences:" target="-2" id="Snx-da-0tR"/>

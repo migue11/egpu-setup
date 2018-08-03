@@ -11,6 +11,21 @@ import Cocoa
 /// Defines the eGPU Preferences view controller.
 class SetupEGPUPreferencesViewController: NSViewController {
 
+    /// Reference to the unselect all button.
+    @IBOutlet weak var unselectAllButton: NSButton!
+    
+    /// Reference to the select all button.
+    @IBOutlet weak var selectAllButton: NSButton!
+    
+    /// Reference to the reset all button.
+    @IBOutlet weak var resetAllButton: NSButton!
+    
+    /// Shows progress of setting application eGPU preference.
+    @IBOutlet weak var setPreferenceProgressIndicator: NSProgressIndicator!
+    
+    /// Shows progress of application fetching.
+    @IBOutlet weak var fetchProgressIndicator: NSProgressIndicator!
+    
     /// Reference to the help button.
     @IBOutlet weak var helpButton: NSButton!
     
@@ -29,6 +44,14 @@ class SetupEGPUPreferencesViewController: NSViewController {
         if ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 {
             helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
         }
+        prepareView()
+    }
+    
+    func prepareView() {
+        fetchProgressIndicator.startAnimation(nil)
+        unselectAllButton.isEnabled = false
+        selectAllButton.isEnabled = false
+        resetAllButton.isEnabled = false
     }
     
 }
@@ -65,9 +88,10 @@ extension SetupEGPUPreferencesViewController {
     /// Shows help.
     ///
     /// - Parameter sender: The element responsible for the action.
-    @IBAction func showHelp(_ sender: NSButton) {
+    @IBAction func showHelp(_ sender: Any) {
+        guard let button = sender as? NSButton else { return }
         configureHelpViewController()
-        PopoverManager.showPopover(withWidth: 300, withHeight: 500, withViewController: helpViewController, withTarget: sender)
+        PopoverManager.showPopover(withWidth: 300, withHeight: 500, withViewController: helpViewController, withTarget: button)
     }
     
     /// Returns to the previous menu.
