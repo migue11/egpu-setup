@@ -91,14 +91,16 @@ extension SetupEGPUPreferencesViewController: NSSearchFieldDelegate {
     }
     
     override func controlTextDidChange(_ obj: Notification) {
-        searchBar.stringValue = searchBar.stringValue.replacingOccurrences(of: "\\s+", with: "", options: .regularExpression)
+        while searchBar.stringValue.hasPrefix(" ") {
+            searchBar.stringValue = String(searchBar.stringValue.dropFirst())
+        }
         if searchBar.stringValue.isEmpty {
             apps = userApplications.applications
         }
         else {
             var filteredApps = [UserApplication]()
             for app in userApplications.applications {
-                if app.name.lowercased().contains(searchBar.stringValue.lowercased()) {
+                if app.name.lowercased().contains(searchBar.stringValue.lowercased()) || app.plistName.lowercased().contains(searchBar.stringValue.lowercased()) {
                     filteredApps.append(app)
                 }
             }
