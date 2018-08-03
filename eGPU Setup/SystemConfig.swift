@@ -11,7 +11,7 @@ import Foundation
 import Swipt
 
 /// Stores mac system configuration data.
-struct SystemConfig {
+class SystemConfig {
     
     /// Mac model name.
     static var model = "-"

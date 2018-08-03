@@ -11,6 +11,9 @@ import Cocoa
 /// Defines the eGPU Preferences view controller.
 class SetupEGPUPreferencesViewController: NSViewController {
 
+    /// Reference to the primary table view.
+    @IBOutlet weak var applicationTableView: NSTableView!
+    
     /// Reference to the unselect all button.
     @IBOutlet weak var unselectAllButton: NSButton!
     
@@ -44,6 +47,7 @@ class SetupEGPUPreferencesViewController: NSViewController {
         if ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 {
             helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
         }
+        configureDelegate()
         prepareView()
     }
     
@@ -57,7 +61,30 @@ class SetupEGPUPreferencesViewController: NSViewController {
 }
 
 // MARK: - Table view management
-extension SetupEGPUPreferencesViewController: NSTableViewDelegate, NSTableViewDataSource {
+extension SetupEGPUPreferencesViewController: NSTableViewDataSource, NSTableViewDelegate {
+    
+    /// Configures the table view data source & delegate.
+    func configureDelegate() {
+    applicationTableView.dataSource = self
+    applicationTableView.delegate = self
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        if tableColumn?.title == "Application" {
+            let appCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "appCell"), owner: nil) as? UserApplicationCellView
+            // configure cell
+            return appCell
+        }
+        else {
+            let preferenceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "preferEGPU"), owner: nil) as? UserEGPUPreferenceCellView
+            // configure cell
+            return preferenceCell
+        }
+    }
 }
 
 // MARK: - User interaction

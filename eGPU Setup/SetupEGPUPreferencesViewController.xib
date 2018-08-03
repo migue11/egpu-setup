@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SetupEGPUPreferencesViewController" customModule="eGPU_Setup" customModuleProvider="target">
             <connections>
+                <outlet property="applicationTableView" destination="oOm-nD-bfz" id="fLu-Fs-KV5"/>
                 <outlet property="fetchProgressIndicator" destination="Rce-HE-vrr" id="wBJ-Hr-oGr"/>
                 <outlet property="helpButton" destination="nWB-Io-5Xu" id="Asu-Ms-N9Z"/>
                 <outlet property="resetAllButton" destination="4tC-xv-xiA" id="z2w-Sm-nDj"/>
@@ -32,14 +33,14 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <scrollView fixedFrame="YES" borderType="line" autohidesScrollers="YES" horizontalLineScroll="49" horizontalPageScroll="10" verticalLineScroll="49" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkX-GF-37p">
+                <scrollView fixedFrame="YES" borderType="line" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkX-GF-37p">
                     <rect key="frame" x="20" y="58" width="331" height="349"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="sof-S5-ayt">
                         <rect key="frame" x="1" y="1" width="329" height="347"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="47" rowSizeStyle="automatic" headerView="6iS-wb-zcN" viewBased="YES" id="oOm-nD-bfz">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" headerView="a3s-7c-pS3" viewBased="YES" id="oOm-nD-bfz">
                                 <rect key="frame" x="0.0" y="0.0" width="329" height="322"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -59,16 +60,11 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="AppCell" id="kuX-w8-5od">
+                                            <tableCellView identifier="appCell" id="kuX-w8-5od" customClass="UserApplicationCellView" customModule="eGPU_Setup" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="1" width="243" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <imageView identifier="appIcon" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EKi-yu-7LH">
-                                                        <rect key="frame" x="10" y="3" width="35" height="35"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
-                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="3UU-qx-dgn"/>
-                                                    </imageView>
-                                                    <textField identifier="appName" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8p-UA-6Wf">
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8p-UA-6Wf">
                                                         <rect key="frame" x="56" y="20" width="186" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="App Name" id="Of5-on-WM1">
@@ -77,7 +73,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <textField identifier="appPlist" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XlC-Mb-zL0">
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XlC-Mb-zL0">
                                                         <rect key="frame" x="56" y="3" width="186" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="App Plist" id="mTZ-xU-OCu">
@@ -86,10 +82,16 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
+                                                    <imageView identifier="appIcon" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EKi-yu-7LH">
+                                                        <rect key="frame" x="9" y="3" width="35" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="3UU-qx-dgn"/>
+                                                    </imageView>
                                                 </subviews>
                                                 <connections>
-                                                    <outlet property="imageView" destination="EKi-yu-7LH" id="KPa-GZ-VoO"/>
-                                                    <outlet property="textField" destination="M8p-UA-6Wf" id="Fqu-rD-bg8"/>
+                                                    <outlet property="appIconView" destination="EKi-yu-7LH" id="KPe-xJ-Gad"/>
+                                                    <outlet property="appNameLabel" destination="M8p-UA-6Wf" id="GxY-fP-qGw"/>
+                                                    <outlet property="appPlistLabel" destination="XlC-Mb-zL0" id="4ku-82-Zih"/>
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
@@ -107,7 +109,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="preferEGPU" id="Pmm-SN-fBN">
+                                            <tableCellView identifier="preferEGPU" id="Pmm-SN-fBN" customClass="UserEGPUPreferenceCellView" customModule="eGPU_Setup" customModuleProvider="target">
                                                 <rect key="frame" x="247" y="1" width="80" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -120,6 +122,9 @@
                                                         </buttonCell>
                                                     </button>
                                                 </subviews>
+                                                <connections>
+                                                    <outlet property="preferEGPUCheckBox" destination="qeA-fV-dfH" id="uFn-Aq-aep"/>
+                                                </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
@@ -132,11 +137,11 @@
                         <rect key="frame" x="-100" y="-100" width="327" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Gr5-oU-Fbn">
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Gr5-oU-Fbn">
                         <rect key="frame" x="-100" y="-100" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <tableHeaderView key="headerView" id="6iS-wb-zcN">
+                    <tableHeaderView key="headerView" id="a3s-7c-pS3">
                         <rect key="frame" x="0.0" y="0.0" width="329" height="25"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
@@ -204,11 +209,11 @@ DQ
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="GPU" id="LDf-Kt-j5q"/>
                 </imageView>
-                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Rce-HE-vrr">
+                <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Rce-HE-vrr">
                     <rect key="frame" x="169" y="217" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </progressIndicator>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g00-Dl-Tx8">
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g00-Dl-Tx8">
                     <rect key="frame" x="134" y="185" width="102" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Fetching apps..." id="rgO-qY-B7I">

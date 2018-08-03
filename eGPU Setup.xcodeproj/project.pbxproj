@@ -21,6 +21,9 @@
 		A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8488628210F5B9500EE6F33 /* AppDelegate.swift */; };
 		A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A848862C210F5B9700EE6F33 /* Assets.xcassets */; };
 		A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A848862E210F5B9700EE6F33 /* Main.storyboard */; };
+		A861A2552114959B004DFCF5 /* UserApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861A2542114959B004DFCF5 /* UserApplication.swift */; };
+		A861A25B2114973F004DFCF5 /* UserApplicationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861A25A2114973F004DFCF5 /* UserApplicationCellView.swift */; };
+		A861A25D21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861A25C21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift */; };
 		A86A312B210FA91B00E4C9BB /* SetupEGPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86A3129210FA91B00E4C9BB /* SetupEGPUViewController.swift */; };
 		A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86A312A210FA91B00E4C9BB /* SetupEGPUViewController.xib */; };
 		A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A884C710210F71F1009ECC25 /* SetupPageController.swift */; };
@@ -62,6 +65,9 @@
 		A848862F210F5B9700EE6F33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8488631210F5B9700EE6F33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8488632210F5B9700EE6F33 /* eGPU_Setup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eGPU_Setup.entitlements; sourceTree = "<group>"; };
+		A861A2542114959B004DFCF5 /* UserApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApplication.swift; sourceTree = "<group>"; };
+		A861A25A2114973F004DFCF5 /* UserApplicationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApplicationCellView.swift; sourceTree = "<group>"; };
+		A861A25C21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEGPUPreferenceCellView.swift; sourceTree = "<group>"; };
 		A86A3129210FA91B00E4C9BB /* SetupEGPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEGPUViewController.swift; sourceTree = "<group>"; };
 		A86A312A210FA91B00E4C9BB /* SetupEGPUViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupEGPUViewController.xib; sourceTree = "<group>"; };
 		A884C710210F71F1009ECC25 /* SetupPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPageController.swift; sourceTree = "<group>"; };
@@ -106,9 +112,8 @@
 		A8207CF7211066B20070237E /* UI Management */ = {
 			isa = PBXGroup;
 			children = (
-				A8207CF5211066AD0070237E /* WindowManager.swift */,
-				A8AF9F852111CE8400CA3EB4 /* PopoverManager.swift */,
-				A8207CF821106BB70070237E /* AlertManager.swift */,
+				A861A2592114970F004DFCF5 /* Views */,
+				A861A25821149701004DFCF5 /* Windows & Controllers */,
 			);
 			name = "UI Management";
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				A848863A210F5BFE00EE6F33 /* Storyboard */,
 				A8A6CA8B21127E440092A129 /* Window Controllers */,
 				A848863C210F5C1E00EE6F33 /* View Controllers */,
+				A8207CF7211066B20070237E /* UI Management */,
 				A8488639210F5BEA00EE6F33 /* Configuration */,
 			);
 			path = "eGPU Setup";
@@ -209,9 +215,53 @@
 				A8E7A23B210F9D43005C576A /* eGPU Configuration */,
 				A8E7A240210F9F10005C576A /* Uninstallation */,
 				A8A6CA8D21130BDA0092A129 /* Progress */,
-				A8207CF7211066B20070237E /* UI Management */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A861A25321149562004DFCF5 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				A861A2542114959B004DFCF5 /* UserApplication.swift */,
+			);
+			name = Applications;
+			sourceTree = "<group>";
+		};
+		A861A256211496C7004DFCF5 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				A8377D74211206F500B2BD78 /* constants.sh */,
+				A8CBE0482110C85300F69D54 /* system_config.sh */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
+		A861A257211496D0004DFCF5 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A8AF9F7E2111A36E00CA3EB4 /* Swipt.swift */,
+				A8377D7621120B3B00B2BD78 /* ShellScripts.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		A861A25821149701004DFCF5 /* Windows & Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8207CF5211066AD0070237E /* WindowManager.swift */,
+				A8AF9F852111CE8400CA3EB4 /* PopoverManager.swift */,
+				A8207CF821106BB70070237E /* AlertManager.swift */,
+			);
+			name = "Windows & Controllers";
+			sourceTree = "<group>";
+		};
+		A861A2592114970F004DFCF5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A861A25A2114973F004DFCF5 /* UserApplicationCellView.swift */,
+				A861A25C21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		A86DC83A210F9CCC00E280D2 /* Start */ = {
@@ -273,6 +323,7 @@
 			children = (
 				A8CBE0442110BD3B00F69D54 /* Shell */,
 				A8CBE04D2110C87900F69D54 /* System Configuration */,
+				A861A25321149562004DFCF5 /* Applications */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -280,9 +331,8 @@
 		A8CBE0442110BD3B00F69D54 /* Shell */ = {
 			isa = PBXGroup;
 			children = (
-				A8377D74211206F500B2BD78 /* constants.sh */,
-				A8CBE0482110C85300F69D54 /* system_config.sh */,
-				A8377D7621120B3B00B2BD78 /* ShellScripts.swift */,
+				A861A256211496C7004DFCF5 /* Scripts */,
+				A861A257211496D0004DFCF5 /* Interface */,
 			);
 			name = Shell;
 			sourceTree = "<group>";
@@ -291,7 +341,6 @@
 			isa = PBXGroup;
 			children = (
 				A8CBE04B2110C87500F69D54 /* SystemConfig.swift */,
-				A8AF9F7E2111A36E00CA3EB4 /* Swipt.swift */,
 			);
 			name = "System Configuration";
 			sourceTree = "<group>";
@@ -446,8 +495,10 @@
 			files = (
 				A8A6CA8821127D1F0092A129 /* PrimaryWindow.swift in Sources */,
 				A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */,
+				A861A25D21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift in Sources */,
 				A8207CF6211066AD0070237E /* WindowManager.swift in Sources */,
 				A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */,
+				A861A25B2114973F004DFCF5 /* UserApplicationCellView.swift in Sources */,
 				A8CBE04C2110C87500F69D54 /* SystemConfig.swift in Sources */,
 				A8AF9F832111C7CC00CA3EB4 /* HelpViewController.swift in Sources */,
 				A8AF9F862111CE8400CA3EB4 /* PopoverManager.swift in Sources */,
@@ -465,6 +516,7 @@
 				A8207CFD211079A00070237E /* UserPrefs.swift in Sources */,
 				A8488629210F5B9500EE6F33 /* AppDelegate.swift in Sources */,
 				A8207CF921106BB70070237E /* AlertManager.swift in Sources */,
+				A861A2552114959B004DFCF5 /* UserApplication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
