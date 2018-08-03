@@ -1,5 +1,5 @@
 //
-//  SetupEGPUPreferencesController.swift
+//  SetupEGPUPreferencesViewController.swift
 //  eGPU Setup
 //
 //  Created by Mayank Kumar on 8/3/18.
@@ -11,6 +11,12 @@ import Cocoa
 /// Defines the eGPU Preferences view controller.
 class SetupEGPUPreferencesViewController: NSViewController {
 
+    /// Reference to the no results label.
+    @IBOutlet weak var noResultsLabel: NSTextField!
+    
+    /// Reference to the search bar.
+    @IBOutlet weak var searchBar: NSSearchField!
+    
     /// Reference to the primary table view.
     @IBOutlet weak var applicationTableView: NSTableView!
     
@@ -22,6 +28,9 @@ class SetupEGPUPreferencesViewController: NSViewController {
     
     /// Reference to the reset all button.
     @IBOutlet weak var resetAllButton: NSButton!
+    
+    /// Reference to the fetch progress status.
+    @IBOutlet weak var fetchProgressLabel: NSTextField!
     
     /// Shows progress of setting application eGPU preference.
     @IBOutlet weak var setPreferenceProgressIndicator: NSProgressIndicator!
@@ -35,6 +44,12 @@ class SetupEGPUPreferencesViewController: NSViewController {
     /// Reference to the generic help view.
     private let helpViewController = HelpViewController()
     
+    /// Reference to user applications.
+    private let userApplications = UserApplications.instance()
+    
+    /// List of applications to display
+    private var apps = [UserApplication]()
+    
     /// Root page view controller.
     lazy var setupPageController = {
         NSApplication.shared.windows[0].contentViewController as! SetupPageController
@@ -47,43 +62,104 @@ class SetupEGPUPreferencesViewController: NSViewController {
         if ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 {
             helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
         }
-        configureDelegate()
+        noResultsLabel.isHidden = true
+        configureSearchDelegate()
+        configureTableViewDelegate()
         prepareView()
+        fetchApplications()
     }
     
-    func prepareView() {
-        fetchProgressIndicator.startAnimation(nil)
-        unselectAllButton.isEnabled = false
-        selectAllButton.isEnabled = false
-        resetAllButton.isEnabled = false
+    /// Prepares the view.
+    func prepareView(withToggle toggle: Bool = false) {
+        applicationTableView.usesAlternatingRowBackgroundColors = toggle
+        searchBar.isEnabled = toggle
+        !toggle ? fetchProgressIndicator.startAnimation(nil) : fetchProgressIndicator.stopAnimation(nil)
+        unselectAllButton.isEnabled = toggle
+        selectAllButton.isEnabled = toggle
+        resetAllButton.isEnabled = toggle
+        fetchProgressLabel.isHidden = toggle
     }
     
+}
+
+// MARK: - Search management
+extension SetupEGPUPreferencesViewController: NSSearchFieldDelegate {
+    
+    /// Configures the table view data source & delegate.
+    func configureSearchDelegate() {
+        searchBar.delegate = self
+    }
+    
+    override func controlTextDidChange(_ obj: Notification) {
+        searchBar.stringValue = searchBar.stringValue.replacingOccurrences(of: "\\s+", with: "", options: .regularExpression)
+        if searchBar.stringValue.isEmpty {
+            apps = userApplications.applications
+        }
+        else {
+            var filteredApps = [UserApplication]()
+            for app in userApplications.applications {
+                if app.name.lowercased().contains(searchBar.stringValue.lowercased()) {
+                    filteredApps.append(app)
+                }
+            }
+            apps = filteredApps
+        }
+        if apps.count > 0 {
+            applicationTableView.usesAlternatingRowBackgroundColors = true
+            noResultsLabel.isHidden = true
+        }
+        else {
+            applicationTableView.usesAlternatingRowBackgroundColors = false
+            noResultsLabel.isHidden = false
+        }
+        applicationTableView.reloadData()
+    }
+
 }
 
 // MARK: - Table view management
 extension SetupEGPUPreferencesViewController: NSTableViewDataSource, NSTableViewDelegate {
     
+    /// Fetches applications.
+    func fetchApplications() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.userApplications.fetch()
+            DispatchQueue.main.async {
+                self.apps = self.userApplications.applications
+                self.prepareView(withToggle: true)
+                self.applicationTableView.reloadData()
+            }
+        }
+    }
+    
     /// Configures the table view data source & delegate.
-    func configureDelegate() {
-    applicationTableView.dataSource = self
-    applicationTableView.delegate = self
+    func configureTableViewDelegate() {
+        applicationTableView.dataSource = self
+        applicationTableView.delegate = self
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 10
+        return apps.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if tableColumn?.title == "Application" {
             let appCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "appCell"), owner: nil) as? UserApplicationCellView
-            // configure cell
+            appCell?.appIconView.image = apps[row].icon
+            appCell?.appNameLabel.stringValue = apps[row].name
+            appCell?.appPlistLabel.stringValue = apps[row].plistName
             return appCell
         }
         else {
             let preferenceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "preferEGPU"), owner: nil) as? UserEGPUPreferenceCellView
-            // configure cell
+            preferenceCell?.preferEGPUCheckBox.state = apps[row].prefersEGPU ? .on : .off
+            preferenceCell?.application = apps[row]
             return preferenceCell
         }
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return false
     }
 }
 

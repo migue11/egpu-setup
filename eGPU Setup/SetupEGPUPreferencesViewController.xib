@@ -10,8 +10,11 @@
             <connections>
                 <outlet property="applicationTableView" destination="oOm-nD-bfz" id="fLu-Fs-KV5"/>
                 <outlet property="fetchProgressIndicator" destination="Rce-HE-vrr" id="wBJ-Hr-oGr"/>
+                <outlet property="fetchProgressLabel" destination="g00-Dl-Tx8" id="6tc-dX-mgE"/>
                 <outlet property="helpButton" destination="nWB-Io-5Xu" id="Asu-Ms-N9Z"/>
+                <outlet property="noResultsLabel" destination="i16-dx-leI" id="oQQ-t9-imH"/>
                 <outlet property="resetAllButton" destination="4tC-xv-xiA" id="z2w-Sm-nDj"/>
+                <outlet property="searchBar" destination="F5h-fl-214" id="XE5-a2-tbl"/>
                 <outlet property="selectAllButton" destination="ren-Gm-lth" id="dh6-Gd-CmS"/>
                 <outlet property="setPreferenceProgressIndicator" destination="Ldu-mR-wTZ" id="Q8S-Od-ciU"/>
                 <outlet property="unselectAllButton" destination="4xG-qQ-GR6" id="lJA-Sw-wrj"/>
@@ -33,15 +36,15 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <scrollView fixedFrame="YES" borderType="line" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkX-GF-37p">
-                    <rect key="frame" x="20" y="58" width="331" height="349"/>
+                <scrollView fixedFrame="YES" borderType="line" autohidesScrollers="YES" horizontalLineScroll="49" horizontalPageScroll="10" verticalLineScroll="49" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkX-GF-37p">
+                    <rect key="frame" x="20" y="58" width="331" height="320"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="sof-S5-ayt">
-                        <rect key="frame" x="1" y="1" width="329" height="347"/>
+                        <rect key="frame" x="1" y="1" width="329" height="318"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" headerView="a3s-7c-pS3" viewBased="YES" id="oOm-nD-bfz">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="322"/>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="47" rowSizeStyle="automatic" headerView="a3s-7c-pS3" viewBased="YES" id="oOm-nD-bfz">
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="293"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -166,9 +169,8 @@ Gw
                     <buttonCell key="cell" type="push" title="Set All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wYm-CQ-ncH">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
-                        <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
+                        <string key="keyEquivalent">s</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4xG-qQ-GR6">
@@ -209,23 +211,32 @@ DQ
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="GPU" id="LDf-Kt-j5q"/>
                 </imageView>
-                <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Rce-HE-vrr">
-                    <rect key="frame" x="169" y="217" width="32" height="32"/>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Rce-HE-vrr">
+                    <rect key="frame" x="169" y="202" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </progressIndicator>
-                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g00-Dl-Tx8">
-                    <rect key="frame" x="134" y="185" width="102" height="18"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g00-Dl-Tx8">
+                    <rect key="frame" x="134" y="175" width="106" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Fetching apps..." id="rgO-qY-B7I">
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i16-dx-leI">
+                    <rect key="frame" x="144" y="202" width="86" height="19"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="No Results" id="46e-Hc-jT8">
+                        <font key="font" metaFont="system" size="16"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4tC-xv-xiA">
-                    <rect key="frame" x="496" y="13" width="97" height="32"/>
+                    <rect key="frame" x="508" y="13" width="85" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Reset All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cba-7U-95g">
+                    <buttonCell key="cell" type="push" title="Rescan" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cba-7U-95g">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                         <string key="keyEquivalent">r</string>
@@ -236,6 +247,25 @@ DQ
                     <rect key="frame" x="165" y="23" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </progressIndicator>
+                <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-fl-214">
+                    <rect key="frame" x="20" y="386" width="331" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" alignment="left" placeholderString="Filter applications..." usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" sendsWholeSearchString="YES" id="g6w-8X-Ob8">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </searchFieldCell>
+                </searchField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SBg-9a-nRq">
+                    <rect key="frame" x="402" y="13" width="106" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Deep Scan" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BYT-Gp-HWb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent">r</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                    </buttonCell>
+                </button>
             </subviews>
         </customView>
     </objects>

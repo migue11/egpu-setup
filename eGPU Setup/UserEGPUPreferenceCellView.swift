@@ -13,4 +13,7 @@ class UserEGPUPreferenceCellView: NSTableCellView {
     
     /// Stores eGPU preference value.
     @IBOutlet weak var preferEGPUCheckBox: NSButton!
+    
+    /// Reference to the application data.
+    weak var application: UserApplication!
 }

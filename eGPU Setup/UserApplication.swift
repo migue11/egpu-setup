@@ -10,7 +10,7 @@ import Cocoa
 import Foundation
 
 /// Abstracts a user application.
-class UserApplication {
+class UserApplication: Comparable {
     
     /// Application name.
     var name: String!
@@ -27,5 +27,12 @@ class UserApplication {
     /// Application icon.
     var icon: NSImage!
     
+    static func < (lhs: UserApplication, rhs: UserApplication) -> Bool {
+        return lhs.name.lowercased() < rhs.name.lowercased()
+    }
+    
+    static func == (lhs: UserApplication, rhs: UserApplication) -> Bool {
+        return lhs.name.lowercased() == rhs.name.lowercased()
+    }
     
 }

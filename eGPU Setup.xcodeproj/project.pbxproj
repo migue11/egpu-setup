@@ -24,6 +24,7 @@
 		A861A2552114959B004DFCF5 /* UserApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861A2542114959B004DFCF5 /* UserApplication.swift */; };
 		A861A25B2114973F004DFCF5 /* UserApplicationCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861A25A2114973F004DFCF5 /* UserApplicationCellView.swift */; };
 		A861A25D21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861A25C21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift */; };
+		A861A25F2114A135004DFCF5 /* UserApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861A25E2114A135004DFCF5 /* UserApplications.swift */; };
 		A86A312B210FA91B00E4C9BB /* SetupEGPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86A3129210FA91B00E4C9BB /* SetupEGPUViewController.swift */; };
 		A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86A312A210FA91B00E4C9BB /* SetupEGPUViewController.xib */; };
 		A884C711210F71F1009ECC25 /* SetupPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A884C710210F71F1009ECC25 /* SetupPageController.swift */; };
@@ -68,6 +69,7 @@
 		A861A2542114959B004DFCF5 /* UserApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApplication.swift; sourceTree = "<group>"; };
 		A861A25A2114973F004DFCF5 /* UserApplicationCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApplicationCellView.swift; sourceTree = "<group>"; };
 		A861A25C21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEGPUPreferenceCellView.swift; sourceTree = "<group>"; };
+		A861A25E2114A135004DFCF5 /* UserApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApplications.swift; sourceTree = "<group>"; };
 		A86A3129210FA91B00E4C9BB /* SetupEGPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEGPUViewController.swift; sourceTree = "<group>"; };
 		A86A312A210FA91B00E4C9BB /* SetupEGPUViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupEGPUViewController.xib; sourceTree = "<group>"; };
 		A884C710210F71F1009ECC25 /* SetupPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPageController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				A861A2542114959B004DFCF5 /* UserApplication.swift */,
+				A861A25E2114A135004DFCF5 /* UserApplications.swift */,
 			);
 			name = Applications;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A861A25F2114A135004DFCF5 /* UserApplications.swift in Sources */,
 				A8A6CA8821127D1F0092A129 /* PrimaryWindow.swift in Sources */,
 				A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */,
 				A861A25D21149E9A004DFCF5 /* UserEGPUPreferenceCellView.swift in Sources */,
