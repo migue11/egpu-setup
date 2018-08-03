@@ -2,21 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Gihub-2.pdf"
+      "filename" : "NVIDIA.pdf"
     },
     {
       "idiom" : "universal",
-      "filename" : "Gihub-1.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ]
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "GihubW.pdf",
+      "filename" : "NVIDIAW.pdf",
       "appearances" : [
         {
           "appearance" : "luminosity",

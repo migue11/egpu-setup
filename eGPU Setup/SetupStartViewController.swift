@@ -72,6 +72,9 @@ class SetupStartViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 {
+            helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
+        }
     }
     
     override func viewWillAppear() {
@@ -87,9 +90,6 @@ class SetupStartViewController: NSViewController {
         guard let bundleDictionary = Bundle.main.infoDictionary else { return }
         guard let version = bundleDictionary["CFBundleShortVersionString"] as? String else { return }
         versionLabel.stringValue = version
-        if ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 {
-            helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
-        }
         prepareConfigurationLoad()
     }
     

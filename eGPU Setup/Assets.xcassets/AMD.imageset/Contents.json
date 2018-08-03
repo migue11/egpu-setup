@@ -2,21 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Gihub-2.pdf"
+      "filename" : "53863A_AMD_E_Blk_RGB.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "Gihub-1.pdf",
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ]
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "GihubW.pdf",
+      "filename" : "53863A_AMD_E_Wh_RGB.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
