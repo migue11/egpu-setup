@@ -11,6 +11,9 @@ import Cocoa
 /// Defines the eGPU Preferences view controller.
 class SetupEGPUPreferencesViewController: NSViewController {
     
+    /// Reference to the back button.
+    @IBOutlet weak var backButton: NSButton!
+    
     /// Reference to the overall progress label.
     @IBOutlet weak var overallProgressLabel: NSTextField!
     
@@ -78,7 +81,9 @@ class SetupEGPUPreferencesViewController: NSViewController {
     }
     
     /// Prepares the view.
-    func prepareView(withToggle toggle: Bool = false) {
+    ///
+    /// - Parameter toggle: The toggle.
+    private func prepareView(withToggle toggle: Bool = false) {
         applicationTableView.usesAlternatingRowBackgroundColors = toggle
         searchBar.isEnabled = toggle
         !toggle ? fetchProgressIndicator.startAnimation(nil) : fetchProgressIndicator.stopAnimation(nil)
@@ -95,7 +100,7 @@ class SetupEGPUPreferencesViewController: NSViewController {
 extension SetupEGPUPreferencesViewController: NSSearchFieldDelegate {
     
     /// Configures the table view data source & delegate.
-    func configureSearchDelegate() {
+    private func configureSearchDelegate() {
         searchBar.delegate = self
     }
     
@@ -115,14 +120,10 @@ extension SetupEGPUPreferencesViewController: NSSearchFieldDelegate {
             }
             apps = filteredApps
         }
-        if apps.count > 0 {
-            applicationTableView.usesAlternatingRowBackgroundColors = true
-            noResultsLabel.isHidden = true
-        }
-        else {
-            applicationTableView.usesAlternatingRowBackgroundColors = false
-            noResultsLabel.isHidden = false
-        }
+        applicationTableView.usesAlternatingRowBackgroundColors = self.apps.count > 0
+        noResultsLabel.isHidden = self.apps.count > 0
+        unselectAllButton.isEnabled = self.apps.count != 0
+        selectAllButton.isEnabled = self.apps.count != 0
         applicationTableView.reloadData()
     }
 
@@ -132,19 +133,21 @@ extension SetupEGPUPreferencesViewController: NSSearchFieldDelegate {
 extension SetupEGPUPreferencesViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     /// Fetches applications.
-    func fetchApplications(doDeepScan deepScan: Bool = false) {
+    private func fetchApplications(doDeepScan deepScan: Bool = false) {
         DispatchQueue.global(qos: .userInitiated).async {
             self.userApplications.fetch(deepScan: deepScan)
             DispatchQueue.main.async {
                 self.apps = self.userApplications.applications
                 self.prepareView(withToggle: true)
+                self.unselectAllButton.isEnabled = self.apps.count != 0
+                self.selectAllButton.isEnabled = self.apps.count != 0
                 self.applicationTableView.reloadData()
             }
         }
     }
     
     /// Configures the table view data source & delegate.
-    func configureTableViewDelegate() {
+    private func configureTableViewDelegate() {
         applicationTableView.dataSource = self
         applicationTableView.delegate = self
     }
@@ -179,7 +182,7 @@ extension SetupEGPUPreferencesViewController: NSTableViewDataSource, NSTableView
 extension SetupEGPUPreferencesViewController {
     
     /// Configures the help view.
-    func configureHelpViewController() {
+    private func configureHelpViewController() {
         if helpViewController.didConfigure { return }
         helpViewController.helpTitle = "eGPU Preferences"
         helpViewController.helpSubtitle = "Potential Complications"
@@ -216,6 +219,7 @@ extension SetupEGPUPreferencesViewController {
         setupPageController().transition(toPage: Page.start)
     }
     
+    /// Prepares for rescan.
     func prepareRescan() {
         userApplications.applications.removeAll()
         apps.removeAll()
@@ -231,7 +235,10 @@ extension SetupEGPUPreferencesViewController {
         fetchApplications(doDeepScan: sender.title == "Deep Scan")
     }
     
-    func toggleTableViewInteractiveComponents(withToggle toggle: Bool = false) {
+    /// Toggles all interactive components related to the table view.
+    ///
+    /// - Parameter toggle: The toggle.
+    private func toggleTableViewInteractiveComponents(withToggle toggle: Bool = false) {
         selectAllButton.isEnabled = toggle
         unselectAllButton.isEnabled = toggle
         rescanButton.isEnabled = toggle
@@ -241,12 +248,14 @@ extension SetupEGPUPreferencesViewController {
         applicationTableView.reloadData()
         overallProgressIndicator.isHidden = toggle
         overallProgressLabel.isHidden = toggle
+        backButton.isEnabled = toggle
     }
     
     /// Toggles application eGPU preferences.
     ///
     /// - Parameter sender: The element responsible for the action.
     @IBAction func toggleAllPreferences(_ sender: NSButton) {
+        if apps.count == 0 { return }
         WindowManager.disableTermination()
         toggleTableViewInteractiveComponents()
         let preference = sender.title == "Set All"

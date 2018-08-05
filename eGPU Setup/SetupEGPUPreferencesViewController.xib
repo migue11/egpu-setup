@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SetupEGPUPreferencesViewController" customModule="eGPU_Setup" customModuleProvider="target">
             <connections>
                 <outlet property="applicationTableView" destination="oOm-nD-bfz" id="fLu-Fs-KV5"/>
+                <outlet property="backButton" destination="1Ue-Qc-s9q" id="BTb-ij-IWO"/>
                 <outlet property="deepScanButton" destination="SBg-9a-nRq" id="UGj-wI-PsF"/>
                 <outlet property="fetchProgressIndicator" destination="Rce-HE-vrr" id="wBJ-Hr-oGr"/>
                 <outlet property="fetchProgressLabel" destination="g00-Dl-Tx8" id="6tc-dX-mgE"/>
