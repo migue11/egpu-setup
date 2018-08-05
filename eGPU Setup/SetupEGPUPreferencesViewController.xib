@@ -9,14 +9,16 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SetupEGPUPreferencesViewController" customModule="eGPU_Setup" customModuleProvider="target">
             <connections>
                 <outlet property="applicationTableView" destination="oOm-nD-bfz" id="fLu-Fs-KV5"/>
+                <outlet property="deepScanButton" destination="SBg-9a-nRq" id="UGj-wI-PsF"/>
                 <outlet property="fetchProgressIndicator" destination="Rce-HE-vrr" id="wBJ-Hr-oGr"/>
                 <outlet property="fetchProgressLabel" destination="g00-Dl-Tx8" id="6tc-dX-mgE"/>
                 <outlet property="helpButton" destination="nWB-Io-5Xu" id="Asu-Ms-N9Z"/>
                 <outlet property="noResultsLabel" destination="i16-dx-leI" id="oQQ-t9-imH"/>
-                <outlet property="resetAllButton" destination="4tC-xv-xiA" id="z2w-Sm-nDj"/>
+                <outlet property="overallProgressIndicator" destination="NQH-5b-UXY" id="fYF-77-X0C"/>
+                <outlet property="overallProgressLabel" destination="d1g-vC-cdf" id="3Bn-e9-psd"/>
+                <outlet property="rescanButton" destination="4tC-xv-xiA" id="zR1-Hi-gi1"/>
                 <outlet property="searchBar" destination="F5h-fl-214" id="XE5-a2-tbl"/>
                 <outlet property="selectAllButton" destination="ren-Gm-lth" id="dh6-Gd-CmS"/>
-                <outlet property="setPreferenceProgressIndicator" destination="Ldu-mR-wTZ" id="Q8S-Od-ciU"/>
                 <outlet property="unselectAllButton" destination="4xG-qQ-GR6" id="lJA-Sw-wrj"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -38,7 +40,7 @@
                 </textField>
                 <scrollView fixedFrame="YES" borderType="line" autohidesScrollers="YES" horizontalLineScroll="49" horizontalPageScroll="10" verticalLineScroll="49" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkX-GF-37p">
                     <rect key="frame" x="20" y="58" width="331" height="320"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                     <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="sof-S5-ayt">
                         <rect key="frame" x="1" y="1" width="329" height="318"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,16 +119,34 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qeA-fV-dfH">
-                                                        <rect key="frame" x="30" y="15" width="22" height="18"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <rect key="frame" x="29" y="13" width="22" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="pf2-h3-0dt">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="setEGPUPreference:" target="Pmm-SN-fBN" id="vay-d1-DGc"/>
+                                                        </connections>
                                                     </button>
+                                                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isc-m4-eGx">
+                                                        <rect key="frame" x="8" y="3" width="64" height="9"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" alignment="center" title="Unable to change." id="6Rv-2O-uXC">
+                                                            <font key="font" metaFont="system" size="6"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="lcv-ze-M9d">
+                                                        <rect key="frame" x="10" y="15" width="16" height="16"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    </progressIndicator>
                                                 </subviews>
                                                 <connections>
+                                                    <outlet property="couldNotSetLabel" destination="isc-m4-eGx" id="yuG-5G-XXP"/>
                                                     <outlet property="preferEGPUCheckBox" destination="qeA-fV-dfH" id="uFn-Aq-aep"/>
+                                                    <outlet property="preferenceProgressIndicator" destination="lcv-ze-M9d" id="1lM-9i-XCK"/>
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
@@ -172,6 +192,9 @@ Gw
                         <string key="keyEquivalent">s</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="toggleAllPreferences:" target="-2" id="f27-kz-zhd"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4xG-qQ-GR6">
                     <rect key="frame" x="183" y="13" width="95" height="32"/>
@@ -182,6 +205,9 @@ Gw
                         <string key="keyEquivalent">z</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="toggleAllPreferences:" target="-2" id="CTb-o8-qiU"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nWB-Io-5Xu">
                     <rect key="frame" x="597" y="16" width="25" height="25"/>
@@ -242,11 +268,10 @@ Gw
                         <string key="keyEquivalent">r</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="rescanApps:" target="-2" id="B3q-Hf-vEp"/>
+                    </connections>
                 </button>
-                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Ldu-mR-wTZ">
-                    <rect key="frame" x="165" y="23" width="16" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </progressIndicator>
                 <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5h-fl-214">
                     <rect key="frame" x="20" y="386" width="331" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -265,7 +290,23 @@ Gw
                         <string key="keyEquivalent">r</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="rescanApps:" target="-2" id="1ah-RA-Dl2"/>
+                    </connections>
                 </button>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" doubleValue="50" displayedWhenStopped="NO" bezeled="NO" controlSize="small" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="NQH-5b-UXY">
+                    <rect key="frame" x="115" y="29" width="67" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </progressIndicator>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d1g-vC-cdf">
+                    <rect key="frame" x="113" y="18" width="71" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Unsetting..." id="UzN-1P-kKi">
+                        <font key="font" metaFont="system" size="7"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
         </customView>
     </objects>

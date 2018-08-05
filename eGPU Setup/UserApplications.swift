@@ -50,6 +50,7 @@ extension UserApplications {
                         }
                         userApplication.plistName = output
                     }
+                    userApplication.checkEGPUPreference()
                     applications.append(userApplication)
                 }
                 else if FileManager.default.fileExists(atPath: file.path, isDirectory: nil) {

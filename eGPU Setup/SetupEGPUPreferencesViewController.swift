@@ -10,7 +10,13 @@ import Cocoa
 
 /// Defines the eGPU Preferences view controller.
 class SetupEGPUPreferencesViewController: NSViewController {
-
+    
+    /// Reference to the overall progress label.
+    @IBOutlet weak var overallProgressLabel: NSTextField!
+    
+    /// Reference to the overall progress indicator.
+    @IBOutlet weak var overallProgressIndicator: NSProgressIndicator!
+    
     /// Reference to the no results label.
     @IBOutlet weak var noResultsLabel: NSTextField!
     
@@ -27,13 +33,13 @@ class SetupEGPUPreferencesViewController: NSViewController {
     @IBOutlet weak var selectAllButton: NSButton!
     
     /// Reference to the reset all button.
-    @IBOutlet weak var resetAllButton: NSButton!
+    @IBOutlet weak var rescanButton: NSButton!
+    
+    /// Reference to the deep scan button.
+    @IBOutlet weak var deepScanButton: NSButton!
     
     /// Reference to the fetch progress status.
     @IBOutlet weak var fetchProgressLabel: NSTextField!
-    
-    /// Shows progress of setting application eGPU preference.
-    @IBOutlet weak var setPreferenceProgressIndicator: NSProgressIndicator!
     
     /// Shows progress of application fetching.
     @IBOutlet weak var fetchProgressIndicator: NSProgressIndicator!
@@ -63,6 +69,8 @@ class SetupEGPUPreferencesViewController: NSViewController {
             helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
         }
         noResultsLabel.isHidden = true
+        overallProgressLabel.isHidden = true
+        overallProgressIndicator.isHidden = true
         configureSearchDelegate()
         configureTableViewDelegate()
         prepareView()
@@ -76,7 +84,8 @@ class SetupEGPUPreferencesViewController: NSViewController {
         !toggle ? fetchProgressIndicator.startAnimation(nil) : fetchProgressIndicator.stopAnimation(nil)
         unselectAllButton.isEnabled = toggle
         selectAllButton.isEnabled = toggle
-        resetAllButton.isEnabled = toggle
+        rescanButton.isEnabled = toggle
+        deepScanButton.isEnabled = toggle
         fetchProgressLabel.isHidden = toggle
     }
     
@@ -123,9 +132,9 @@ extension SetupEGPUPreferencesViewController: NSSearchFieldDelegate {
 extension SetupEGPUPreferencesViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     /// Fetches applications.
-    func fetchApplications() {
+    func fetchApplications(doDeepScan deepScan: Bool = false) {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.userApplications.fetch()
+            self.userApplications.fetch(deepScan: deepScan)
             DispatchQueue.main.async {
                 self.apps = self.userApplications.applications
                 self.prepareView(withToggle: true)
@@ -155,6 +164,7 @@ extension SetupEGPUPreferencesViewController: NSTableViewDataSource, NSTableView
         else {
             let preferenceCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "preferEGPU"), owner: nil) as? UserEGPUPreferenceCellView
             preferenceCell?.preferEGPUCheckBox.state = apps[row].prefersEGPU ? .on : .off
+            preferenceCell?.preferEGPUCheckBox.isEnabled = tableView.isEnabled
             preferenceCell?.application = apps[row]
             return preferenceCell
         }
@@ -204,6 +214,57 @@ extension SetupEGPUPreferencesViewController {
     /// - Parameter sender: The element responsible for the action.
     @IBAction func backToMenu(_ sender: Any) {
         setupPageController().transition(toPage: Page.start)
+    }
+    
+    func prepareRescan() {
+        userApplications.applications.removeAll()
+        apps.removeAll()
+        applicationTableView.reloadData()
+        prepareView()
+    }
+    
+    /// Rescans apps.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func rescanApps(_ sender: NSButton) {
+        prepareRescan()
+        fetchApplications(doDeepScan: sender.title == "Deep Scan")
+    }
+    
+    func toggleTableViewInteractiveComponents(withToggle toggle: Bool = false) {
+        selectAllButton.isEnabled = toggle
+        unselectAllButton.isEnabled = toggle
+        rescanButton.isEnabled = toggle
+        deepScanButton.isEnabled = toggle
+        searchBar.isEnabled = toggle
+        applicationTableView.isEnabled = toggle
+        applicationTableView.reloadData()
+        overallProgressIndicator.isHidden = toggle
+        overallProgressLabel.isHidden = toggle
+    }
+    
+    /// Toggles application eGPU preferences.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func toggleAllPreferences(_ sender: NSButton) {
+        WindowManager.disableTermination()
+        toggleTableViewInteractiveComponents()
+        let preference = sender.title == "Set All"
+        overallProgressIndicator.doubleValue = 0.0
+        overallProgressLabel.stringValue = preference ? "Setting..." : "Unsetting..."
+        var setCount = 0
+        for app in apps {
+            app.setEGPUPreference(preferEGPU: preference) { _ in
+                setCount += 1
+                DispatchQueue.main.async {
+                    self.overallProgressIndicator.increment(by: 100.0 / Double(self.apps.count))
+                    if setCount == self.apps.count {
+                        WindowManager.enableTermination()
+                        self.toggleTableViewInteractiveComponents(withToggle: true)
+                    }
+                }
+            }
+        }
     }
     
 }

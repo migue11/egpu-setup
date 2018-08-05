@@ -21,4 +21,9 @@ class ShellScripts {
         return Bundle.main.path(forResource: "constants", ofType: "sh")
     }
     
+    /// set-eGPU.sh
+    static var setEGPU: String? {
+        return Bundle.main.path(forResource: "set-eGPU", ofType: "sh")
+    }
+    
 }

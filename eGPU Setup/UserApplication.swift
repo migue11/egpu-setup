@@ -35,4 +35,30 @@ class UserApplication: Comparable {
         return lhs.name.lowercased() == rhs.name.lowercased()
     }
     
+    /// Sets eGPU preference for specified application.
+    ///
+    /// - Parameter preference: Preference to set.
+    func setEGPUPreference(preferEGPU preference: Bool, onCompletion completion: @escaping (Bool) -> Void) {
+        if prefersEGPU == preference {
+            completion(true)
+            return
+        }
+        Swipt.instance().asyncExecute(unixScriptFile: ShellScripts.setEGPU!, withArgs: [plistName], withShellType: .bash) { error, output in
+            if output == "Set." {
+                completion(true)
+                self.prefersEGPU = preference
+                return
+            }
+            completion(false)
+        }
+    }
+    
+    func checkEGPUPreference() {
+        Swipt.instance().execute(unixScriptFile: ShellScripts.setEGPU!, withArgs: [plistName, "true"], withShellType: .bash) { error, output in
+            if output == "Preferred." {
+                self.prefersEGPU = true
+            }
+        }
+    }
+    
 }
