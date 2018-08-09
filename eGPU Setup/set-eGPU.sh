@@ -6,37 +6,37 @@
 #  Created by Mayank Kumar on 8/5/18.
 #  Copyright © 2018 Mayank Kumar. All rights reserved.
 
-app_plist="${1}"
-only_check="${2}"
+APP_PLIST="${1}"
+ONLY_CHECK="${2}"
 
-if [[ -z "${app_plist}" ]]
+if [[ -z "${APP_PLIST}" ]]
 then
     echo "Could not set."
     exit
 fi
 
-app_egpu_pref="$(defaults read "${app_plist}" GPUSelectionPolicy)"
+app_egpu_pref="$(defaults read "${APP_PLIST}" GPUSelectionPolicy)"
 
-result=""
+RESULT=""
 
 if [[ "${app_egpu_pref}" != "preferRemovable" ]]
 then
-    if [[ "${only_check}" == "true" ]]
+    if [[ "${ONLY_CHECK}" == "true" ]]
     then
         echo "Not preferred."
         exit
     fi
-    result="$(defaults write "${app_plist}" GPUSelectionPolicy -string preferRemovable 2>&1)"
+    RESULT="$(defaults write "${APP_PLIST}" GPUSelectionPolicy -string preferRemovable 2>&1)"
 else
-    if [[ "${only_check}" == "true" ]]
+    if [[ "${ONLY_CHECK}" == "true" ]]
     then
         echo "Preferred."
         exit
     fi
-    result="$(defaults write "${app_plist}" GPUSelectionPolicy -string default 2>&1)"
+    RESULT="$(defaults write "${APP_PLIST}" GPUSelectionPolicy -string default 2>&1)"
 fi
 
-if [[ ! -z "${result}" ]]
+if [[ ! -z "${RESULTs}" ]]
 then
     echo "Could not set."
     exit

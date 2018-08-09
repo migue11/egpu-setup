@@ -18,41 +18,41 @@ else
 fi
 
 ## System Model
-echo "${sys_model}"
+echo "${SYS_MODEL}"
 
 # System Thunderbolt Version
-if [[ "${thunderbolt_version}[@]" =~ "NHIType3" ]]
+if [[ "${TB_VER}[@]" =~ "NHIType3" ]]
 then
     echo "TB3 (40 Gb/s)"
-    tb_val=3
-elif [[ "${thunderbolt_version}[@]" =~ "NHIType2" ]]
+    TB_VAL=3
+elif [[ "${TB_VER}[@]" =~ "NHIType2" ]]
 then
     echo "TB2 (20 Gb/s)"
-    tb_val=2
-elif [[ "${thunderbolt_version}[@]" =~ "NHIType1" ]]
+    TB_VAL=2
+elif [[ "${TB_VER}[@]" =~ "NHIType1" ]]
 then
     echo "TB1 (10 Gb/s)"
-    tb_val=1
+    TB_VAL=1
 else
     echo "-"
 fi
 
 # Patch check
 check_patch() {
-    if [[ ! -f "${agw_bin}" || ! -f "${iog_bin}" ]]
+    if [[ ! -f "${AGW_BIN}" || ! -f "${IOG_BIN}" ]]
     then
         echo "Unknown"
         return
     fi
-    agw_hex="$(hexdump -ve '1/1 "%.2X"' "${agw_bin}")"
-    iog_hex="$(hexdump -ve '1/1 "%.2X"' "${iog_bin}")"
-    sys_tb_ver="${tb_switch_hex}${tb_val}"
-    if [[ "${agw_hex}" =~ "${sys_tb_ver}" && "${sys_tb_ver}" != "${tb_switch_hex}"3 || -d "${automate_egpu_kext}" ]]
+    AGW_HEX="$(hexdump -ve '1/1 "%.2X"' "${AGW_BIN}")"
+    IOG_HEX="$(hexdump -ve '1/1 "%.2X"' "${IOG_BIN}")"
+    SYS_TB_VER="${TB_SWITCH_HEX}${TB_VAL}"
+    if [[ "${AGW_HEX}" =~ "${SYS_TB_VER}" && "${SYS_TB_VER}" != "${TB_SWITCH_HEX}"3 || -d "${AUTOMATE_EGPU_KEXT}" ]]
     then
         echo "AMD"
         return
     fi
-    if [[ "${iog_hex}" =~ "${patched_iog_hex}" && "$([[ -f "${nvda_plist}" ]] && cat "${nvda_plist}" | grep -i "IOPCITunnelCompatible")" ]]
+    if [[ "${IOG_HEX}" =~ "${PATCHED_PCI_TUNNELLED_HEX}" && "$([[ -f "${NVDA_PLIST_PATH}" ]] && cat "${NVDA_PLIST_PATH}" | grep -i "IOPCITunnelCompatible")" ]]
     then
         echo "NVIDIA"
         return

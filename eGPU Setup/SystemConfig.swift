@@ -52,16 +52,14 @@ class SystemConfig {
         for device in devices {
             if !device.isRemovable {
                 gpus += 1
-            }
-            else {
+            } else {
                 gpus = 0
                 break
             }
-            if device.name.lowercased().contains("nvidia") {
-                hasNVIDIADiscreteChip = true
-            }
-            if device.name.lowercased().contains("intel") {
+            if device.isLowPower {
                 hasIntelIntegratedChip = true
+            } else {
+                hasNVIDIADiscreteChip = true
             }
         }
         guard var constantsScript = ShellScripts.constants else { return }
@@ -73,6 +71,7 @@ class SystemConfig {
                 return
             }
             guard let data = output?.split(separator: "\r") else { return }
+            if data.count < 3 { return }
             currentSIP = String(data[0])
             model = String(data[1])
             thunderboltType = String(data[2])
