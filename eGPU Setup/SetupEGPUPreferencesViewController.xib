@@ -16,7 +16,6 @@
                 <outlet property="helpButton" destination="nWB-Io-5Xu" id="Asu-Ms-N9Z"/>
                 <outlet property="noResultsLabel" destination="i16-dx-leI" id="oQQ-t9-imH"/>
                 <outlet property="overallProgressIndicator" destination="NQH-5b-UXY" id="fYF-77-X0C"/>
-                <outlet property="overallProgressLabel" destination="d1g-vC-cdf" id="3Bn-e9-psd"/>
                 <outlet property="rescanButton" destination="4tC-xv-xiA" id="zR1-Hi-gi1"/>
                 <outlet property="searchBar" destination="F5h-fl-214" id="XE5-a2-tbl"/>
                 <outlet property="selectAllButton" destination="ren-Gm-lth" id="dh6-Gd-CmS"/>
@@ -295,19 +294,10 @@ Gw
                         <action selector="rescanApps:" target="-2" id="1ah-RA-Dl2"/>
                     </connections>
                 </button>
-                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" doubleValue="50" displayedWhenStopped="NO" bezeled="NO" controlSize="small" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="NQH-5b-UXY">
-                    <rect key="frame" x="115" y="29" width="67" height="12"/>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" doubleValue="50" displayedWhenStopped="NO" bezeled="NO" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="NQH-5b-UXY">
+                    <rect key="frame" x="165" y="22" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </progressIndicator>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d1g-vC-cdf">
-                    <rect key="frame" x="113" y="18" width="71" height="10"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Unsetting..." id="UzN-1P-kKi">
-                        <font key="font" metaFont="system" size="7"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
             </subviews>
         </customView>
     </objects>

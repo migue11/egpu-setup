@@ -14,9 +14,6 @@ class SetupEGPUPreferencesViewController: NSViewController {
     /// Reference to the back button.
     @IBOutlet weak var backButton: NSButton!
     
-    /// Reference to the overall progress label.
-    @IBOutlet weak var overallProgressLabel: NSTextField!
-    
     /// Reference to the overall progress indicator.
     @IBOutlet weak var overallProgressIndicator: NSProgressIndicator!
     
@@ -72,7 +69,6 @@ class SetupEGPUPreferencesViewController: NSViewController {
             helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
         }
         noResultsLabel.isHidden = true
-        overallProgressLabel.isHidden = true
         overallProgressIndicator.isHidden = true
         configureSearchDelegate()
         configureTableViewDelegate()
@@ -247,7 +243,6 @@ extension SetupEGPUPreferencesViewController {
         applicationTableView.isEnabled = toggle
         applicationTableView.reloadData()
         overallProgressIndicator.isHidden = toggle
-        overallProgressLabel.isHidden = toggle
         backButton.isEnabled = toggle
     }
     
@@ -260,7 +255,8 @@ extension SetupEGPUPreferencesViewController {
         toggleTableViewInteractiveComponents()
         let preference = sender.title == "Set All"
         overallProgressIndicator.doubleValue = 0.0
-        overallProgressLabel.stringValue = preference ? "Setting..." : "Unsetting..."
+        let originalTitle = sender.title
+        sender.title = preference ? "Setting..." : "Unsetting..."
         var setCount = 0
         for app in apps {
             app.setEGPUPreference(preferEGPU: preference) { _ in
@@ -269,6 +265,7 @@ extension SetupEGPUPreferencesViewController {
                     self.overallProgressIndicator.increment(by: 100.0 / Double(self.apps.count))
                     if setCount == self.apps.count {
                         WindowManager.enableTermination()
+                        sender.title = originalTitle
                         self.toggleTableViewInteractiveComponents(withToggle: true)
                     }
                 }

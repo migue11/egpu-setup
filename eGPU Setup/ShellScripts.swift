@@ -23,7 +23,7 @@ class ShellScripts {
     
     /// set-eGPU.sh
     static var setEGPU: String? {
-        return Bundle.main.path(forResource: "set-eGPU", ofType: "sh")
+        return ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 ?  Bundle.main.path(forResource: "set-eGPU-HS", ofType: "sh") : Bundle.main.path(forResource: "set-eGPU-M", ofType: "sh")
     }
     
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#  set-eGPU.sh
+#  set-eGPU-HS.sh
 #  eGPU Setup
 #
 #  Created by Mayank Kumar on 8/5/18.
@@ -15,11 +15,11 @@ then
     exit
 fi
 
-app_egpu_pref="$(defaults read "${APP_PLIST}" GPUSelectionPolicy)"
+APP_PREF="$(defaults read "${APP_PLIST}" GPUSelectionPolicy)"
 
 RESULT=""
 
-if [[ "${app_egpu_pref}" != "preferRemovable" ]]
+if [[ "${APP_PREF}" != "preferRemovable" ]]
 then
     if [[ "${ONLY_CHECK}" == "true" ]]
     then
@@ -36,7 +36,7 @@ else
     RESULT="$(defaults write "${APP_PLIST}" GPUSelectionPolicy -string default 2>&1)"
 fi
 
-if [[ ! -z "${RESULTs}" ]]
+if [[ ! -z "${RESULT}" ]]
 then
     echo "Could not set."
     exit

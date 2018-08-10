@@ -48,7 +48,7 @@ extension UserApplications {
                             userApplication.plistName = "Unable to load."
                             return
                         }
-                        userApplication.plistName = output
+                        userApplication.plistName = output?.replacingOccurrences(of: ":", with: "")
                     }
                     userApplication.checkEGPUPreference()
                     applications.append(userApplication)
