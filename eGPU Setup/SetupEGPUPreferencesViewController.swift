@@ -93,14 +93,14 @@ class SetupEGPUPreferencesViewController: NSViewController {
 }
 
 // MARK: - Search management
-extension SetupEGPUPreferencesViewController: NSSearchFieldDelegate {
+extension SetupEGPUPreferencesViewController: NSSearchFieldDelegate, NSTextFieldDelegate {
     
     /// Configures the table view data source & delegate.
     private func configureSearchDelegate() {
         searchBar.delegate = self
     }
     
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         while searchBar.stringValue.hasPrefix(" ") {
             searchBar.stringValue = String(searchBar.stringValue.dropFirst())
         }
@@ -130,6 +130,8 @@ extension SetupEGPUPreferencesViewController: NSTableViewDataSource, NSTableView
     
     /// Fetches applications.
     private func fetchApplications(doDeepScan deepScan: Bool = false) {
+        searchBar.stringValue = ""
+        noResultsLabel.isHidden = true
         DispatchQueue.global(qos: .userInitiated).async {
             self.userApplications.fetch(deepScan: deepScan)
             DispatchQueue.main.async {

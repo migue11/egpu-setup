@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.3.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.13.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,11 +37,11 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="eGPU MBP" id="pm7-7O-Xwa"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGL-yt-Mi1">
-                    <rect key="frame" x="18" y="290" width="306" height="126"/>
+                    <rect key="frame" x="18" y="261" width="306" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="od5-j6-fdU">
                         <font key="font" metaFont="system"/>
-                        <string key="title">eGPU Setup requires the following information:      • eGPU Vendor      • eGPU Enclosure  Please plug in your eGPU, or manually specify the above information if you wish to perform setup with plugging in your eGPU.</string>
+                        <mutableString key="title">eGPU Setup will determine the following information for an easy setup experience:      • Enclosure      • GPU Vendor      • Additional System Requirements  The application will connect to the internet only to install official NVIDIA Web Drivers if needed. No system information will be shared.</mutableString>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -72,7 +72,7 @@ DQ
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHZ-xV-Ggw">
-                    <rect key="frame" x="247" y="63" width="113" height="18"/>
+                    <rect key="frame" x="404" y="22" width="113" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Ti82 Controller" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Lhf-ML-IxI">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -108,7 +108,7 @@ DQ
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AMD" id="XTN-0f-oWG"/>
                 </imageView>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-Nc-SxC">
-                    <rect key="frame" x="5" y="96" width="219" height="186"/>
+                    <rect key="frame" x="32" y="96" width="193" height="142"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="GPU" id="fJM-ja-ln8"/>
                 </imageView>
@@ -122,8 +122,17 @@ DQ
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xxr-6U-Ijl">
+                    <rect key="frame" x="267" y="155" width="150" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" selectable="YES" title="Auto-detect eGPU specifications and patching requirements." id="lvs-p2-Nrh">
+                        <font key="font" metaFont="system" size="9"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOX-nV-J66">
-                    <rect key="frame" x="345" y="175" width="52" height="18"/>
+                    <rect key="frame" x="248" y="130" width="52" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="AMD" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="gqJ-Fb-1EM">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -131,17 +140,13 @@ DQ
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tWz-KY-4yY">
-                    <rect key="frame" x="409" y="173" width="66" height="21"/>
+                    <rect key="frame" x="248" y="81" width="66" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="NVIDIA" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="7ec-ns-ahf">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="NWi-0R-TnI">
-                    <rect key="frame" x="425" y="122" width="32" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                </progressIndicator>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RBd-zV-UhE">
                     <rect key="frame" x="248" y="175" width="84" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -150,8 +155,30 @@ DQ
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QYG-St-2Di">
+                    <rect key="frame" x="267" y="109" width="150" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" selectable="YES" title="Patch for AMD eGPUs for current system configuration." id="NXq-WI-fCN">
+                        <font key="font" metaFont="system" size="9"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9IQ-xJ-zwT">
+                    <rect key="frame" x="267" y="61" width="134" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" selectable="YES" title="Patch for NVIDIA eGPUs for current system configuration." id="uFS-ai-q6W">
+                        <font key="font" metaFont="system" size="9"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="NWi-0R-TnI">
+                    <rect key="frame" x="489" y="126" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </progressIndicator>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsW-6h-9ci">
-                    <rect key="frame" x="382" y="96" width="119" height="18"/>
+                    <rect key="frame" x="446" y="100" width="119" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Waiting for eGPU..." id="aim-hj-bEb">
                         <font key="font" metaFont="system"/>
@@ -164,8 +191,8 @@ DQ
     </objects>
     <resources>
         <image name="AMD" width="197" height="47.279998779296875"/>
-        <image name="GPU" width="1024" height="1024"/>
+        <image name="GPU" width="50" height="38"/>
         <image name="NVIDIA" width="1020" height="220"/>
-        <image name="eGPU MBP" width="1051" height="497"/>
+        <image name="eGPU MBP" width="824" height="677"/>
     </resources>
 </document>
