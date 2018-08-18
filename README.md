@@ -1,3 +1,5 @@
+![Header](Resources/Hero.svg)
+
 # eGPU Setup
 **eGPU Setup** for Mac is a user-friendly native macOS application written in **Swift**. **eGPU Setup** encompasses the eGPU community's techniques to enable external GPUs on all thunderbolt Macs, use unsupported external GPUs, and force applications to use external GPUs for *computation and rendering*.
 
@@ -12,7 +14,6 @@
 - Support for **AMD** or **NVIDIA** eGPUs
 - Support for *all* thunderbolt Macs
 - Support for *all* external GPU enclosures
-- System **disk** & **EFI-level** patching mechanism options
 - Unified application eGPU preference management system
 - Software updates, troubleshooting, & additional support provisions
 - eGPU notification system for additional steps for edge-case machines
@@ -26,10 +27,8 @@ The setup process is *straight-forward, autonomous, and simple*. Every applicati
 
 ### eGPU Setup Introduction
 - Retrieves your system configuration
-- Retrieves your current system eGPU status
+- Retrieves your current system patch status
 - Determines compatibility and edge cases
-
-Screen Grab #1
 
 ### eGPU Preferences Manager
 - Fetches all applications in *expected* locations
@@ -37,15 +36,11 @@ Screen Grab #1
 - Allows setting/unsetting the eGPU preference for one or more applications
 - Allows easy set/reset of eGPU preference for all applications
 
-Screen Grab #2, #3
-
 ### eGPU Uninstallation
 - Briefs the user on the uninstallation process
 - Provides a *safe* general uninstallation mechanism
 - Provides an option to uninstall *all* components, with fair warning
 - Performs uninstallation with verification & system integrity checks
-
-Screen Grab #3, #4
 
 ### eGPU Installation
 - Automatically determines your eGPU configuration
@@ -54,13 +49,11 @@ Screen Grab #3, #4
 - Performs a validated system patch
 - Installs the **eGPU Setup Recovery Tool CLI** for recovery in **Single User Mode**
 
-Screen Grab #4, #5
-
 ## System Patches
 The following is a summary of system patches required for macs based on the system configuration and eGPU vendor.
 
 ## AMD eGPUs
-All patches leverage the native AMD eGPU acceleration functionality. Additional patches are needed for older AMD eGPUs such as the R9 Fury, and some modern GPUs that Apple has not enabled support for, such as the RX 560.
+All patches leverage the native AMD eGPU acceleration functionality. Additional patches are needed for older AMD eGPUs such as the **R9 Fury**, and some modern GPUs that Apple has not enabled support for, such as the **RX 560**.
 
 ### Thunderbolt
 - **Thunderbolt 1/2**: Require the **AppleGPUWrangler Thunderbolt** patch for full native support. **AMDUnofficialSupport.kext** also required for older AMD GPUs.
@@ -71,8 +64,17 @@ All patches leverage the native AMD eGPU acceleration functionality. Additional 
 - **Old AMD eGPUs**: Not all older AMD GPUs may work. A workaround is included to attempt acceleration.
 
 ## NVIDIA eGPUs
-All macs require system patches to enable NVIDIA eGPUs at this time. Patches support hot-plugging and booting with the eGPU plugged in, but there are a variety of complications involved. The patches auto-bypass thunderbolt limitations.
+All macs require system patches to enable NVIDIA eGPUs at this time. Patches support hot-plugging and booting with the eGPU plugged in, and any Thunderbolt version, but there are a variety of complications involved. The patches auto-bypass thunderbolt limitations.
 
 ### Limitations
 - **Hot-Disconnect**: Not possible with the current patching mechanism. Doing so will crash the system. The menubar eGPU ejection system is also disabled.
 - **Discrete AMD GPUs**: Such macs require additional steps to achieve good UI performance.
+
+## Help & Support
+**eGPU Setup** includes insightful tips for users setting up their eGPU. Look for the little ？within the application. Users can further request assistance using a direct link to the eGPU.io forums.
+
+## Disclaimer
+Any associated developers of the application are not responsible for the safety and integrity of the system. This application modifies core system files. Use at your discretion.
+
+## Contribute
+**eGPU Setup** was built from the ground up to be user-friendly, with the goal of making eGPUs accessible to as many as possible. If you loved it, please consider donating.
