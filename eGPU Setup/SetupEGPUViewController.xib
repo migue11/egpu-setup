@@ -37,11 +37,11 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="eGPU MBP" id="pm7-7O-Xwa"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGL-yt-Mi1">
-                    <rect key="frame" x="18" y="261" width="306" height="155"/>
+                    <rect key="frame" x="18" y="280" width="306" height="136"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="od5-j6-fdU">
                         <font key="font" metaFont="system"/>
-                        <mutableString key="title">eGPU Setup will determine the following information for an easy setup experience:      • Enclosure      • GPU Vendor      • Additional System Requirements  The application will connect to the internet only to install official NVIDIA Web Drivers if needed. No system information will be shared.</mutableString>
+                        <string key="title">eGPU Setup will determine the following information for an easy setup experience:      • Enclosure      • GPU Vendor      • Additional System Requirements  NVIDIA Web Drivers will be downloaded if needed. No system information will be shared.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -72,11 +72,11 @@ DQ
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHZ-xV-Ggw">
-                    <rect key="frame" x="404" y="22" width="113" height="18"/>
+                    <rect key="frame" x="408" y="26" width="89" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Ti82 Controller" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Lhf-ML-IxI">
+                    <buttonCell key="cell" type="check" title="Ti82 Controller" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" inset="2" id="Lhf-ML-IxI">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="miniSystem"/>
                     </buttonCell>
                 </button>
                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oSZ-0P-roi">
@@ -126,8 +126,8 @@ DQ
                     <rect key="frame" x="267" y="155" width="150" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" selectable="YES" title="Auto-detect eGPU specifications and patching requirements." id="lvs-p2-Nrh">
-                        <font key="font" metaFont="system" size="9"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -159,8 +159,8 @@ DQ
                     <rect key="frame" x="267" y="109" width="150" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" selectable="YES" title="Patch for AMD eGPUs for current system configuration." id="NXq-WI-fCN">
-                        <font key="font" metaFont="system" size="9"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -168,17 +168,26 @@ DQ
                     <rect key="frame" x="267" y="61" width="134" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" selectable="YES" title="Patch for NVIDIA eGPUs for current system configuration." id="uFS-ai-q6W">
-                        <font key="font" metaFont="system" size="9"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <font key="font" metaFont="miniSystem"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OP-ca-3SB">
+                    <rect key="frame" x="424" y="20" width="93" height="11"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" selectable="YES" title="Select TB3 eGFX only." id="5Gx-D9-G0P">
+                        <font key="font" metaFont="system" size="8"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="NWi-0R-TnI">
-                    <rect key="frame" x="489" y="126" width="32" height="32"/>
+                    <rect key="frame" x="489" y="122" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </progressIndicator>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsW-6h-9ci">
-                    <rect key="frame" x="446" y="100" width="119" height="18"/>
+                    <rect key="frame" x="446" y="96" width="119" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Waiting for eGPU..." id="aim-hj-bEb">
                         <font key="font" metaFont="system"/>

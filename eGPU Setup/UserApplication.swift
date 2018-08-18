@@ -53,6 +53,7 @@ class UserApplication: Comparable {
         }
     }
     
+    /// Checks application's eGPU preference.
     func checkEGPUPreference() {
         Swipt.instance().execute(unixScriptFile: ShellScripts.setEGPU!, withArgs: [plistName, "true"], withShellType: .bash) { error, output in
             if output == "Preferred." {

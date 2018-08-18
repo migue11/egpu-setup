@@ -47,7 +47,7 @@ check_patch() {
     AGW_HEX="$(hexdump -ve '1/1 "%.2X"' "${AGW_BIN}")"
     IOG_HEX="$(hexdump -ve '1/1 "%.2X"' "${IOG_BIN}")"
     SYS_TB_VER="${TB_SWITCH_HEX}${TB_VAL}"
-    if [[ "${AGW_HEX}" =~ "${SYS_TB_VER}" && "${SYS_TB_VER}" != "${TB_SWITCH_HEX}"3 || -d "${AUTOMATE_EGPU_KEXT}" ]]
+    if [[ "${AGW_HEX}" =~ "${SYS_TB_VER}" && "${SYS_TB_VER}" != "${TB_SWITCH_HEX}"3 || -d "${AMD_LEGACY_KEXT}" ]]
     then
         echo "AMD"
         return
