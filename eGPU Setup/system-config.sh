@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#  system_config.sh
+#  system-config.sh
 #  eGPU Setup
 #
 #  Created by Mayank Kumar on 8/1/18.

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #  set-eGPU-M.sh
 #  eGPU Setup

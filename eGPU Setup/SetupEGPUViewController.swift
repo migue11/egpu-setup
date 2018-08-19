@@ -11,6 +11,18 @@ import Cocoa
 /// Defines the eGPU configuration process page.
 class SetupEGPUViewController: NSViewController {
 
+    /// Reference to eGPU description view.
+    @IBOutlet weak var eGPUDescriptionView: NSView!
+    
+    /// Legacy AMD GPU support requirement toggle.
+    @IBOutlet weak var amdLegacyCheckBoxButton: NSButton!
+    
+    /// AMD dGPU presence toggle.
+    @IBOutlet weak var amdDGPUCheckBoxButton: NSButton!
+    
+    /// NVIDIA dGPU presence toggle.
+    @IBOutlet weak var nvidiaDGPUCheckBoxButton: NSButton!
+    
     /// TI82 controller presence toggle.
     @IBOutlet weak var ti82ControllerCheckBoxButton: NSButton!
     
@@ -43,13 +55,25 @@ class SetupEGPUViewController: NSViewController {
             helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
         }
         prepareView()
+        toggleCheckBoxes()
+    }
+    
+    /// Toggles view's checkboxes.
+    ///
+    /// - Parameter toggle: Changes `state` of radio buttons.
+    private func toggleCheckBoxes(withToggle toggle: Bool = false) {
+        amdDGPUCheckBoxButton.isEnabled = toggle
+        nvidiaDGPUCheckBoxButton.isEnabled = toggle
+        amdLegacyCheckBoxButton.isEnabled = toggle
+        ti82ControllerCheckBoxButton.isEnabled = toggle
     }
     
     /// Prepares the view.
-    func prepareView() {
-        installButton.isEnabled = false
-        ti82ControllerCheckBoxButton.state = .off
-        eGPUProgressIndicator.startAnimation(nil)
+    private func prepareView(withToggle toggle: Bool = false) {
+        eGPUDescriptionView.isHidden = !toggle
+        installButton.isEnabled = toggle
+        !toggle ? eGPUProgressIndicator.startAnimation(nil) : eGPUProgressIndicator.stopAnimation(nil)
+        eGPUProgressLabel.isHidden = toggle
     }
     
 }
@@ -102,6 +126,31 @@ extension SetupEGPUViewController {
     /// - Parameter sender: The element responsible for the action.
     @IBAction func backToMenu(_ sender: Any) {
         setupPageController().transition(toPage: Page.start)
+    }
+    
+    /// Chooses appropriate eGPU setup option.
+    ///
+    /// - Parameter sender: The element responsible for the action.
+    @IBAction func chooseEGPUSetupOption(_ sender: NSButton) {
+        switch sender.title {
+        case "Automatic":
+            toggleCheckBoxes()
+            prepareView()
+            break
+        case "AMD":
+            prepareView(withToggle: true)
+            amdLegacyCheckBoxButton.isEnabled = true
+            nvidiaDGPUCheckBoxButton.isEnabled = true
+            ti82ControllerCheckBoxButton.isEnabled = true
+            amdDGPUCheckBoxButton.isEnabled = false
+            break
+        default:
+            prepareView(withToggle: true)
+            amdLegacyCheckBoxButton.isEnabled = false
+            nvidiaDGPUCheckBoxButton.isEnabled = true
+            ti82ControllerCheckBoxButton.isEnabled = true
+            amdDGPUCheckBoxButton.isEnabled = true
+        }
     }
     
 }

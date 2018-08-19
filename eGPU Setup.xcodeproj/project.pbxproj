@@ -40,8 +40,9 @@
 		A8AF9F832111C7CC00CA3EB4 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF9F812111C7CC00CA3EB4 /* HelpViewController.swift */; };
 		A8AF9F842111C7CC00CA3EB4 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AF9F822111C7CC00CA3EB4 /* HelpViewController.xib */; };
 		A8AF9F862111CE8400CA3EB4 /* PopoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF9F852111CE8400CA3EB4 /* PopoverManager.swift */; };
+		A8C240F42129D2CB009ACBE8 /* detect-eGPU.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8C240F32129D2AD009ACBE8 /* detect-eGPU.sh */; };
 		A8CAF4862116326700A8A306 /* set-eGPU-HS.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8CAF48521162EB700A8A306 /* set-eGPU-HS.sh */; };
-		A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8CBE0482110C85300F69D54 /* system_config.sh */; };
+		A8CBE04A2110C85300F69D54 /* system-config.sh in Resources */ = {isa = PBXBuildFile; fileRef = A8CBE0482110C85300F69D54 /* system-config.sh */; };
 		A8CBE04C2110C87500F69D54 /* SystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CBE04B2110C87500F69D54 /* SystemConfig.swift */; };
 		A8E7A23E210F9F09005C576A /* SetupUninstallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */; };
 		A8E7A23F210F9F09005C576A /* SetupUninstallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */; };
@@ -87,8 +88,9 @@
 		A8AF9F812111C7CC00CA3EB4 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		A8AF9F822111C7CC00CA3EB4 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 		A8AF9F852111CE8400CA3EB4 /* PopoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverManager.swift; sourceTree = "<group>"; };
+		A8C240F32129D2AD009ACBE8 /* detect-eGPU.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "detect-eGPU.sh"; sourceTree = "<group>"; };
 		A8CAF48521162EB700A8A306 /* set-eGPU-HS.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "set-eGPU-HS.sh"; sourceTree = "<group>"; };
-		A8CBE0482110C85300F69D54 /* system_config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = system_config.sh; sourceTree = "<group>"; };
+		A8CBE0482110C85300F69D54 /* system-config.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "system-config.sh"; sourceTree = "<group>"; };
 		A8CBE04B2110C87500F69D54 /* SystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemConfig.swift; sourceTree = "<group>"; };
 		A8E7A23C210F9F09005C576A /* SetupUninstallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUninstallViewController.swift; sourceTree = "<group>"; };
 		A8E7A23D210F9F09005C576A /* SetupUninstallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupUninstallViewController.xib; sourceTree = "<group>"; };
@@ -238,9 +240,10 @@
 			isa = PBXGroup;
 			children = (
 				A8377D74211206F500B2BD78 /* constants.sh */,
-				A8CBE0482110C85300F69D54 /* system_config.sh */,
+				A8CBE0482110C85300F69D54 /* system-config.sh */,
 				A8CAF48521162EB700A8A306 /* set-eGPU-HS.sh */,
 				A89B7521211DBF62008E93F7 /* set-eGPU-M.sh */,
+				A8C240F32129D2AD009ACBE8 /* detect-eGPU.sh */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
@@ -448,10 +451,11 @@
 				A8E7A23F210F9F09005C576A /* SetupUninstallViewController.xib in Resources */,
 				A86A312C210FA91B00E4C9BB /* SetupEGPUViewController.xib in Resources */,
 				A8A6CA8321126FC70092A129 /* AboutViewController.xib in Resources */,
+				A8C240F42129D2CB009ACBE8 /* detect-eGPU.sh in Resources */,
 				A848862D210F5B9700EE6F33 /* Assets.xcassets in Resources */,
 				A83F998D21103C0700B12E54 /* SetupProgressViewController.xib in Resources */,
 				A89B7522211DBF62008E93F7 /* set-eGPU-M.sh in Resources */,
-				A8CBE04A2110C85300F69D54 /* system_config.sh in Resources */,
+				A8CBE04A2110C85300F69D54 /* system-config.sh in Resources */,
 				A8488630210F5B9700EE6F33 /* Main.storyboard in Resources */,
 				A802564921139F2C006DE782 /* SetupEGPUPreferencesViewController.xib in Resources */,
 				A8AF9F842111C7CC00CA3EB4 /* HelpViewController.xib in Resources */,

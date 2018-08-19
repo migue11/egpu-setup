@@ -13,7 +13,7 @@ class ShellScripts {
     
     /// system_config.sh
     static var systemConfig: String? {
-        return Bundle.main.path(forResource: "system_config", ofType: "sh")
+        return Bundle.main.path(forResource: "system-config", ofType: "sh")
     }
     
     /// constants.sh
@@ -24,6 +24,11 @@ class ShellScripts {
     /// set-eGPU.sh
     static var setEGPU: String? {
         return ProcessInfo.processInfo.operatingSystemVersion.minorVersion == 13 ?  Bundle.main.path(forResource: "set-eGPU-HS", ofType: "sh") : Bundle.main.path(forResource: "set-eGPU-M", ofType: "sh")
+    }
+    
+    /// detect-eGPU.sh
+    static var detectEGPU: String? {
+        return Bundle.main.path(forResource: "detect-eGPU", ofType: "sh")
     }
     
 }
