@@ -29,18 +29,6 @@ class SetupEGPUViewController: NSViewController {
     /// Reference to eGPU description view.
     @IBOutlet weak var eGPUDescriptionView: NSView!
     
-    /// Legacy AMD GPU support requirement toggle.
-    @IBOutlet weak var amdLegacyCheckBoxButton: NSButton!
-    
-    /// AMD dGPU presence toggle.
-    @IBOutlet weak var amdDGPUCheckBoxButton: NSButton!
-    
-    /// NVIDIA dGPU presence toggle.
-    @IBOutlet weak var nvidiaDGPUCheckBoxButton: NSButton!
-    
-    /// TI82 controller presence toggle.
-    @IBOutlet weak var ti82ControllerCheckBoxButton: NSButton!
-    
     /// eGPU detection progress label.
     @IBOutlet weak var eGPUProgressLabel: NSTextField!
     
@@ -61,6 +49,9 @@ class SetupEGPUViewController: NSViewController {
         NSApplication.shared.windows[0].contentViewController as! SetupPageController
     }
     
+    /// A background queue.
+    let queue = DispatchQueue.global(qos: .background)
+    
     /// Singleton instance of view controller.
     private static var setupEGPUViewController: SetupEGPUViewController! = nil
     
@@ -70,17 +61,7 @@ class SetupEGPUViewController: NSViewController {
             helpButton.frame = helpButton.frame.offsetBy(dx: 0, dy: 2)
         }
         prepareView()
-        toggleCheckBoxes()
-    }
-    
-    /// Toggles view's checkboxes.
-    ///
-    /// - Parameter toggle: Changes `state` of radio buttons.
-    private func toggleCheckBoxes(withToggle toggle: Bool = false) {
-        amdDGPUCheckBoxButton.isEnabled = toggle
-        nvidiaDGPUCheckBoxButton.isEnabled = toggle
-        amdLegacyCheckBoxButton.isEnabled = toggle
-        ti82ControllerCheckBoxButton.isEnabled = toggle
+        requestEGPUInformation()
     }
     
     /// Prepares the view.
@@ -91,9 +72,47 @@ class SetupEGPUViewController: NSViewController {
         eGPUProgressLabel.isHidden = toggle
     }
     
+    /// Computes required system patches.
+    ///
+    /// - Returns: Description of patches required.
     private func computeRequestedPatches() -> String {
         let patchString = ""
         return patchString
+    }
+    
+    /// Requests external GPU information, if connected.
+    ///
+    /// - Parameter completionHandler: Retrieves any found data, or returns `nil`.
+    private func requestEGPUInformation() {
+        queue.async {
+            Swipt.instance().execute(unixScriptFile: ShellScripts.detectEGPU!, withShellType: .bash) { error, output in
+                if error != nil {
+                    return
+                }
+                if output == nil || output!.isEmpty {
+                    sleep(2)
+                    self.requestEGPUInformation()
+                    return
+                }
+                guard let data = output?.split(separator: "\r") else {
+                    return
+                }
+                if data.count != 2 {
+                    return
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.eGFXLabel.stringValue = "N/A"
+                        self.eGPUVendorLabel.stringValue = String(data[1])
+                        self.eGPUModelLabel.stringValue = String(data[0])
+                        self.ti82Label.stringValue = "N/A"
+                        self.patchesLabel.stringValue = self.computeRequestedPatches()
+                        self.installButton.title = "Install"
+                        self.prepareView(withToggle: true)
+                    }
+                }
+            }
+        }
     }
     
 }
@@ -154,27 +173,30 @@ extension SetupEGPUViewController {
     @IBAction func chooseEGPUSetupOption(_ sender: NSButton) {
         switch sender.title {
         case "Automatic":
-            toggleCheckBoxes()
+            queue.suspend()
             prepareView()
+            installButton.title = "Install"
+            requestEGPUInformation()
             break
         case "AMD":
+            queue.suspend()
             prepareView(withToggle: true)
-            amdLegacyCheckBoxButton.isEnabled = true
-            nvidiaDGPUCheckBoxButton.isEnabled = true
-            ti82ControllerCheckBoxButton.isEnabled = true
-            amdDGPUCheckBoxButton.isEnabled = false
             eGFXLabel.stringValue = "N/A"
             eGPUVendorLabel.stringValue = "AMD"
             eGPUModelLabel.stringValue = "AMD Generic"
-            ti82Label.stringValue = ti82ControllerCheckBoxButton.state == .on ? "Yes" : "No"
+            ti82Label.stringValue = "N/A"
             patchesLabel.stringValue = computeRequestedPatches()
+            installButton.title = "Next"
             break
         default:
+            queue.suspend()
             prepareView(withToggle: true)
-            amdLegacyCheckBoxButton.isEnabled = false
-            nvidiaDGPUCheckBoxButton.isEnabled = true
-            ti82ControllerCheckBoxButton.isEnabled = true
-            amdDGPUCheckBoxButton.isEnabled = true
+            eGFXLabel.stringValue = "N/A"
+            eGPUVendorLabel.stringValue = "NVIDIA"
+            eGPUModelLabel.stringValue = "NVIDIA Generic"
+            ti82Label.stringValue = "N/A"
+            patchesLabel.stringValue = computeRequestedPatches()
+            installButton.title = "Next"
         }
     }
     

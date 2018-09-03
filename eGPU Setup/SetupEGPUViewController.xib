@@ -8,8 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SetupEGPUViewController" customModule="eGPU_Setup" customModuleProvider="target">
             <connections>
-                <outlet property="amdDGPUCheckBoxButton" destination="cDD-0o-JPK" id="fFL-bJ-Ddd"/>
-                <outlet property="amdLegacyCheckBoxButton" destination="GpZ-gc-51h" id="9JZ-Dr-u8y"/>
                 <outlet property="eGFXLabel" destination="Kr3-Pc-hd4" id="G5X-iA-hbf"/>
                 <outlet property="eGPUDescriptionView" destination="qCv-Ts-8hm" id="oCy-9B-XN9"/>
                 <outlet property="eGPUModelLabel" destination="t3X-FU-7Xo" id="bQv-Ac-bpg"/>
@@ -18,9 +16,7 @@
                 <outlet property="eGPUVendorLabel" destination="1np-aS-p7L" id="yaA-xb-hgm"/>
                 <outlet property="helpButton" destination="oSZ-0P-roi" id="84u-NA-1Mv"/>
                 <outlet property="installButton" destination="waz-55-qTb" id="s8S-zt-m1F"/>
-                <outlet property="nvidiaDGPUCheckBoxButton" destination="s0C-L8-Z5H" id="dnR-Ia-JDc"/>
                 <outlet property="patchesLabel" destination="myT-dx-keb" id="0tr-nZ-ZU2"/>
-                <outlet property="ti82ControllerCheckBoxButton" destination="XHZ-xV-Ggw" id="CX3-Fr-yun"/>
                 <outlet property="ti82Label" destination="pWn-Ic-Q2s" id="MYA-CA-4lM"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -78,14 +74,6 @@ Gw
                         <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
-                    </buttonCell>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHZ-xV-Ggw">
-                    <rect key="frame" x="408" y="26" width="89" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Ti82 Controller" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" inset="2" id="Lhf-ML-IxI">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
                     </buttonCell>
                 </button>
                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oSZ-0P-roi">
@@ -297,66 +285,6 @@ DQ
                         <font key="font" metaFont="system"/>
                         <string key="title">It is recommended that you plug in your assembled eGPU enclosure to your Mac now. Alternatively, specify the GPU vendor to patch for. Be sure to specify if your eGFX uses a Ti82 controller, which requires more patches, if you are manually patching.</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0C-L8-Z5H">
-                    <rect key="frame" x="308" y="26" width="89" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="NVIDIA dGPU" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" inset="2" id="58R-gh-twO">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                </button>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkB-AQ-jjI">
-                    <rect key="frame" x="323" y="20" width="86" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" selectable="YES" title="Intel + NVIDIA Macs." id="pie-qX-Wj3">
-                        <font key="font" metaFont="system" size="8"/>
-                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-0o-JPK">
-                    <rect key="frame" x="216" y="26" width="89" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="AMD dGPU" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" inset="2" id="6qK-lb-dqB">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                </button>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mqf-I9-bbd">
-                    <rect key="frame" x="232" y="20" width="77" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" selectable="YES" title="Intel + AMD Macs." id="YIH-xH-KUn">
-                        <font key="font" metaFont="system" size="8"/>
-                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GpZ-gc-51h">
-                    <rect key="frame" x="108" y="26" width="89" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="AMD Legacy" bezelStyle="regularSquare" imagePosition="left" controlSize="mini" inset="2" id="zN3-X1-jAt">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                </button>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hTw-pR-uyb">
-                    <rect key="frame" x="124" y="20" width="93" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" selectable="YES" title="For older AMD eGPUs." id="ewE-ZO-Sze">
-                        <font key="font" metaFont="system" size="8"/>
-                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OP-ca-3SB">
-                    <rect key="frame" x="424" y="20" width="93" height="11"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" controlSize="mini" selectable="YES" title="Select TB3 eGFX only." id="5Gx-D9-G0P">
-                        <font key="font" metaFont="system" size="8"/>
-                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>

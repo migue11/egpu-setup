@@ -12,3 +12,10 @@ EGPU_DEVICE_ID="$(ioreg -n display@0 | grep \"device-id\" | cut -d "=" -f2 | sed
 DEVICE_NAMES="$(curl -s "http://pci-ids.ucw.cz/read/PC/${EGPU_VENDOR}/${EGPU_DEVICE_ID}" | grep -i "itemname" | sed -E "s/.*Name\: (.*)$/\1/")"
 DEVICE_NAME="$(echo "${DEVICE_NAMES}" | tail -1 | cut -d '[' -f2)"
 [[ ! -z "${DEVICE_NAME}" ]] && echo "${DEVICE_NAME%?}"
+if [[ "${EGPU_VENDOR}" == "10de" ]]
+then
+    echo "NVIDIA"
+elif [[ "${EGPU_VENDOR}" == "1002" ]]
+then
+    echo "AMD"
+fi
