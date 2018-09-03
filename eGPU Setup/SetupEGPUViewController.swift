@@ -11,6 +11,21 @@ import Cocoa
 /// Defines the eGPU configuration process page.
 class SetupEGPUViewController: NSViewController {
 
+    /// Reference to the eGFX label.
+    @IBOutlet weak var eGFXLabel: NSTextField!
+    
+    /// Reference to the Vendor label.
+    @IBOutlet weak var eGPUVendorLabel: NSTextField!
+    
+    /// Reference to the Model label.
+    @IBOutlet weak var eGPUModelLabel: NSTextField!
+    
+    /// Reference to the Ti82 label.
+    @IBOutlet weak var ti82Label: NSTextField!
+    
+    /// Reference to the Patches label.
+    @IBOutlet weak var patchesLabel: NSTextField!
+    
     /// Reference to eGPU description view.
     @IBOutlet weak var eGPUDescriptionView: NSView!
     
@@ -74,6 +89,11 @@ class SetupEGPUViewController: NSViewController {
         installButton.isEnabled = toggle
         !toggle ? eGPUProgressIndicator.startAnimation(nil) : eGPUProgressIndicator.stopAnimation(nil)
         eGPUProgressLabel.isHidden = toggle
+    }
+    
+    private func computeRequestedPatches() -> String {
+        let patchString = ""
+        return patchString
     }
     
 }
@@ -143,6 +163,11 @@ extension SetupEGPUViewController {
             nvidiaDGPUCheckBoxButton.isEnabled = true
             ti82ControllerCheckBoxButton.isEnabled = true
             amdDGPUCheckBoxButton.isEnabled = false
+            eGFXLabel.stringValue = "N/A"
+            eGPUVendorLabel.stringValue = "AMD"
+            eGPUModelLabel.stringValue = "AMD Generic"
+            ti82Label.stringValue = ti82ControllerCheckBoxButton.state == .on ? "Yes" : "No"
+            patchesLabel.stringValue = computeRequestedPatches()
             break
         default:
             prepareView(withToggle: true)

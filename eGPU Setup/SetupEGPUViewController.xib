@@ -10,13 +10,18 @@
             <connections>
                 <outlet property="amdDGPUCheckBoxButton" destination="cDD-0o-JPK" id="fFL-bJ-Ddd"/>
                 <outlet property="amdLegacyCheckBoxButton" destination="GpZ-gc-51h" id="9JZ-Dr-u8y"/>
+                <outlet property="eGFXLabel" destination="Kr3-Pc-hd4" id="G5X-iA-hbf"/>
                 <outlet property="eGPUDescriptionView" destination="qCv-Ts-8hm" id="oCy-9B-XN9"/>
+                <outlet property="eGPUModelLabel" destination="t3X-FU-7Xo" id="bQv-Ac-bpg"/>
                 <outlet property="eGPUProgressIndicator" destination="NWi-0R-TnI" id="gIJ-eM-WK6"/>
                 <outlet property="eGPUProgressLabel" destination="fsW-6h-9ci" id="bg5-Jo-LPQ"/>
+                <outlet property="eGPUVendorLabel" destination="1np-aS-p7L" id="yaA-xb-hgm"/>
                 <outlet property="helpButton" destination="oSZ-0P-roi" id="84u-NA-1Mv"/>
                 <outlet property="installButton" destination="waz-55-qTb" id="s8S-zt-m1F"/>
                 <outlet property="nvidiaDGPUCheckBoxButton" destination="s0C-L8-Z5H" id="dnR-Ia-JDc"/>
+                <outlet property="patchesLabel" destination="myT-dx-keb" id="0tr-nZ-ZU2"/>
                 <outlet property="ti82ControllerCheckBoxButton" destination="XHZ-xV-Ggw" id="CX3-Fr-yun"/>
+                <outlet property="ti82Label" destination="pWn-Ic-Q2s" id="MYA-CA-4lM"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>

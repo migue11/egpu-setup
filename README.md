@@ -1,6 +1,6 @@
 ![Header](Resources/Hero.svg)
 
-# eGPU Setup
+# eGPU Setup (Building...)
 **eGPU Setup** for Mac is a user-friendly native macOS application written in **Swift**. **eGPU Setup** encompasses the eGPU community's techniques to enable external GPUs on all thunderbolt Macs, use unsupported external GPUs, and force applications to use external GPUs for *computation and rendering*.
 
 ## Basic Requirements
