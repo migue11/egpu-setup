@@ -10,24 +10,9 @@ import Cocoa
 
 /// Defines the eGPU configuration process page.
 class SetupEGPUViewController: NSViewController {
-
-    /// Reference to the eGFX label.
-    @IBOutlet weak var eGFXLabel: NSTextField!
     
-    /// Reference to the Vendor label.
-    @IBOutlet weak var eGPUVendorLabel: NSTextField!
-    
-    /// Reference to the Model label.
-    @IBOutlet weak var eGPUModelLabel: NSTextField!
-    
-    /// Reference to the Ti82 label.
-    @IBOutlet weak var ti82Label: NSTextField!
-    
-    /// Reference to the Patches label.
-    @IBOutlet weak var patchesLabel: NSTextField!
-    
-    /// Reference to eGPU description view.
-    @IBOutlet weak var eGPUDescriptionView: NSView!
+    /// eGPU selection image view.
+    @IBOutlet weak var eGPUSelectionImageView: NSImageView!
     
     /// eGPU detection progress label.
     @IBOutlet weak var eGPUProgressLabel: NSTextField!
@@ -52,6 +37,9 @@ class SetupEGPUViewController: NSViewController {
     /// A background queue.
     let queue = DispatchQueue.global(qos: .background)
     
+    /// Decides if view needs update.
+    var purgeUpdate = false
+    
     /// Singleton instance of view controller.
     private static var setupEGPUViewController: SetupEGPUViewController! = nil
     
@@ -66,10 +54,9 @@ class SetupEGPUViewController: NSViewController {
     
     /// Prepares the view.
     private func prepareView(withToggle toggle: Bool = false) {
-        eGPUDescriptionView.isHidden = !toggle
+        eGPUSelectionImageView.isHidden = !toggle
         installButton.isEnabled = toggle
         !toggle ? eGPUProgressIndicator.startAnimation(nil) : eGPUProgressIndicator.stopAnimation(nil)
-        eGPUProgressLabel.isHidden = toggle
     }
     
     /// Computes required system patches.
@@ -102,12 +89,12 @@ class SetupEGPUViewController: NSViewController {
                 }
                 else {
                     DispatchQueue.main.async {
-                        self.eGFXLabel.stringValue = "N/A"
-                        self.eGPUVendorLabel.stringValue = String(data[1])
-                        self.eGPUModelLabel.stringValue = String(data[0])
-                        self.ti82Label.stringValue = "N/A"
-                        self.patchesLabel.stringValue = self.computeRequestedPatches()
+                        if self.purgeUpdate {
+                            return
+                        }
                         self.installButton.title = "Install"
+                        self.eGPUSelectionImageView.image = data[1] == "NVIDIA" ? NSImage(named: "NVIDIA") : NSImage(named: "AMD")
+                        self.eGPUProgressLabel.stringValue = String(data[0])
                         self.prepareView(withToggle: true)
                     }
                 }
@@ -173,29 +160,27 @@ extension SetupEGPUViewController {
     @IBAction func chooseEGPUSetupOption(_ sender: NSButton) {
         switch sender.title {
         case "Automatic":
+            purgeUpdate = false
             queue.suspend()
             prepareView()
             installButton.title = "Install"
+            eGPUProgressLabel.stringValue = "Waiting for eGPU..."
             requestEGPUInformation()
             break
         case "AMD":
+            purgeUpdate = true
             queue.suspend()
             prepareView(withToggle: true)
-            eGFXLabel.stringValue = "N/A"
-            eGPUVendorLabel.stringValue = "AMD"
-            eGPUModelLabel.stringValue = "AMD Generic"
-            ti82Label.stringValue = "N/A"
-            patchesLabel.stringValue = computeRequestedPatches()
+            eGPUSelectionImageView.image = NSImage(named: "AMD")
+            eGPUProgressLabel.stringValue = "AMD Generic Device"
             installButton.title = "Next"
             break
         default:
+            purgeUpdate = true
             queue.suspend()
             prepareView(withToggle: true)
-            eGFXLabel.stringValue = "N/A"
-            eGPUVendorLabel.stringValue = "NVIDIA"
-            eGPUModelLabel.stringValue = "NVIDIA Generic"
-            ti82Label.stringValue = "N/A"
-            patchesLabel.stringValue = computeRequestedPatches()
+            eGPUSelectionImageView.image = NSImage(named: "NVIDIA")
+            eGPUProgressLabel.stringValue = "NVIDIA Generic Device"
             installButton.title = "Next"
         }
     }
